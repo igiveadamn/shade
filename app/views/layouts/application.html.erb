@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <link rel="start" href="/" title="Home" />
+  <link rel="Bookmark Icon" href="/favicon.ico" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <title>
+    <%= APP_NAME %>
+  </title>
+  <%= stylesheet_link_tag "yui_reset-fonts-grids", "yui_base-min", "application", :media => "all" %>
+</head>
+<body>
+
+<div id="doc4">
+	<div id="app">
+
+	  <%= render :partial => "layouts/user_menu" %>
+
+		<% if !flash[:notice].nil? && !flash[:notice].blank? -%>
+
+			<div class="notice"><%= flash[:notice] %></div>
+			<% flash[:notice] = nil -%>
+		<% end -%>
+
+		<%= yield  %>
+
+	</div>
+</div>
+<% if ENV['RAILS_ENV'] == 'development' %>
+    <div id="debug" style="margin: 40px 5px 5px 5px;">
+        <a href="#" onclick="Element.toggle('debug_info');return false" style="text-decoration: none; color: #ccc;">Show Debug Info &#10162;</a>
+        <div id="debug_info" style="display: none;">
+            <%= debug session %>
+            <%= debug params %>
+            <%= debug current_user %>
+        </div>
+    </div>   
+<% end -%>
+
+</body>
+</html>

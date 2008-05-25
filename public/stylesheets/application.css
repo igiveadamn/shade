@@ -1,0 +1,81 @@
+td, th {
+	border: 0px;
+}
+
+fieldset th {
+	text-align: right;
+}
+
+fieldset td {
+	text-align: left;
+}
+
+fieldset {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	background-color: #e8e8e8;
+	border: 1px solid #a8aaac;
+}
+
+#usermenu {
+	text-align: right;
+}
+
+.notice {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #a8aaac;
+	color: green;
+}
+
+.errorExplanation {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #a8aaac;
+	color: red;
+}
+
+.instruction {
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+/* ****************************************************** */
+/* SESSIONS */
+/* ****************************************************** */
+
+fieldset.session_new {
+	width: 275px;
+}
+
+fieldset.session_new td.forgot {
+	text-align: center;
+}
+
+
+/* ****************************************************** */
+/* USERS */
+/* ****************************************************** */
+
+fieldset.user_forgot {
+	width: 275px;
+}
+
+fieldset.user_reset {
+	width: 300px;
+}
+
+
+/* ****************************************************** */
+/* SIGNUP */
+/* ****************************************************** */
+
+fieldset.signup_new {
+	width: 300px;
+}
+

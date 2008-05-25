@@ -1,0 +1,29 @@
+<h2>Create User</h2>
+
+<%= error_messages_for :user %>
+
+<% form_for :user, :url => admin_users_path do |f| -%>
+
+	<fieldset>
+		<p>
+			<label for="login"><span class="nowrap">Login:</span></label><br/>
+			<%= f.text_field :login, :size => 20, :maxlength => 100 %>
+		</p>
+		<p>
+			<label for="email"><span class="nowrap">Email:</span></label><br/>
+			<%= f.text_field :email, :size => 20, :maxlength => 100 %>
+		</p>
+		<p>
+			<label for="password"><span class="nowrap">Password:</span></label><br/>
+			<%= f.password_field :password, :size => 20, :maxlength => 100 %>
+		</p>
+		<p>
+			<label for="password_confirmation"><span class="nowrap">Confirm Password:</span></label><br/>
+			<%= f.password_field :password_confirmation, :size => 20, :maxlength => 100 %>
+		</p>
+		<p>
+			<%= submit_tag "Create user" %>
+		</p>
+	</fieldset>
+
+<% end -%>

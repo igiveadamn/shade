@@ -1,0 +1,22 @@
+<% form_tag session_path do -%>
+
+	<fieldset class="session_new">
+		<p>
+			<label for="login"><span class="nowrap">Login:</span></label><br/>
+			<%= text_field_tag "login", "", :size => 18, :maxlength => 100 %>
+		</p>
+		<p>
+			<label for="password"><span class="nowrap">Password:</span></label><br/>
+			<%= password_field_tag "password", "", :size => 18, :maxlength => 100 %>
+		</p>
+		<p>
+			<label for="remember_me"><span class="nowrap">Remember<br/>me:</span></label><br/>
+			<%= check_box_tag "remember_me" %>
+		</p>
+		<p>
+			<%= submit_tag "Log in" %><br/>
+			<%= link_to "I forgot my password", forgot_users_path, :title => "I may have even forgotten it all" %>
+		</p>
+	</fieldset>
+
+<% end -%>

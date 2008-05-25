@@ -1,0 +1,11 @@
+<div id="usermenu">
+	<% if logged_in? -%>
+		<strong id="current_user"><%=h current_user.login %></strong>
+		 | 
+		<%= link_to "Sign out", session_path, :method => "delete", :title => "Log off" %>
+	<% else -%>
+		<%= link_to "Log in", new_session_path, :title => "Sign in" %>
+	<% end -%>
+</div>
+
+

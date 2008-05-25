@@ -1,0 +1,36 @@
+<h1>Editing organisation</h1>
+
+<% form_for(@organisation) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+		<%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+		<%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+		<%= f.label :contact %><br />
+    <%= f.text_field :contact %>
+  </p>
+  <p>
+		<%= f.label :cell %><br />
+    <%= f.text_field :cell %>
+  </p>
+  <p>
+		<%= f.label :tel %><br />
+    <%= f.text_field :tel %>
+  </p>
+  <p>
+		<%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @organisation %> |
+<%= link_to 'Back', organisations_path %>

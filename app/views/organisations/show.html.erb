@@ -1,0 +1,33 @@
+<p>
+  <b>Name:</b>
+  <%=h @organisation.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= simple_format(sanitize(@organisation.address)) %>
+</p>
+
+<p>
+  <b>Contact:</b>
+  <%=h @organisation.contact %>
+</p>
+
+<p>
+  <b>Cell:</b>
+  <%=h @organisation.cell %>
+</p>
+
+<p>
+  <b>Tel:</b>
+  <%=h @organisation.tel %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= mail_to @organisation.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_organisation_path(@organisation) %> |
+<%= link_to 'Back', organisations_path %>

@@ -1,0 +1,28 @@
+<h2>Reset password</h2>
+
+<div class="instruction">
+	Pick a new password for login <strong><%= @user.login %></strong>.
+</div>
+
+<%= error_messages_for :user %>
+
+<% form_for :user, :url => do_reset_users_path do |f| -%>
+	<%= hidden_field_tag :reset_code, @reset_code %></p>
+	<fieldset class="user_reset">
+		<table>
+			<tr>
+				<th><label for="password"><span class="nowrap">Password:</span></label></th>
+				<td><%= f.password_field :password, :size => 20, :maxlength => 100 %></td>
+			</tr>
+			<tr>
+				<th><label for="password_confirmation"><span class="nowrap">Confirm Password:</span></label></th>
+				<td><%= f.password_field :password_confirmation, :size => 20, :maxlength => 100 %></td>
+			</tr>
+			<tr>
+				<th></th>
+				<td><%= submit_tag "Reset my password" %></td>
+			</tr>
+		</table>
+	</fieldset>
+
+<% end -%>
