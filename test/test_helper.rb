@@ -34,5 +34,12 @@ class Test::Unit::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
+  def assert_true(actual)
+    assert_equal true, actual
+  end
+  
+  def assert_false(actual)
+    assert_equal false, actual
+  end
+  
 end
