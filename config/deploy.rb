@@ -12,9 +12,9 @@ require "eycap/recipes"
 
 set :keep_releases,       5
 set :application,         "africa"
-set :repository,          "http://change.this.please"
-set :scm_username,       "username"
-set :scm_password,       "password"
+set :repository,          "http://justcause.svnrepository.com/svn/shade/trunk"
+set :scm_username,       "engineyard"
+set :scm_password,       "mavis"
 set :user,                "africa"
 set :password,            "muggOnod"
 set :deploy_to,           "/data/#{application}"
