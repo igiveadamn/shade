@@ -16,6 +16,18 @@ config.action_controller.perform_caching             = true
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
+# Disable delivery errors, bad email addresses will be ignored
+# config.action_mailer.raise_delivery_errors = false
+config.action_mailer.raise_delivery_errors = false
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.default_content_type = "text/html"
+
+ActionMailer::Base.smtp_settings = {
+  :domain => "igiveada.mn",
+  :perform_deliveries => true,
+  :address => 'smtp.ey02.engineyard.com',
+  :port => 25
+}
 
 
-APP_DOMAIN = "shade.com"
+APP_DOMAIN = "shade.igiveada.mn"
