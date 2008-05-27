@@ -9,10 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080526232825) do
+ActiveRecord::Schema.define(:version => 20080527001420) do
 
   create_table "locations", :force => true do |t|
-    t.string "name"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "organisations", :force => true do |t|
@@ -27,8 +29,12 @@ ActiveRecord::Schema.define(:version => 20080526232825) do
   end
 
   create_table "requests", :force => true do |t|
-    t.string  "description"
-    t.integer "location_id"
+    t.string   "description"
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "status"
+    t.string   "status_description"
   end
 
   create_table "users", :force => true do |t|
