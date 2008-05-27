@@ -30,4 +30,4 @@ ActionMailer::Base.smtp_settings = {
 }
 
 
-APP_DOMAIN = "shade.igiveada.mn"
+APP_DOMAIN = "shade.igiveada.mn"   
