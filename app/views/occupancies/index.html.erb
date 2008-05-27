@@ -1,0 +1,14 @@
+<h1>Listing Occupancy History for <%=h @location.name %></h1>
+
+<% for occupancy in @occupancies %>
+	<div class="span-24 last">
+		<span class="span-8"><%=h time_ago_in_words(occupancy.created_at) %> ago (<%= occupancy.created_at %>) ... </span>
+		<span class="span-8"><%=h occupancy.created_by.login if occupancy.created_by %></span> ...  
+		<span class="span-8"><strong style="color: red;"><%=h occupancy.quantity %></strong></span>: 
+		<span class="span-8 last"><%=h occupancy.comments %></span>
+	</div>
+<% end %>
+
+<br />
+
+<%= link_to 'Back', location_path(@location) %>

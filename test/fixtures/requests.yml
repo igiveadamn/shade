@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  location_id: 1
+  intervention_id: 1
+  comments: MyText
+  collection_method: MyString
+  status: MyString
+  created_by: 1
+
+two:
+  id: 2
+  location_id: 1
+  intervention_id: 1
+  comments: MyText
+  collection_method: MyString
+  status: MyString
+  created_by: 1

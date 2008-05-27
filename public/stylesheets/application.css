@@ -1,3 +1,8 @@
+a, a:visited {
+	color: blue;
+}
+
+
 td, th {
 	border: 0px;
 }
@@ -79,3 +84,24 @@ fieldset.signup_new {
 	width: 300px;
 }
 
+
+
+
+
+
+
+.audit {
+	color: green;
+}
+
+.open {
+	color: green;
+}
+
+.busy {
+	color: orange;
+}
+
+.closed {
+	color: red;
+}

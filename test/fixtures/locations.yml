@@ -3,15 +3,19 @@ rosebank:
     name: rosebank
     address: main road, rosebank
     comments: this is with Don
+    contact: Joerg
+    cell: 082 4556
     capacity: 60
-    last_updated_user_id: 1
+    updated_by: 1
 claremont:
     id: 2
     name: claremont
     address: protea road, claremont
     comments: this is with Bob
+    contact: Joerg
+    cell: 082 4556
     capacity: 40
-    last_updated_user_id: 1
+    updated_by: 1
 
     
     

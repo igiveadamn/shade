@@ -1,0 +1,23 @@
+<p>
+  <b>Quantity:</b>
+  <%=h @occupancy.quantity %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= simple_format(sanitize(@occupancy.comments)) %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%=h @occupancy.location_id %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%=h @occupancy.created_by %>
+</p>
+
+
+<%= link_to 'Edit', edit_occupancy_path(@occupancy) %> |
+<%= link_to 'Back', occupancies_path %>

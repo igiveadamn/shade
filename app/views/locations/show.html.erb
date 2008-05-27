@@ -1,0 +1,44 @@
+<p>
+  <b>Name:</b>
+  <%=h @location.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= simple_format(sanitize(@location.address)) %>
+</p>
+
+<p>
+  <b>Contact:</b>
+  <%=h @location.contact %> (<%= @location.cell %>)
+</p>
+
+<p>
+  <b>Alternative Contact:</b>
+  <%=h @location.alt_contact %> (<%= @location.alt_cell %>)
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= simple_format(sanitize(@location.comments)) %>
+</p>
+
+<p>
+  <b>Capacity:</b>
+  <%=h @location.capacity %> people
+</p>
+
+<p>
+  <b>Occupancy:</b>
+  <%=h @location.occupancy %> (<%= link_to "Change", new_occupancy_path(:location_id => @location.id) %> | <%= link_to "History", occupancies_path(:location_id => @location.id) %>) <span class="audit">Last updated: <%= time_ago_in_words(@location.occupancies.current.created_at) %> ago <% if @location.updated_by -%>by <%=h @location.updated_by.login %>(<%=h @location.updated_by.cell %>) <% end -%></span>
+	
+</p>
+
+<%= render :partial => "widgets/audit", :locals => { :obj => @location } %>
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>
+
+<h2>Requests</h2>
+(<%= link_to "Add request", new_request_path(:location_id => @location.id) %>)<br/>
+<%= render :partial => "requests", :locals => { :location => @location } %>

@@ -1,0 +1,10 @@
+<div class="audit">
+
+	<% if obj.created_by -%>
+		Created by <%=h obj.created_by.login %>(<%=h obj.created_by.cell %>) <%= time_ago_in_words(obj.created_at) %> ago<br/>
+	<% end -%>
+	<% if obj.updated_by -%>
+		Last updated by <%=h obj.updated_by.login %>(<%=h obj.updated_by.cell %>) <%= time_ago_in_words(obj.updated_at) %> ago<br/>
+	<% end -%>
+
+</div>

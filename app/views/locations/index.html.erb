@@ -1,0 +1,14 @@
+<h1>Listing locations</h1>
+
+<% for location in @locations %>
+	<div class="span-24 last">
+		<span class="span-8"><%= location.availability %> (<%= link_to "Change", new_occupancy_path(:location_id => location.id) %>):</span>
+		<span class="span-8"><%= link_to location.name, location_path(location) %></span>
+		<span class="span-8"><%=h location.contact %> (<%=h location.cell %>)</span>		
+		<span class="span-8 last"><%= location.address %></span>
+	</div>
+<% end %>
+
+<br />
+
+<%= link_to 'Create location', new_location_path %>

@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   include AuthenticatedSystem
-  before_filter :set_timezone
+  before_filter :set_current_user_for_user_object
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
 
 private
 
-  def set_timezone
-    #Time.zone = "Pretoria"
+  def set_current_user_for_user_object
+    User.current_user = current_user
   end
+  
 end

@@ -61,5 +61,6 @@ end
 
 require 'yaml'
 
+
 APP_NAME = "Shade"
 ADMIN_EMAIL = "no-reply-i-am-robot"

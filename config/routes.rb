@@ -1,9 +1,17 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :organisations
+  map.resources :requests, :member => {
+    :busy => :post,
+    :closed => :post
+  }
 
-  map.home "/", :controller => "home", :action => "index"
 
-  map.connect "", :controller => "organisations", :action => "index"  
+  map.resources :occupancies
+
+  map.resources :locations
+
+  map.home "/", :controller => "locations", :action => "index"
+
+  map.connect "", :controller => "locations", :action => "index"  
   
   map.resources :users, :collection => { 
     :activate => :get,
@@ -18,16 +26,10 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace(:admin) do |admin|
     admin.home "/", :controller => "users", :action => "index"
     admin.resources :users
+    admin.resources :interventions
   end
     
   map.activate '/activate/:id', :controller => "users", :action => "activate"
-  
-  map.add_location 'location/add', :controller => "location", :action => "add"
-  map.list_locations 'location/list', :controller => "location", :action => "list"
-  map.update_availability 'location/update_availability/:id', :controller => "location", :action => "update_availability"
-  map.show_location 'location/:id', :controller => "location", :action => "index"
-  
-  map.add_request_for_location 'location/:location_id/request', :controller => 'request', :action => 'new' 
   
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'

@@ -1,0 +1,13 @@
+<table>
+	<% for request in location.requests %>
+		<tr>
+			<td style="width: 130px"><span class="<%= request.status.downcase %>"><%= request.status %></span> (<%=h request.updated_by.login if request.updated_by %>):</td>
+			<td style="width: 175px;"><%=h time_ago_in_words(request.updated_at) %> ago</td>
+			<td style="width: 50px;"><strong><%=h request.intervention.name %></strong></td>
+			<td style="width: 250px;"><%=h request.comments %></td>
+			<td style="width: 40px;"><%= link_to "Show", request_path(request) %></td>
+			<td style="width: 40px;"><%= button_to "Busy", busy_request_path(request), :method => :post %></td>
+			<td style="width: 40px;"><%= button_to "Closed", closed_request_path(request), :method => :post %></td>
+		</tr>
+	<% end %>
+</table>

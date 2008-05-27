@@ -3,12 +3,16 @@
 <table>
 	<tr>
 		<th>Login</th>
+		<th>Name</th>
 		<th>Email</th>
+		<th>Cell</th>
 	</tr>
 	<% @users.each do |user| -%>
 		<tr>
-			<td><%= user.login %></td>
+			<td><%= link_to user.login, edit_admin_user_path(user) %></td>
+			<td><%= user.name %></td>
 			<td><%= user.email %></td>
+			<td><%= user.cell %></td>
 		</tr>
 	<% end -%>
 </table>

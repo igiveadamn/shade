@@ -1,0 +1,6 @@
+
+1.0 (01-18-2006)
+  * Initial Release (original author)
+    
+1.1 (03-02-2008)
+  * Refactored to work with Rails (and other cleanup)
