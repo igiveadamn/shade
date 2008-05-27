@@ -14,7 +14,7 @@ class LocationController < ApplicationController
       @location = Location.find(params[:id])
       @availabiltiy = LocationAvailability.new(:location_id => @location.id)
     elsif request.post?
-      availability = LocationAvailability.create(params[:availability])
+      availability = LocationAvailability.create(params[:availability].merge(:updated_by_user_id => current_user.id))
       
       redirect_to(show_location_url, :id => availability.location_id)
     end
@@ -24,7 +24,7 @@ class LocationController < ApplicationController
     if request.get?
       @location = Location.new
     elsif request.post?
-      location = Location.create(params[:location])
+      location = Location.create(params[:location].merge(:last_updated_user_id => current_user.id))
 
       redirect_to(show_location_url(:id => location.id))
     end
