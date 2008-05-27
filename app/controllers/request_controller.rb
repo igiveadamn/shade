@@ -5,6 +5,7 @@ class RequestController < ApplicationController
     if request.post?
       request = Request.new(params[:request].merge(:created_by => current_user.login, :status => 'new'))
       request.save
+      redirect_to(show_location_url(:id => params[:location_id]))
     end
   end
 end

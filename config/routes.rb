@@ -26,7 +26,9 @@ ActionController::Routing::Routes.draw do |map|
   map.list_locations 'location/list', :controller => "location", :action => "list"
   map.update_availability 'location/update_availability/:id', :controller => "location", :action => "update_availability"
   map.show_location 'location/:id', :controller => "location", :action => "index"
-
+  
+  map.add_request_for_location 'location/:location_id/request', :controller => 'request', :action => 'new' 
+  
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
