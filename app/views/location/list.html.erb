@@ -1,3 +1,4 @@
-<%= render :partial => "location", :collection => @locations %>
-
+<h1>All Locations</h1>
+<div><%= render :partial => "location", :collection => @locations %></div>
+<p>
 <div><%= link_to "Create Location", add_location_url, :method => :get %></div>

@@ -11,3 +11,5 @@
 
 <h1>Requests</h1>
 <%= render :partial => "request", :collection => @location.requests %>
+
+<div><%= link_to "<< Back to all locations", list_locations_url, :method => :get %></div>
