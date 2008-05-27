@@ -1,9 +1,17 @@
-intercontinental:
+rosebank:
     id: 1
-    name: Intercontinental
-    address: downtown
-    comments: double occupency
-    capacity: 100
+    name: rosebank
+    address: main road, rosebank
+    comments: this is with Don
+    capacity: 60
     last_updated_user_id: 1
+claremont:
+    id: 2
+    name: claremont
+    address: protea road, claremont
+    comments: this is with Bob
+    capacity: 40
+    last_updated_user_id: 1
+
     
     
