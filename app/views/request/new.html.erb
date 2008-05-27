@@ -1,0 +1,31 @@
+<h1>New Request</h1>
+
+<% form_for(:request) do |f| %>
+  <%= f.error_messages %>
+
+	<fieldset>
+	  <p>
+			<%= f.label :location %><br />
+	    <%= f.collection_select(:location_id, locations, :id, :name) %>
+	  </p>
+	  <p>
+			<%= f.label :category %><br />
+	    <%= f.select(:category, ['Food', 'Clothes', 'Toiletries', 'Bedding', 'Health', 'Mental Health']) %>
+	  </p>
+	  <p>
+			<%= f.label :quanity %><br />
+			<%= f.text_field :quanity %>
+	  </p>
+	  <p>
+			<%= f.label :details %><br />
+	    <%= f.text_field :details %>
+	  </p>
+	  <p>
+			<%= f.label :collection_method %><br />
+	    <%= f.select(:collection_method, %w(Collect Deliver)) %>
+	  </p>
+	  <p>
+	    <%= f.submit "Create" %>
+	  </p>
+	</fieldset>
+<% end %>

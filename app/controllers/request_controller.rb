@@ -3,7 +3,8 @@ class RequestController < ApplicationController
 
   def new
     if request.post?
-      Request.create!(params[:request].merge(:status => 'new'))
+      request = Request.new(params[:request].merge(:status => 'new'))
+      request.save
     end
   end
 end
