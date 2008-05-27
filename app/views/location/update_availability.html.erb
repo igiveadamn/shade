@@ -1,0 +1,6 @@
+<%= @location.name %>
+<% form_for :availability, @availability, :url => { :action => "update_availability" } do |f| %>
+	<%= f.hidden_field :location_id, :value => @location.id %>
+	<%= f.text_field :availability %>
+    <%= submit_tag 'Update Availability' %>
+<% end %>

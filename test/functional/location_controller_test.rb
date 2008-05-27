@@ -17,5 +17,16 @@ class LocationControllerTest < ActionController::TestCase
     get :list
     assert_response :success
   end
+
+  def test_get_update_availability
+    get :update_availability, :id => 1
+    assert_response :success
+  end
+  
+  def test_post_update_availability
+    post :update_availability, :availability => {:location_id => 1, :availability => 40}
+    assert_response :redirect
+    assert_equal 40, Location.find(1).availability
+  end
   
 end
