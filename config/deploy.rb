@@ -35,7 +35,7 @@ set :production_dbhost,   "mysql50-1-master"
 
 
 
-
+depend :remote, :gem, "tzinfo", ">=0.3.3"
 
 
 
