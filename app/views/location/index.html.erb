@@ -3,7 +3,7 @@
 <div>Capacity: <%= @location.capacity %></div>
 <div>Availability: <%= @location.availability %></div>
 <div>Comments: <%= @location.comments %></div>
-<div>Last Updated By: <%= @location.last_updated_user.login %></div>
+<div>Last Updated By: <%= @location.last_updated_user.login if @location.last_updated_user %></div>
 
 <div><%= link_to "Update Availability", { :action => "update_availability", :id => @location.id }, :method => :get %></div>
 
