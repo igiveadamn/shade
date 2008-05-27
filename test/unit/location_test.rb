@@ -4,8 +4,8 @@ class LocationTest < Test::Unit::TestCase
   
   def test_location_can_have_many_requests
     location = Location.new
-    location.requests << Request.new(:description => 'need x')
-    location.requests << Request.new(:description => 'need y')
+    location.requests << Request.new(:category => 'x')
+    location.requests << Request.new(:category => 'y')
     assert_equal 2, location.requests.size
   end
   

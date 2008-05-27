@@ -4,3 +4,6 @@
 <div>Availability: <%= @location.availability %></div>
 <div>Comments: <%= @location.comments %></div>
 <div>Last Updated By: <%= @location.last_updated_user.login %></div>
+
+<h1>Requests</h1>
+<%= render :partial => "request", :collection => @location.requests %>

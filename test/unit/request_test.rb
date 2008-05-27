@@ -8,9 +8,9 @@ class RequestTest < Test::Unit::TestCase
     assert_equal "can't be blank", request.errors[:location]
   end
   
-  def test_request_must_have_description
+  def test_request_must_have_a_category
     request = Request.new
     request.valid?
-    assert_equal "can't be blank", request.errors[:description]
+    assert_equal "can't be blank", request.errors[:category]
   end
 end
