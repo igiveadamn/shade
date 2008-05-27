@@ -1,7 +1,22 @@
 <% form_for :location, @location, :url => { :action => "add" } do |f| %>
-	<div>Name:<%= f.text_field :name %></div>
-	<div>Address:<%= f.text_field :address %></div>
-	<div>Comments:<%= f.text_field :comments %></div>
-	<div>Capacity:<%= f.text_field :capacity %></div>
-    <div><%= submit_tag 'Create Location' %></div>
+	<fieldset>
+	  <p>
+		<%= f.label :name %><br />
+	    <%= f.text_field :name %>
+	  </p>
+	  <p>
+		<%= f.label :address %><br />
+		<%= f.text_area :address, :cols => 37, :rows => 4 %>
+	  </p>
+	  <p>
+		<%= f.label :comments %><br />
+	    <%= f.text_field :comments %>
+	  </p>
+	  <p>
+		<%= f.label :capacity %><br />
+	    <%= f.text_field :capacity %>
+	  </p>
+	    <%= f.submit "Create" %>
+	  </p>
+	</fieldset>
 <% end %>

@@ -24,9 +24,10 @@ class LocationControllerTest < ActionController::TestCase
   end
   
   def test_post_update_availability
-    post :update_availability, :availability => {:location_id => 1, :availability => 40}
+    post :update_availability, :availability => {:location_id => 1, :availability => 40, :comments => "bunk beds"}
     assert_response :redirect
     assert_equal 40, Location.find(1).availability
+    assert_equal "bunk beds", Location.find(1).availability_comments
   end
   
   def test_get_add

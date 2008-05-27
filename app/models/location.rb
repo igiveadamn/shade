@@ -7,4 +7,9 @@ class Location < ActiveRecord::Base
     return 0 unless availabilities.any?
     availabilities.last.availability
   end
+  
+  def availability_comments
+    return unless availabilities.any?
+    availabilities.last.comments
+  end
 end

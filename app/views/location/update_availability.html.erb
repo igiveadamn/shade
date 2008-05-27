@@ -1,6 +1,17 @@
 <%= @location.name %>
 <% form_for :availability, @availability, :url => { :action => "update_availability" } do |f| %>
 	<%= f.hidden_field :location_id, :value => @location.id %>
-	<%= f.text_field :availability %>
-    <%= submit_tag 'Update Availability' %>
+	<fieldset>
+	  <p>
+		<%= f.label :availability %><br />
+		<%= f.text_field :availability %>
+	  </p>
+	  <p>
+		<%= f.label :comments %><br />
+	    <%= f.text_field :comments %>
+	  </p>
+	  <p>
+	    <%= f.submit "Update" %>
+	  </p>
+	</fieldset>
 <% end %>

@@ -1,7 +1,9 @@
 <h1><%= @location.name %></h1>
 <div>Address: <%= @location.address %></div>
 <div>Capacity: <%= @location.capacity %></div>
-<div>Availability: <%= @location.availability %></div>
+<div>Availability: <%= @location.availability %>
+                   <%= "(#{@location.availability_comments})" if @location.availability_comments %>
+</div>
 <div>Comments: <%= @location.comments %></div>
 <div>Last Updated By: <%= @location.last_updated_user.login if @location.last_updated_user %></div>
 
