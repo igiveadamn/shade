@@ -13,4 +13,9 @@ class LocationControllerTest < ActionController::TestCase
     assert_response :success
   end
   
+  def test_list
+    get :list
+    assert_response :success
+  end
+  
 end

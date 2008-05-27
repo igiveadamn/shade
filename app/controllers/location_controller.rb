@@ -4,4 +4,8 @@ class LocationController < ApplicationController
   def index
     @location = Location.find(params[:id])
   end
+  
+  def list
+    @locations = Location.find(:all)
+  end
 end

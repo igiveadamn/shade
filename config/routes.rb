@@ -22,6 +22,7 @@ ActionController::Routing::Routes.draw do |map|
     
   map.activate '/activate/:id', :controller => "users", :action => "activate"
 
+  map.list_locations 'location/list', :controller => "location", :action => "list"
   map.show_location 'location/:id', :controller => "location", :action => "index"
   
   # Install the default routes as the lowest priority.
