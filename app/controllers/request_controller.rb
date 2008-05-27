@@ -3,7 +3,7 @@ class RequestController < ApplicationController
 
   def new
     if request.post?
-      request = Request.new(params[:request].merge(:status => 'new'))
+      request = Request.new(params[:request].merge(:created_by => current_user.login, :status => 'new'))
       request.save
     end
   end

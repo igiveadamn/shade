@@ -13,4 +13,9 @@ class RequestControllerTest < ActionController::TestCase
     assert_equal 'new', Request.find(:first).status
   end
   
+  def test_requests_logs_created_by
+    post :new, {:request => {:location_id => 1, :category => 'test'}}
+    assert_equal 'quentin', Request.find(:first).created_by
+  end
+  
 end
