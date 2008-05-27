@@ -1,0 +1,9 @@
+intercontinental:
+    id: 1
+    name: Intercontinental
+    address: downtown
+    comments: double occupency
+    capacity: 100
+    last_updated_user_id: 1
+    
+    
