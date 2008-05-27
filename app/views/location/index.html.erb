@@ -10,6 +10,9 @@
 <div><%= link_to "Update Availability", { :action => "update_availability", :id => @location.id }, :method => :get %></div>
 
 <h1>Requests</h1>
+<%= link_to("Update Availability", add_request_for_location_url(:location_id => @location.id)) %>
 <%= render :partial => "request", :collection => @location.requests %>
-
+<br/>
+<br/>
+<br/>
 <div><%= link_to "<< Back to all locations", list_locations_url, :method => :get %></div>
