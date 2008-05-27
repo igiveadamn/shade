@@ -1,0 +1,7 @@
+<% form_for :location, @location, :url => { :action => "add" } do |f| %>
+	<div>Name:<%= f.text_field :name %></div>
+	<div>Address:<%= f.text_field :address %></div>
+	<div>Comments:<%= f.text_field :comments %></div>
+	<div>Capacity:<%= f.text_field :capacity %></div>
+    <div><%= submit_tag 'Create Location' %></div>
+<% end %>

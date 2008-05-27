@@ -19,4 +19,14 @@ class LocationController < ApplicationController
       redirect_to(show_location_url, :id => availability.location_id)
     end
   end
+
+  def add
+    if request.get?
+      @location = Location.new
+    elsif request.post?
+      location = Location.create(params[:location])
+
+      redirect_to(show_location_url(:id => location.id))
+    end
+  end
 end
