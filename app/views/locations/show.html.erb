@@ -30,7 +30,7 @@
 
 <p>
   <b>Occupancy:</b>
-  <%=h @location.occupancy %> (<%= link_to "Change", new_occupancy_path(:location_id => @location.id) %> | <%= link_to "History", occupancies_path(:location_id => @location.id) %>) <span class="audit">Last updated: <%= time_ago_in_words(@location.occupancies.current.created_at) if (@location.occupancies.current %> ago <% if @location.updated_by -%>by <%=h @location.updated_by.login %>(<%=h @location.updated_by.cell %>) <% end -%></span>
+  <%=h @location.occupancy %> (<%= link_to "Change", new_occupancy_path(:location_id => @location.id) %> | <%= link_to "History", occupancies_path(:location_id => @location.id) %>) <span class="audit">Last updated: <%= time_ago_in_words(@location.occupancies.current.created_at) if @location.occupancies.current %> ago <% if @location.updated_by -%>by <%=h @location.updated_by.login %>(<%=h @location.updated_by.cell %>) <% end -%></span>
 	
 </p>
 
