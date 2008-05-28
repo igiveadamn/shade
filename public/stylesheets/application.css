@@ -2,7 +2,6 @@ a, a:visited {
 	color: blue;
 }
 
-
 td, th {
 	border: 0px;
 }
@@ -84,10 +83,13 @@ fieldset.signup_new {
 	width: 300px;
 }
 
+.space {
+	color: green;
+}
 
-
-
-
+.nospace {
+	color : red;
+}
 
 
 .audit {
