@@ -11,6 +11,8 @@ class RequestsControllerTest < ActionController::TestCase
     @my_request = Request.create(:location => locations(:rosebank), :intervention => interventions(:food), :comments => "Comments")
   end
   
+  
+  
   def test_should_get_index
     get :index, :location_id => locations(:rosebank).id
     assert_response :success

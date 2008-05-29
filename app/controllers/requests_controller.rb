@@ -17,7 +17,7 @@ class RequestsController < ApplicationController
       format.xml  { render :xml => @requests }
     end
   end
-
+  
   # GET /requests/1
   # GET /requests/1.xml
   def show
@@ -109,7 +109,7 @@ class RequestsController < ApplicationController
     @request.save
     redirect_to location_path(@request.location)
   end
-
+  
   private
 
   def find_location
