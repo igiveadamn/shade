@@ -5,6 +5,14 @@ class LocationsController < ApplicationController
   # GET /locations.xml
   def index
     @locations = Location.find(:all)
+    
+    @total_capacity = @locations.inject(0) do |sum, location|
+      sum += location.capacity
+    end
+
+    @total_occupancy = @locations.inject(0) do |sum, location|
+      sum += location.occupancy
+    end
 
     respond_to do |format|
       format.html # index.html.erb
