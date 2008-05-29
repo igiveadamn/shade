@@ -2,7 +2,9 @@
 	<% if logged_in? -%>
 		<strong id="current_user"><%=h current_user.login %></strong>
 		 | 
-		<%= link_to "Home", "/", :title => "Home" %>
+		<%= link_to "Locations", locations_path %>
+		 | 
+		<%= link_to "Requests", requests_path %>
 		 | 
 		<%= link_to "Sign out", session_path, :method => "delete", :title => "Log off" %>
 	<% else -%>

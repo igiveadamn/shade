@@ -1,11 +1,16 @@
 class RequestsController < ApplicationController
   before_filter :login_required
-  before_filter :find_location, :only => [:index, :new, :create]
+  before_filter :find_location, :only => [:new, :create]
+
+  # nicked from http://garbageburrito.com/blog/entry/447/rails-super-cool-simple-column-sorting
+  def sort_order(default)
+    "#{(params[:c] || default.to_s).gsub(/[\s;'\"]/,'')} #{params[:d] == 'down' ? 'DESC' : 'ASC'}"
+  end
 
   # GET /requests
   # GET /requests.xml
   def index
-    @requests = Request.find(:all)
+    @requests = Request.find(:all, :conditions => "status <> 'closed'", :order => sort_order('location_id'))
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,7 +51,7 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(params[:request])
     @request.location = @location
-    
+
     respond_to do |format|
       if @request.save
         flash[:notice] = 'Request was successfully created.'
@@ -104,8 +109,8 @@ class RequestsController < ApplicationController
     @request.save
     redirect_to location_path(@request.location)
   end
-  
-private
+
+  private
 
   def find_location
     @location = Location.find(params[:location_id])

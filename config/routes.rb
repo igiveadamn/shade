@@ -4,7 +4,6 @@ ActionController::Routing::Routes.draw do |map|
     :closed => :post
   }
 
-
   map.resources :occupancies
 
   map.resources :locations
