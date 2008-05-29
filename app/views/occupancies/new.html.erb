@@ -1,5 +1,6 @@
 <h1>New occupancy for <%=h @location.name %></h1>
-
+<p/>
+previously: <%= @location.occupancy %>
 <% form_for(@occupancy) do |f| %>
   <%= f.error_messages %>
 	<%= hidden_field_tag :location_id, @location.id %>
