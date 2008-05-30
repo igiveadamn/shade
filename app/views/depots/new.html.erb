@@ -1,0 +1,47 @@
+<h1>New depot</h1>
+
+<% form_for(@depot) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+		<%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+		<%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+		<%= f.label :address %><br />
+    <%= f.text_area :address %>
+  </p>
+  <p>
+		<%= f.label :main_contact_person %><br />
+    <%= f.text_field :main_contact_person %>
+  </p>
+  <p>
+		<%= f.label :main_phone_number %><br />
+    <%= f.text_field :main_phone_number %>
+  </p>
+  <p>
+		<%= f.label :goods_contact_person %><br />
+    <%= f.text_field :goods_contact_person %>
+  </p>
+  <p>
+		<%= f.label :goods_phone_number %><br />
+    <%= f.text_field :goods_phone_number %>
+  </p>
+  <p>
+		<%= f.label :volunteers_contact_person %><br />
+    <%= f.text_field :volunteers_contact_person %>
+  </p>
+  <p>
+		<%= f.label :volunteers_phone_number %><br />
+    <%= f.text_field :volunteers_phone_number %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', depots_path %>

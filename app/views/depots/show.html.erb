@@ -1,0 +1,48 @@
+<p>
+  <b>Name:</b>
+  <%=h @depot.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @depot.description %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @depot.address %>
+</p>
+
+<p>
+  <b>Main contact person:</b>
+  <%=h @depot.main_contact_person %>
+</p>
+
+<p>
+  <b>Main phone number:</b>
+  <%=h @depot.main_phone_number %>
+</p>
+
+<p>
+  <b>Goods contact person:</b>
+  <%=h @depot.goods_contact_person %>
+</p>
+
+<p>
+  <b>Goods phone number:</b>
+  <%=h @depot.goods_phone_number %>
+</p>
+
+<p>
+  <b>Volunteers contact person:</b>
+  <%=h @depot.volunteers_contact_person %>
+</p>
+
+<p>
+  <b>Volunteers phone number:</b>
+  <%=h @depot.volunteers_phone_number %>
+</p>
+
+
+<%= link_to 'Edit', edit_depot_path(@depot) %> |
+<%= link_to 'Back', depots_path %>

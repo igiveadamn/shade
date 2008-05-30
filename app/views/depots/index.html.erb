@@ -1,0 +1,23 @@
+<h1>Listing depots</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Address</th>
+  </tr>
+
+<% for depot in @depots %>
+  <tr>
+    <td><%=h depot.name %></td>
+    <td><%=h depot.description %></td>
+    <td><%=h depot.address %></td>
+    <td><%= link_to 'Edit', edit_depot_path(depot) %></td>
+    <td><%= link_to 'Destroy', depot, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New depot', new_depot_path %>

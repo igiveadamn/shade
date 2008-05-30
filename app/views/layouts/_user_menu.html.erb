@@ -6,6 +6,8 @@
 		 | 
 		<%= link_to "Requests", requests_path %>
 		 | 
+		<%= link_to "Depots", depots_path %>
+                 |
 		<%= link_to "Sign out", session_path, :method => "delete", :title => "Log off" %>
 	<% else -%>
 		<%= link_to "Log in", new_session_path, :title => "Sign in" %>

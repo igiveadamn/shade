@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+depot1:
+  name: depot1
+  description: first depot
+  address: depots's address
+  main_contact_person: Francisco
+  main_phone_number: 0075008763
+  goods_contact_person: Andy
+  goods_phone_number: 88490394
+  volunteers_contact_person: Heather
+  volunteers_phone_number: 32487563
+
+depot2:
+  name: depot2
+  description: second depot
+  address: second depot's address
+  main_contact_person: Akin
+  main_phone_number: 298374555
+  goods_contact_person: Nick
+  goods_phone_number: 293546756
+  volunteers_contact_person: Katie
+  volunteers_phone_number: 29475666
