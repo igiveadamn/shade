@@ -9,7 +9,7 @@ Total occupancy / capacity : <%= @total_occupancy %> / <%= @total_capacity %>
 		<td class="<%= 'no' if location.availability <= 0 %>space"><%= location.occupancy %>/<%= location.capacity %></td>
 			<td>(<%= link_to "Change", new_occupancy_path(:location_id => location.id) %>) :</td>
 		<td><%= link_to location.name, location_path(location) %></td>
-                <td><%=h location.location_type %></td>		
+    <td><%=h location.location_type.name if location.location_type %></td>		
 		<td><%=h location.contact %> (<%=h location.cell %>)</td>		
 		<td><%= location.address %></td>
 	</tr>

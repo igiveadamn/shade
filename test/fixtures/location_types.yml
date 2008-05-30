@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+church:
+  id: 1
+  name: Church
+
+school:
+  id: 2
+  name: School

@@ -5,7 +5,7 @@
 
 <p>
   <b>Type:</b>
-  <%=h @location.location_type %>
+  <%=h @location.location_type.name if @location.location_type %>
 </p>
 
 <p>

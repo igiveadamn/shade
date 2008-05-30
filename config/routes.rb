@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.resources :requests, :member => {
     :busy => :post,
     :closed => :post
@@ -26,6 +27,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.home "/", :controller => "users", :action => "index"
     admin.resources :users
     admin.resources :interventions
+    admin.resources :location_types
   end
     
   map.activate '/activate/:id', :controller => "users", :action => "activate"

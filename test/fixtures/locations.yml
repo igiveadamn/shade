@@ -6,7 +6,7 @@ rosebank:
     contact: Joerg
     cell: 082 4556
     capacity: 60
-    location_type: depot
+    location_type_id: 1
     updated_by: 1
 claremont:
     id: 2
@@ -16,7 +16,7 @@ claremont:
     contact: Joerg
     cell: 082 4556
     capacity: 40
-    location_type: depot
+    location_type_id: 2
     updated_by: 1
 
     
