@@ -24,6 +24,13 @@ class LocationTest < Test::Unit::TestCase
     end
   end
   
+  def test_should_require_numeric_integer_capacity
+    assert_no_difference 'Location.count' do
+      location = create_location(:capacity => 4.5)
+      assert location.errors.on(:capacity)
+    end
+  end
+  
   def test_should_require_positive_number_capacity
     assert_no_difference 'Location.count' do
       location = create_location(:capacity => -1)
