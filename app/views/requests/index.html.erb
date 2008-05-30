@@ -7,6 +7,7 @@
     <th>Comments</th>
     <th><%= sort_link 'Collection Method', :collection_method %></th>
     <th><%= sort_link 'Status', :status %></th>
+    <th>Busy person</th>
     <th><%= sort_link 'Created By', :created_by %></th>
     <th><%= sort_link 'Created', :created_at %></th>
   </tr>
@@ -18,8 +19,9 @@
     <td style="width: 220px;"><%=h request.comments[0..30] %><%= '...' if request.comments.length > 30 %></td>
     <td><%=h request.collection_method %></td>
     <td class="<%= request.status.downcase %>"><%=h request.status %></td>
-    <td style="width: 150px;"><%=h request.created_by.login %> (<%=h request.created_by.cell %>)</td>
-    <td style="width: 80px;"><%=h time_ago_in_words(request.created_at) %> ago</td>
+    <td style="width: 150px;"><%=h request.updated_by.login + ' (' + request.updated_by.cell + ')'  if request.status == 'Busy' %></td>
+		<td style="width: 150px;"><%=h request.created_by.login %> (<%=h request.created_by.cell %>)</td>
+		<td style="width: 80px;"><%=h time_ago_in_words(request.created_at) %> ago</td>
     <td><%= link_to 'Show', request %></td>
     <td><%= link_to 'Edit', edit_request_path(request) %></td>
   </tr>
