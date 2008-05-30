@@ -10,6 +10,7 @@ class Location < ActiveRecord::Base
   end
 
   validates_presence_of :name, :address, :contact, :cell, :capacity, :location_type
+  validates_numericality_of :capacity, :greater_than => 0
   
   def occupancy
     return 0 unless occupancies.any?
