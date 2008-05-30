@@ -14,6 +14,11 @@
 </p>
 
 <p>
+  <b>Driving Directions:</b>
+  <%= simple_format(sanitize(@location.driving_directions)) %>
+</p>
+
+<p>
   <b>Contact:</b>
   <%=h @location.contact %> (<%= @location.cell %>)
 </p>
@@ -21,6 +26,16 @@
 <p>
   <b>Alternative Contact:</b>
   <%=h @location.alt_contact %> (<%= @location.alt_cell %>)
+</p>
+
+<p>
+  <b>Volunteer Contact:</b>
+  <%=h @location.volunteer_contact %> (<%= @location.volunteer_cell %>)
+</p>
+
+<p>
+  <b>Provisions Contact:</b>
+  <%=h @location.provisions_contact %> (<%= @location.provisions_cell %>)
 </p>
 
 <p>
@@ -39,6 +54,16 @@
 
 <% if @location.occupancies.current -%><span class="audit">Occupancy last updated: <%= time_ago_in_words(@location.occupancies.current.created_at) %> ago by <%=h @location.occupancies.current.created_by.login %>(<%=h @location.occupancies.current.created_by.cell %>)</span> <% end -%>
 	
+</p>
+
+<p>
+  <b>Volunteer Summary:</b>
+  <%= simple_format(sanitize(@location.volunteer_summary)) %>
+</p>
+
+<p>
+  <b>Provisions Summary:</b>
+  <%= simple_format(sanitize(@location.provisions_summary)) %>
 </p>
 
 <%= render :partial => "widgets/audit", :locals => { :obj => @location } %>
