@@ -1,6 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 depot1:
+  id: 1
   name: depot1
   description: first depot
   address: depots's address
@@ -12,6 +13,7 @@ depot1:
   volunteers_phone_number: 32487563
 
 depot2:
+  id: 2
   name: depot2
   description: second depot
   address: second depot's address

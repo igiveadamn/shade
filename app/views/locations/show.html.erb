@@ -9,6 +9,11 @@
 </p>
 
 <p>
+  <b>Depot:</b>
+  <%=h @location.depot.name if @location.depot %>
+</p>
+
+<p>
   <b>Address:</b>
   <%= simple_format(sanitize(@location.address)) %>
 </p>

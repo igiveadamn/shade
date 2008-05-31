@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class RequestsControllerTest < ActionController::TestCase
 
-  fixtures :locations, :interventions
+  fixtures :locations, :interventions, :depots
   
   def setup
     super

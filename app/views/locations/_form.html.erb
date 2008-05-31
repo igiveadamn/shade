@@ -7,6 +7,10 @@
   <%= f.select :location_type_id, LocationType.find(:all).collect {|i| [ i.name, i.id ] } %>
 </p>
 <p>
+	<%= f.label :depot_id %><br />
+  <%= f.select :depot_id, Depot.find(:all).collect {|i| [ i.name, i.id ] } %>
+</p>
+<p>
 	<%= f.label :comments %><br />
   <%= f.text_area :comments, :rows => 3 %>
 </p>

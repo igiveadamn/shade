@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class LocationTest < Test::Unit::TestCase
-  fixtures :locations, :location_types
+  fixtures :locations, :location_types, :depots
   
   def test_should_create_location
     assert_difference 'Location.count' do
@@ -42,6 +42,6 @@ class LocationTest < Test::Unit::TestCase
   
   protected
     def create_location(options = {})
-      Location.create({ :name => 'location_1', :address => 'address 1', :contact => 'andy', :cell => '075006768', :capacity => 100, :location_type => location_types(:church) }.merge(options))
+      Location.create({ :name => 'location_1', :address => 'address 1', :contact => 'andy', :cell => '075006768', :capacity => 100, :location_type => location_types(:church), :depot => depots(:depot1) }.merge(options))
     end
 end

@@ -46,3 +46,6 @@
 
 <%= link_to 'Edit', edit_depot_path(@depot) %> |
 <%= link_to 'Back', depots_path %>
+
+<h2>Locations</h2>
+<%= render :partial => "locations", :locals => { :depot => @depot } %>
