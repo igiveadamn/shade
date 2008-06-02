@@ -1,1 +1,5 @@
-<%= @email_content  %>
+<textarea rows="30" cols="150"><%= 
+
+@rows.inject(""){|content, element| content += element.inject(""){|subcontent, subelement| subcontent+= "\"" + h(h(subelement.to_s).gsub("\r\n", "<p/>")) + "\","}[0..-2] + "\r\n" }
+
+ %></textarea>

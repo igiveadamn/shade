@@ -3,21 +3,21 @@ shade:
   name: shade
   description: first depot
   address: depots's address
-  main_contact_person: Francisco
-  main_phone_number: 0075008763
-  goods_contact_person: Andy
-  goods_phone_number: 88490394
-  volunteers_contact_person: Heather
-  volunteers_phone_number: 32487563
+  main_contact: Francisco
+  main_cell: 0075008763
+  goods_contact: Andy
+  goods_cell: 88490394
+  volunteer_contact: Heather
+  volunteer_cell: 32487563
 
 warehouse:
   id: 2
   name: warehouse
   description: second depot
   address: second depot's address
-  main_contact_person: Akin
-  main_phone_number: 298374555
-  goods_contact_person: Nick
-  goods_phone_number: 293546756
-  volunteers_contact_person: Katie
-  volunteers_phone_number: 29475666
+  main_contact: Akin
+  main_cell: 298374555
+  goods_contact: Nick
+  goods_cell: 293546756
+  volunteer_contact: Katie
+  volunteer_cell: 29475666

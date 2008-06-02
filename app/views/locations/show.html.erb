@@ -39,11 +39,6 @@
 </p>
 
 <p>
-  <b>Provisions Contact:</b>
-  <%=h @location.provisions_contact %> (<%= @location.provisions_cell %>)
-</p>
-
-<p>
   <b>Comments:</b>
   <%= simple_format(sanitize(@location.comments)) %>
 </p>
@@ -64,11 +59,6 @@
 <p>
   <b>Volunteer Summary:</b>
   <%= simple_format(sanitize(@location.volunteer_summary)) %>
-</p>
-
-<p>
-  <b>Provisions Summary:</b>
-  <%= simple_format(sanitize(@location.provisions_summary)) %>
 </p>
 
 <%= render :partial => "widgets/audit", :locals => { :obj => @location } %>
