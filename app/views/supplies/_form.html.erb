@@ -1,0 +1,14 @@
+<%= hidden_field_tag :depot_id, @depot.id %>
+
+<p>
+	<%= f.label :intervention_id %><br />
+	<%= f.select :intervention_id, Intervention.find(:all).collect {|i| [ i.name, i.id ] } %>
+</p>
+<p>
+	<%= f.label :comments %><br />
+  <%= f.text_area :comments %>
+</p>
+<p>
+	<%= f.label :status %><br />
+  <%= f.select :status, Supply::STATUSES.collect { |s| [s, s] } %>
+</p>

@@ -1,0 +1,16 @@
+one:
+  id: 1
+  depot_id: 1
+  status: Open
+  comments: MyText
+  intervention_id: 1
+  created_by: 1
+  updated_by: 1
+two:
+  id: 2
+  depot_id: 1
+  status: Open
+  comments: MyText
+  intervention_id: 1
+  created_by: 1
+  updated_by: 1

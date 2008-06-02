@@ -1,9 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :depots
 
-
   map.resources :requests, :member => {
     :busy => :post,
+    :closed => :post
+  }
+
+  map.resources :supplies, :member => {
     :closed => :post
   }
 

@@ -8,6 +8,8 @@
   <%=h @depot.description %>
 </p>
 
+<a href="#" onclick="Element.toggle('contacts'); return false;">Show Contact Details</a>
+<div id="contacts" style="display: none">
 <p>
   <b>Address:</b>
   <%=h @depot.address %>
@@ -42,10 +44,22 @@
   <b>Volunteers phone number:</b>
   <%=h @depot.volunteers_phone_number %>
 </p>
-
+</div>
+<p/>
+<p/>
+<a href="#" onclick="Element.toggle('locations'); return false;">Show Locations</a>
+<div id="locations" style="display: none">
+<h2>Locations</h2>
+<%= render :partial => "locations", :locals => { :depot => @depot } %>
+</div>
 
 <%= link_to 'Edit', edit_depot_path(@depot) %> |
 <%= link_to 'Back', depots_path %>
 
-<h2>Locations</h2>
-<%= render :partial => "locations", :locals => { :depot => @depot } %>
+<p/>
+
+<h2>Supplies</h2>
+(<%= link_to "Add supply", new_supply_path(:depot_id => @depot.id) %>)<br/>
+<%= render :partial => "supplies", :locals => { :depot => @depot } %>
+
+

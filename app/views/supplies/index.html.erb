@@ -1,0 +1,26 @@
+<h1>Listing supplies</h1>
+
+<table>
+  <tr>
+    <th><%= sort_link 'Depot', :depot_id %></th>
+    <th><%= sort_link 'Intervention', :intervention_id %></th>
+    <th>Comments</th>
+    <th><%= sort_link 'Status', :status %></th>
+    <th><%= sort_link 'Created By', :created_by %></th>
+    <th><%= sort_link 'Created', :created_at %></th>
+  </tr>
+
+<% for supply in @supplies %>
+  <tr>
+    <td><%= link_to supply.depot.name[0..20], supply.depot %></td>
+    <td><%=h supply.intervention.name %></td>
+		<td><%=h supply.comments[0..30] %><%= '...' if supply.comments.length > 30 %></td>
+    <td class="<%= supply.status.downcase %>"><%=h supply.status %></td>
+		<td style="width: 150px;"><%=h supply.created_by.login %> (<%=h supply.created_by.cell %>)</td>
+		<td style="width: 80px;"><%=h time_ago_in_words(supply.created_at) %> ago</td>
+    <td><%= link_to 'Show', supply %></td>
+    <td><%= link_to 'Edit', edit_supply_path(supply) %></td>
+		<td style="width: 40px;"><%= button_to "Closed", closed_supply_path(supply), :method => :post %></td>
+  </tr>
+<% end %>
+</table>

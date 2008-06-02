@@ -8,10 +8,8 @@ class RequestsControllerTest < ActionController::TestCase
     super
     login_as :quentin
     
-    @my_request = Request.create(:location => locations(:rosebank), :intervention => interventions(:food), :comments => "Comments")
+    @my_request = Request.create(:status => "Open", :location => locations(:rosebank), :intervention => interventions(:food), :comments => "Comments", :created_by => users(:quentin))
   end
-  
-  
   
   def test_should_get_index
     get :index, :location_id => locations(:rosebank).id

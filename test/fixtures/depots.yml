@@ -1,8 +1,6 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-depot1:
+shade:
   id: 1
-  name: depot1
+  name: shade
   description: first depot
   address: depots's address
   main_contact_person: Francisco
@@ -12,9 +10,9 @@ depot1:
   volunteers_contact_person: Heather
   volunteers_phone_number: 32487563
 
-depot2:
+warehouse:
   id: 2
-  name: depot2
+  name: warehouse
   description: second depot
   address: second depot's address
   main_contact_person: Akin

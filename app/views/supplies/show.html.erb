@@ -1,0 +1,16 @@
+<h1><%=h @supply.intervention.name %> supply at <%=h @supply.depot.name %></h1>
+(<%= link_to 'Edit', edit_supply_path(@supply) %>)
+
+<p>
+  <b>Comments:</b>
+  <%=h @supply.comments %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @supply.status %>
+</p>
+
+<%= render :partial => "widgets/audit", :locals => { :obj => @supply } %>
+
+<%= link_to 'Back', depot_path(@supply.depot) %>

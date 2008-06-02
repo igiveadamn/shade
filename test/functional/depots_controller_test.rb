@@ -29,23 +29,23 @@ class DepotsControllerTest < ActionController::TestCase
   end
 
   def test_should_show_depot
-    get :show, :id => depots(:depot1).id
+    get :show, :id => depots(:shade).id
     assert_response :success
   end
 
   def test_should_get_edit
-    get :edit, :id => depots(:depot1).id
+    get :edit, :id => depots(:shade).id
     assert_response :success
   end
 
   def test_should_update_depot
-    put :update, :id => depots(:depot1).id, :depot => {  :name => "Name", :address => "address", :description => "description" }
+    put :update, :id => depots(:shade).id, :depot => {  :name => "Name", :address => "address", :description => "description" }
     assert_redirected_to depot_path(assigns(:depot))
   end
 
   def test_should_destroy_depot
     assert_difference('Depot.count', -1) do
-      delete :destroy, :id => depots(:depot1).id
+      delete :destroy, :id => depots(:shade).id
     end
 
     assert_redirected_to depots_path

@@ -1,0 +1,13 @@
+<table>
+	<% for supply in depot.supplies %>
+		<tr>
+			<td><%=h supply.intervention.name %></td>
+			<td><%=h supply.comments[0..30] %><%= '...' if supply.comments.length > 30 %></td>
+			<td><%=h supply.status %></td>
+			<td><%=h supply.last_changed_user_details %></td>
+			<td style="width: 175px;"><%=h time_ago_in_words(supply.updated_at) %> ago</td>
+			<td><%= link_to "Show", supply_path(supply) %></td>
+			<td style="width: 40px;"><%= button_to "Closed", closed_supply_path(supply), :method => :post %></td>
+		</tr>
+	<% end %>
+</table>
