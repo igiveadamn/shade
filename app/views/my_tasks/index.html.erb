@@ -1,0 +1,26 @@
+<h1>Listing Tasks for <strong id="current_user"><%= current_user.name %></strong></h1>
+
+<% if @requests.length > 0 %>
+<table>
+	<tr>
+	    <th>Location</th>
+        <th>Last Update</th>
+        <th>Intervention</th>
+		<th>Comments</th>
+        <th></th>
+        <th></th>
+	</tr>
+	<% for request in @requests %>
+		<tr>
+			<td style="width: 130px"><strong><%= link_to request.location.name, location_path(request.location) %></strong></td>
+			<td style="width: 175px;"><%=h time_ago_in_words(request.updated_at) %> ago</td>
+			<td style="width: 50px;"><%=h request.intervention.name %></td>
+			<td style="width: 250px;"><%=h request.comments %></td>
+			<td style="width: 40px;"><%= link_to "Edit", edit_request_path(request) %></td>
+			<td style="width: 40px;"><%= button_to "Close", closed_request_path(request), :method => :post %></td>
+		</tr>
+	<% end %>
+</table>
+<% else %>
+	<p>No tasks open.</p>
+<% end %>

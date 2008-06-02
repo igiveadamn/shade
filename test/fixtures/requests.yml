@@ -6,8 +6,9 @@ one:
   intervention_id: 1
   comments: MyText
   collection_method: MyString
-  status: MyString
+  status: Busy
   created_by: 1
+  updated_by: 1
 
 two:
   id: 2
@@ -15,5 +16,27 @@ two:
   intervention_id: 1
   comments: MyText
   collection_method: MyString
-  status: MyString
+  status: Busy
   created_by: 1
+  updated_by: 2
+
+three:
+  id: 3
+  location_id: 1
+  intervention_id: 1
+  comments: MyText
+  collection_method: MyString
+  status: Busy
+  created_by: 1
+  updated_by: 1
+
+four:
+  id: 4
+  location_id: 1
+  intervention_id: 1
+  comments: MyText
+  collection_method: MyString
+  status: Closed
+  created_by: 1
+  updated_by: 1
+  

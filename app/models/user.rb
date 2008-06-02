@@ -100,6 +100,10 @@ class User < ActiveRecord::Base
     save(false)
   end
   
+  def open_tasks
+    Request.find(:all, :conditions => { :updated_by => id, :status => 'Busy' })
+  end
+  
 protected
   # before filter 
   def encrypt_password

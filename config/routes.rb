@@ -10,6 +10,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :occupancies
 
   map.resources :locations
+  
+  map.resources :my_tasks
 
   map.home "/", :controller => "locations", :action => "index"
 

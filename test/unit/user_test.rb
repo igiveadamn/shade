@@ -4,7 +4,7 @@ class UserTest < Test::Unit::TestCase
   # Be sure to include AuthenticatedTestHelper in test/test_helper.rb instead.
   # Then, you can remove it from this and the functional test.
   include AuthenticatedTestHelper
-  fixtures :users
+  fixtures :users, :requests
 
   def test_should_create_user
     assert_difference 'User.count' do
@@ -92,6 +92,10 @@ class UserTest < Test::Unit::TestCase
     assert_not_nil users(:quentin).remember_token
     assert_not_nil users(:quentin).remember_token_expires_at
     assert users(:quentin).remember_token_expires_at.between?(before, after)
+  end
+  
+  def test_should_know_open_tasks
+    assert_equal 2, users(:quentin).open_tasks.length
   end
 
   protected

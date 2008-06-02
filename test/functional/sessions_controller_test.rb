@@ -9,7 +9,7 @@ class SessionsControllerTest < Test::Unit::TestCase
   # Then, you can remove it from this and the units test.
   include AuthenticatedTestHelper
 
-  fixtures :users
+  fixtures :users, :requests
 
   def setup
     @controller = SessionsController.new
@@ -73,6 +73,13 @@ class SessionsControllerTest < Test::Unit::TestCase
     @request.cookies["auth_token"] = auth_token('invalid_auth_token')
     get :new
     assert !@controller.send(:logged_in?)
+  end
+  
+  def test_should_display_open_tasks
+    login_as :quentin
+    get :new
+    assert assigns(:open_tasks_for_user)
+    assert_equal 2, assigns(:open_tasks_for_user)
   end
 
   protected
