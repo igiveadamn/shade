@@ -97,25 +97,24 @@ class RequestsController < ApplicationController
 
   # POST /requests/1/busy
   def busy
-    @request = Request.find(params[:id])
-    @request.status = "Busy" # See Request model for options
-    @request.save
-    redirect_to location_path(@request.location)
+    handle_status_change "Busy", "Request was successfully assigned to #{current_user.name}."
   end
 
   # POST /requests/1/closed
   def closed
-    @request = Request.find(params[:id])
-    @request.status = "Closed" # See Request model for options
-    @request.save
-    flash[:notice] = 'Request was successfully closed.'
-    url = params[:redirect_to] || location_path(@request.location)
-    redirect_to url
+    handle_status_change "Closed", "Request was successfully closed."
   end
   
   private
+    def handle_status_change(new_status, success_message)
+      @request = Request.find(params[:id])
+      @request.status = new_status # See Request model for options
+      @request.save
+      flash[:notice] = success_message
+      redirect_to params[:redirect_to] || location_path(@request.location)
+    end
 
-  def find_location
-    @location = Location.find(params[:location_id])
-  end
+    def find_location
+      @location = Location.find(params[:location_id])
+    end
 end

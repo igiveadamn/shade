@@ -67,4 +67,10 @@ class RequestsControllerTest < ActionController::TestCase
     assert_equal "Closed", @my_request.status
   end
   
+  def test_should_redirect_to_parameter
+    @my_request.status = "Open"
+    post :closed, :id => @my_request.id, :redirect_to => '/my_tasks'
+    assert_redirected_to my_tasks_path
+  end
+  
 end
