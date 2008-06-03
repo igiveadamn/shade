@@ -16,8 +16,15 @@
 			<td style="width: 175px;"><%=h time_ago_in_words(request.updated_at) %> ago</td>
 			<td style="width: 50px;"><%=h request.intervention.name %></td>
 			<td style="width: 250px;"><%=h request.comments %></td>
-			<td style="width: 40px;"><%= link_to "Edit", edit_request_path(request) %></td>
-			<td style="width: 40px;"><%= button_to "Close", closed_request_path(request), :method => :post %></td>
+			<td style="width: 40px;">
+				<%= link_to "Edit", edit_request_path(request, :redirect_to => url_for(:action => :index)) %>
+			</td>
+			<td style="width: 40px;">
+				<% form_tag closed_request_path(request) do -%>
+					<%= hidden_field_tag 'redirect_to', url_for(:action => :index) %>
+					<%= submit_tag "Close"%>
+				<% end -%>
+			</td>
 		</tr>
 	<% end %>
 </table>

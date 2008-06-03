@@ -74,7 +74,7 @@ class RequestsController < ApplicationController
     respond_to do |format|
       if @request.update_attributes(params[:request])
         flash[:notice] = 'Request was successfully updated.'
-        format.html { redirect_to(@request) }
+        format.html { redirect_to(params[:redirect_to] || @request) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -108,7 +108,9 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     @request.status = "Closed" # See Request model for options
     @request.save
-    redirect_to location_path(@request.location)
+    flash[:notice] = 'Request was successfully closed.'
+    url = params[:redirect_to] || location_path(@request.location)
+    redirect_to url
   end
   
   private

@@ -2,12 +2,10 @@
 
 <% form_for(@request) do |f| %>
   <%= f.error_messages %>
-
 	<%= render :partial => "form", :locals => { :f => f } %>
-	
   <p>
+	<%= hidden_field_tag('redirect_to', params[:redirect_to]) if params[:redirect_to] %>
     <%= f.submit "Update" %>
   </p>
 <% end %>
-
-<%= link_to 'Back', @request %>
+<%= link_to 'Back', params[:redirect_to] || @request %>
