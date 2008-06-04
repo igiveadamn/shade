@@ -4,6 +4,11 @@
 </p>
 
 <p>
+  <b>Region:</b>
+  <%= @location.region.name if @location.region %>
+</p>
+
+<p>
   <b>Type:</b>
   <%=h @location.location_type.name if @location.location_type %>
 </p>
