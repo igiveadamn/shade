@@ -4,6 +4,6 @@ class Depot < ActiveRecord::Base
 
   belongs_to :region
   
-  validates_presence_of :name, :address, :description
+  validates_presence_of :name, :address, :description, :region
   
 end

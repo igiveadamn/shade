@@ -12,7 +12,7 @@ class Location < ActiveRecord::Base
     end
   end
 
-  validates_presence_of :name, :address, :contact, :cell, :capacity
+  validates_presence_of :name, :address, :contact, :cell, :capacity, :region
   validates_numericality_of :capacity, :greater_than_or_equal_to => 0, :only_integer => true
   
   def occupancy
