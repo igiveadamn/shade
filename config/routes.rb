@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.resources :depots
 
   map.resources :requests, :member => {
@@ -35,6 +36,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :users
     admin.resources :interventions
     admin.resources :location_types
+    admin.resources :regions
   end
     
   map.activate '/activate/:id', :controller => "users", :action => "activate"
