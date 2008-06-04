@@ -1,8 +1,8 @@
-class Admin::ReportsController < Admin::ApplicationController
+class ReportsController < Admin::ApplicationController
   # GET /depots_and_locations
   def depots_and_locations
-    @depots = Depot.find(:all)
-    @locations = Location.find(:all)
+    @depots = Depot.find(:all, :conditions => ["goods_summary <> ''"])
+    @locations = Location.find(:all, :conditions => ["volunteer_summary <> ''"])
     @rows = Array.new
 
     for depot in @depots
@@ -32,14 +32,14 @@ class Admin::ReportsController < Admin::ApplicationController
     end
 
     respond_to do |format|
-      format.html { render :template => "admin/reports/email"  }
+      format.html { render :template => "reports/email"  }
     end
   end
 
   # GET /content
   def content
-    @depots = Depot.find(:all)
-    @locations = Location.find(:all)
+    @depots = Depot.find(:all, :conditions => ["goods_summary <> ''"])
+    @locations = Location.find(:all, :conditions => ["volunteer_summary <> ''"])
     @rows = Array.new
 
     for depot in @depots
@@ -63,7 +63,7 @@ class Admin::ReportsController < Admin::ApplicationController
     end
 
     respond_to do |format|
-      format.html { render :template => "admin/reports/email"  }
+      format.html { render :template => "reports/email"  }
     end
   end
 
