@@ -5,6 +5,8 @@ class LocationsController < ApplicationController
   # GET /locations.xml
   def index
     @locations = Location.find(:all)
+    @local_locations = Location.find(:all).collect! { |location| Integer(location.region.id) == Integer(session[:region]) ? location : nil }.compact
+    @other_locations = Location.find(:all).collect! { |location| Integer(location.region.id) != Integer(session[:region]) ? location : nil }.compact
     
     @total_capacity = @locations.inject(0) do |sum, location|
       sum += location.capacity

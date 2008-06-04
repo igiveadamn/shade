@@ -14,7 +14,8 @@ class RequestsControllerTest < ActionController::TestCase
   def test_should_get_index
     get :index, :location_id => locations(:rosebank).id
     assert_response :success
-    assert_not_nil assigns(:requests)
+    assert_not_nil assigns(:local_requests)
+    assert_not_nil assigns(:other_requests)
   end
 
   def test_should_get_new

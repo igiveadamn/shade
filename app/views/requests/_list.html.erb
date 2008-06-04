@@ -1,0 +1,41 @@
+<table>
+  <tr>
+    <th><%= sort_link 'Location', :location_id %></th>
+    <th><%= sort_link 'Intervention', :intervention_id %></th>
+    <th>Comments</th>
+    <th><%= sort_link 'Collection Method', :collection_method %></th>
+    <th><%= sort_link 'Status', :status %></th>
+    <th>Busy person</th>
+    <th><%= sort_link 'Created By', :created_by %></th>
+    <th><%= sort_link 'Created', :created_at %></th>
+  </tr>
+
+<% for request in requests %>
+  <tr>
+    <td style="width: 150px;"><%= link_to request.location.name[0..20], request.location %></td>
+    <td><%=h request.intervention.name %></td>
+    <td style="width: 220px;"><%=h request.comments[0..30] %><%= '...' if request.comments.length > 30 %></td>
+    <td><%=h request.collection_method %></td>
+    <td class="<%= request.status.downcase %>"><%=h request.status %></td>
+    <td style="width: 150px;"><%=h request.updated_by.login + ' (' + request.updated_by.cell + ')'  if request.updated_by && request.status == 'Busy' %></td>
+	<td style="width: 150px;"><%=h request.created_by.login %> (<%=h request.created_by.cell %>)</td>
+	<td style="width: 80px;"><%=h time_ago_in_words(request.created_at) %> ago</td>
+    <td><%= link_to 'Show', request %></td>
+    <td>
+		<%= link_to "Edit", edit_request_path(request, :redirect_to => url_for(:action => :index)) %>
+	</td>
+	<td style="width: 40px;">
+		<% form_tag busy_request_path(request) do -%>
+			<%= hidden_field_tag 'redirect_to', url_for(:action => :index) %>
+			<%= submit_tag "Busy"%>
+		<% end -%>
+	</td>
+	<td style="width: 40px;">
+		<% form_tag closed_request_path(request) do -%>
+			<%= hidden_field_tag 'redirect_to', url_for(:action => :index) %>
+			<%= submit_tag "Close"%>
+		<% end -%>
+	</td>
+  </tr>
+<% end %>
+</table>

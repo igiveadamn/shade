@@ -14,7 +14,8 @@ class SuppliesControllerTest < ActionController::TestCase
   def test_should_get_index
     get :index, :depot_id => depots(:shade).id
     assert_response :success
-    assert_not_nil assigns(:supplies)
+    assert_not_nil assigns(:local_supplies)
+    assert_not_nil assigns(:other_supplies)
   end
 
   def test_should_get_new

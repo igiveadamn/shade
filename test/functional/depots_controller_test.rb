@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class DepotsControllerTest < ActionController::TestCase
   
-  fixtures :depots, :requests, :interventions, :locations, :location_types
+  fixtures :depots, :requests, :interventions, :locations, :location_types, :regions
   
   def setup
     super
@@ -12,7 +12,8 @@ class DepotsControllerTest < ActionController::TestCase
   def test_should_get_index
     get :index
     assert_response :success
-    assert_not_nil assigns(:depots)
+    assert_not_nil assigns(:local_depots)
+    assert_not_nil assigns(:other_depots)
   end
 
   def test_should_get_new

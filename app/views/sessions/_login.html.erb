@@ -10,6 +10,10 @@
 			<%= password_field_tag "password", "", :size => 18, :maxlength => 100 %>
 		</p>
 		<p>
+			<label for="region_id"><span class="nowrap">Region:</span></label><br/>
+			<%= collection_select :region, :id, Region.find(:all), :id, :name  %>
+		</p>
+		<p>
 			<label for="remember_me"><span class="nowrap">Remember<br/>me:</span></label><br/>
 			<%= check_box_tag "remember_me" %>
 		</p>

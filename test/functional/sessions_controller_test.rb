@@ -19,7 +19,7 @@ class SessionsControllerTest < Test::Unit::TestCase
   end
 
   def test_should_login_and_redirect
-    post :create, :login => 'quentin', :password => 'test'
+    post :create, :login => 'quentin', :password => 'test', :region => { :id => regions(:capetown).id}
     assert session[:user]
     assert_response :redirect
   end
@@ -38,12 +38,12 @@ class SessionsControllerTest < Test::Unit::TestCase
   end
 
   def test_should_remember_me
-    post :create, :login => 'quentin', :password => 'test', :remember_me => "1"
+    post :create, :login => 'quentin', :password => 'test', :remember_me => "1", :region => { :id => regions(:capetown).id}
     assert_not_nil @response.cookies["auth_token"]
   end
 
   def test_should_not_remember_me
-    post :create, :login => 'quentin', :password => 'test', :remember_me => "0"
+    post :create, :login => 'quentin', :password => 'test', :remember_me => "0", :region => { :id => regions(:capetown).id}
     assert_nil @response.cookies["auth_token"]
   end
   

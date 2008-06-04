@@ -2,7 +2,8 @@ class DepotsController < ApplicationController
   # GET /depots
   # GET /depots.xml
   def index
-    @depots = Depot.find(:all)
+    @local_depots = Depot.find(:all).collect! { |depot| Integer(depot.region.id) == Integer(session[:region]) ? depot : nil }.compact
+    @other_depots = Depot.find(:all).collect! { |depot| Integer(depot.region.id) != Integer(session[:region]) ? depot : nil }.compact
 
     respond_to do |format|
       format.html # index.html.erb

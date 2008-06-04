@@ -11,7 +11,8 @@ class SuppliesController < ApplicationController
   # GET /supplies
   # GET /supplies.xml
   def index
-    @supplies = Supply.find(:all, :conditions => "status = 'Open'")
+    @local_supplies = Supply.find(:all, :conditions => "status = 'Open'", :order => sort_order('depot_id')).collect! { |supply| Integer(supply.depot.region.id) == Integer(session[:region]) ? supply : nil }.compact
+    @other_supplies = Supply.find(:all, :conditions => "status = 'Open'", :order => sort_order('depot_id')).collect! { |supply| Integer(supply.depot.region.id) != Integer(session[:region]) ? supply : nil }.compact
 
     respond_to do |format|
       format.html # index.html.erb

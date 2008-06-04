@@ -2,21 +2,17 @@
 
 Total occupancy / capacity : <%= @total_occupancy %> / <%= @total_capacity %>
 
-<table>
+<h2>Local Locations</h2>
+<p/>
+<%= render :partial => "list", :locals => { :locations => @local_locations } %>
+<p/>
 
-<% for location in @locations %>
-	<tr>
-		<td class="<%= 'no' if location.availability <= 0 %>space"><%= location.occupancy %>/<%= location.capacity %></td>
-		<td>(<%= link_to "Change", new_occupancy_path(:location_id => location.id) %>) :</td>
-		<td><%= link_to location.name, location_path(location) %></td>
-		<td><%= location.region.name %></td>
-		<td><%=h location.location_type.name if location.location_type %></td>		
-		<td><%=h location.depot.name if location.depot %></td>		
-		<td><%=h location.contact %> (<%=h location.cell %>)</td>		
-		<td><%= location.address %></td>
-	</tr>
-<% end %>
-</table>
+<h2>Other Locations</h2>
+<p/>
+<%= render :partial => "list", :locals => { :locations => @other_locations } %>
+
+
+
 <br />
 
 <%= link_to 'Create location', new_location_path %>

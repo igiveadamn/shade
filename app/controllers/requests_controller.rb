@@ -11,8 +11,9 @@ class RequestsController < ApplicationController
   # GET /requests
   # GET /requests.xml
   def index
-    @requests = Request.find(:all, :conditions => "status <> 'closed'", :order => sort_order('location_id'))
-
+    @local_requests = Request.find(:all, :conditions => "status <> 'closed'", :order => sort_order('location_id')).collect! { |request| Integer(request.location.region.id) == Integer(session[:region]) ? request : nil }.compact
+    @other_requests = Request.find(:all, :conditions => "status <> 'closed'", :order => sort_order('location_id')).collect! { |request| Integer(request.location.region.id) != Integer(session[:region]) ? request : nil }.compact
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @requests }
