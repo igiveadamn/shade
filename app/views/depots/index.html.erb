@@ -4,6 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
+    <th>Region</th>
     <th>Address</th>
   </tr>
 
@@ -11,6 +12,7 @@
   <tr>
     <td><%=h depot.name %></td>
     <td><%=h depot.description %></td>
+    <td><%=h depot.region.name %></td>
     <td><%=h depot.address %></td>
     <td><%= link_to 'Show', depot_path(depot) %></td>
     <td><%= link_to 'Edit', edit_depot_path(depot) %></td>

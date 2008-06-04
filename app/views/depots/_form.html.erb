@@ -1,0 +1,48 @@
+<p>
+	<%= f.label :name %><br />
+  <%= f.text_field :name %>
+</p>
+<p>
+	<%= f.label :description %><br />
+  <%= f.text_field :description %>
+</p>
+<p>
+	<%= f.label :region_id %><br />
+  <%= f.select :region_id, Region.find(:all).collect {|i| [ i.name, i.id ] } %>
+</p>
+<p>
+	<%= f.label :address %><br />
+  <%= f.text_area :address %>
+</p>
+<p>
+	<%= f.label :driving_directions %><br />
+  <%= f.text_area :driving_directions %>
+</p>
+<p>
+	<%= f.label :main_contact %><br />
+  <%= f.text_field :main_contact %>
+</p>
+<p>
+	<%= f.label :main_cell %><br />
+  <%= f.text_field :main_cell %>
+</p>
+<p>
+	<%= f.label :goods_contact %><br />
+  <%= f.text_field :goods_contact %>
+</p>
+<p>
+	<%= f.label :goods_cell %><br />
+  <%= f.text_field :goods_cell %>
+</p>
+<p>
+	<%= f.label :goods_summary %><br />
+  <%= f.text_area :goods_summary %>
+</p>
+<p>
+	<%= f.label :volunteer_contact %><br />
+  <%= f.text_field :volunteer_contact %>
+</p>
+<p>
+	<%= f.label :volunteer_cell %><br />
+  <%= f.text_field :volunteer_cell %>
+</p>
