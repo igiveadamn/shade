@@ -8,6 +8,7 @@ rosebank:
     capacity: 60
     location_type_id: 1
     depot_id: 1
+    region_id: 1
     updated_by: 1
 claremont:
     id: 2
@@ -19,6 +20,7 @@ claremont:
     capacity: 40
     location_type_id: 2
     depot_id: 1
+    region_id: 1
     updated_by: 1
 
     

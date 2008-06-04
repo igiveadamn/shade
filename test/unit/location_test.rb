@@ -42,6 +42,6 @@ class LocationTest < Test::Unit::TestCase
   
   protected
     def create_location(options = {})
-      Location.create({ :name => 'location_1', :address => 'address 1', :contact => 'andy', :cell => '075006768', :capacity => 100, :location_type => location_types(:church), :depot => depots(:shade) }.merge(options))
+      Location.create({ :name => 'location_1', :address => 'address 1', :contact => 'andy', :cell => '075006768', :capacity => 100, :location_type => location_types(:church), :depot => depots(:shade), :region => regions(:capetown) }.merge(options))
     end
 end

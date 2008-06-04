@@ -22,7 +22,7 @@ class DepotsControllerTest < ActionController::TestCase
 
   def test_should_create_depot
     assert_difference('Depot.count') do
-      post :create, :depot => { :name => "Name", :address => "address", :description => "description" }
+      post :create, :depot => { :name => "Name", :address => "address", :description => "description", :region_id => regions(:capetown).id }
     end
 
     assert_redirected_to depot_path(assigns(:depot))

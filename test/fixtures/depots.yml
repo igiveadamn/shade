@@ -9,7 +9,7 @@ shade:
   goods_cell: 88490394
   volunteer_contact: Heather
   volunteer_cell: 32487563
-
+  region_id: 1
 warehouse:
   id: 2
   name: warehouse
@@ -21,3 +21,4 @@ warehouse:
   goods_cell: 293546756
   volunteer_contact: Katie
   volunteer_cell: 29475666
+  region_id: 2
