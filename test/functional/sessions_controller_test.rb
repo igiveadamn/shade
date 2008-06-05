@@ -21,6 +21,7 @@ class SessionsControllerTest < Test::Unit::TestCase
   def test_should_login_and_redirect
     post :create, :login => 'quentin', :password => 'test', :region => { :id => regions(:capetown).id}
     assert session[:user]
+    assert session[:region]
     assert_response :redirect
   end
 

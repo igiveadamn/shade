@@ -74,7 +74,7 @@ class SuppliesController < ApplicationController
     respond_to do |format|
       if @supply.update_attributes(params[:supply])
         flash[:notice] = 'Supply was successfully updated.'
-        format.html { redirect_to(@supply) }
+        format.html { redirect_to(params[:redirect_to] || @supply) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -100,7 +100,7 @@ class SuppliesController < ApplicationController
     @supply = Supply.find(params[:id])
     @supply.status = "Closed" # See Request model for options
     @supply.save
-    redirect_to depot_path(@supply.depot)
+    redirect_to params[:redirect_to] || depot_path(@supply.depot)
   end
   
   private
