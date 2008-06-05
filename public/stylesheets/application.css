@@ -107,3 +107,54 @@ fieldset.signup_new {
 .closed {
 	color: red;
 }
+
+body {
+  background: #EEE;	
+}
+
+#app {
+  background: #FFF;
+  border-style: solid;
+  border-color: #CCC;
+  border-width: 0px 1px;
+  padding: 0px 10px 10px 10px;
+  font-family: verdana, arial, sans-serif;
+}
+
+#usermenu {
+  background: #346484;
+  color: #EEE;
+  padding: 5px;
+  margin: 0px -11px;
+}
+
+#usermenu a {
+  color: #FFF;	
+  padding: 0px 5px;	
+}
+
+h1 {
+  color: #346484;
+  margin: 10px 0px;
+}
+
+table {
+  border: solid 1px #CCC;
+  margin-top: 10px;
+}
+
+th {
+  padding: 0px 5px;
+  text-align: left;
+  color: #346484;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+td {
+  padding: 5px;
+  font-size: 0.9em;
+  border-style: solid;
+  border-top-width: 1px;
+  border-color: #CCC;	
+}
