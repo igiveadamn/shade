@@ -55,7 +55,7 @@
 
 <p>
   <b>Occupancy:</b>
-  <%=h @location.occupancy %> <% if @location.occupancies.current -%> ( <%=h @location.occupancies.current.men %> | <%=h @location.occupancies.current.women %> | <%=h @location.occupancies.current.children %> )<% end -%> (<%= link_to "Change", new_occupancy_path(:location_id => @location.id) %> | <%= link_to "History", occupancies_path(:location_id => @location.id) %>) 
+  <%=h @location.occupancy %> ( <%=h @location.men %> | <%=h @location.women %> | <%=h @location.children %> ) (<%= link_to "Change", new_occupancy_path(:location_id => @location.id) %> | <%= link_to "History", occupancies_path(:location_id => @location.id) %>) 
 
 <% if @location.occupancies.current -%><span class="audit">Occupancy last updated: <%= time_ago_in_words(@location.occupancies.current.created_at) %> ago by <%=h @location.occupancies.current.created_by.login %>(<%=h @location.occupancies.current.created_by.cell %>)</span> <% end -%>
 	

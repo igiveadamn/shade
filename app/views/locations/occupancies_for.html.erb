@@ -1,0 +1,21 @@
+<h1>Listing occupancies for locations</h1>
+
+Total occupancy : <%= @total_occupancy %> <br/>
+Total men : <%= @total_men %> <br/>
+Total women : <%= @total_women %> <br/>
+Total children under 5 years : <%= @total_children %> <br/>
+
+<h2>Local Locations</h2>
+<p/>
+<%= render :partial => "occupancies", :locals => { :locations => @local_locations } %>
+<p/>
+
+<h2>Other Locations</h2>
+<p/>
+<%= render :partial => "occupancies", :locals => { :locations => @other_locations } %>
+
+
+
+<br />
+
+<%= link_to 'Create location', new_location_path %>

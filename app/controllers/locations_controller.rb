@@ -1,6 +1,40 @@
 class LocationsController < ApplicationController
   before_filter :login_required
 
+  # nicked from http://garbageburrito.com/blog/entry/447/rails-super-cool-simple-column-sorting
+  def sort_order(default)
+    "#{(params[:c] || default.to_s).gsub(/[\s;'\"]/,'')} #{params[:d] == 'down' ? 'DESC' : 'ASC'}"
+  end
+
+  # GET /locations/occupancies_for
+  # GET /locations/occupancies_for.xml
+  def occupancies_for
+    @locations = Location.find(:all)
+    @local_locations = Location.find(:all, :order => sort_order('name')).collect! { |location| Integer(location.region.id) == Integer(session[:region]) ? location : nil }.compact
+    @other_locations = Location.find(:all, :order => sort_order('name')).collect! { |location| Integer(location.region.id) != Integer(session[:region]) ? location : nil }.compact
+
+    @total_occupancy = @locations.inject(0) do |sum, location|
+      sum += location.occupancy
+    end
+
+    @total_men = @locations.inject(0) do |sum, location|
+      sum += location.men
+    end
+
+    @total_women = @locations.inject(0) do |sum, location|
+      sum += location.women
+    end
+
+    @total_children = @locations.inject(0) do |sum, location|
+      sum += location.children
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @locations }
+    end
+  end
+
   # GET /locations
   # GET /locations.xml
   def index

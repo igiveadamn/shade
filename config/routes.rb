@@ -13,7 +13,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :occupancies
 
-  map.resources :locations
+  map.resources :locations, :collection => {
+   :occupancies_for => :get 
+  }
   
   map.resources :my_tasks
 

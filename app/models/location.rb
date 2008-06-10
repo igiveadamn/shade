@@ -20,6 +20,24 @@ class Location < ActiveRecord::Base
     occupancies.current.quantity
   end
   
+  def men
+    return 0 unless occupancies.any?
+    return 0 unless occupancies.current.men
+    return occupancies.current.men
+  end
+  
+  def women
+    return 0 unless occupancies.any?
+    return 0 unless occupancies.current.women
+    return occupancies.current.women
+  end
+  
+  def children
+    return 0 unless occupancies.any?
+    return 0 unless occupancies.current.children
+    return occupancies.current.children
+  end
+  
   def availability
     capacity - occupancy
   end
