@@ -45,60 +45,65 @@
 <p/>
 <a href="#" onclick="Element.toggle('health'); return false;">Show Health Details</a>
 <div id="health" style="display: none">
+	Where should patients at this location be taken for health care?
+	<p/>
 	<p>
-		<%= f.label :health_facility_children %><br />
+		<%= f.label :children %> (this should be the nearest Clinic)<br />
 	  <%= f.text_area :health_facility_children, :rows => 4 %>
 	</p>
 	<p>
-		<%= f.label :health_facility_pregnant_women %><br />
+		<%= f.label :pregnant_women %><br />
 	  <%= f.text_area :health_facility_pregnant_women, :rows => 4 %>
 	</p>
 	<p>
-		<%= f.label :health_facility_mental_health_chronic %><br />
+		<%= f.label :chronic_mental_health %> (the nearest Day Hospital)<br />
 	  <%= f.text_area :health_facility_mental_health_chronic, :rows => 4 %>
 	</p>
 	<p>
-		<%= f.label :health_facility_mental_health_acute %><br />
+		<%= f.label :acute_mental_health %> (the nearest Trauma centre (usually at Day Hospital))<br />
 	  <%= f.text_area :health_facility_mental_health_acute, :rows => 4 %>
 	</p>
 	<p>
-		<%= f.label :health_facility_chronic_care %><br />
+		<%= f.label :people_requiring_chronic_care %> (Day Hospitals)<br />
 	  <%= f.text_area :health_facility_chronic_care, :rows => 4 %>
 	</p>
 	<p>
-		<%= f.label :health_facility_tb %><br />
+		<%= f.label :people_with_tb %> (the nearest Clinic)<br />
 	  <%= f.text_area :health_facility_tb, :rows => 4 %>
 	</p>
+	<p/>
+	Please assess the facilities at the location (this will give the health professionals an overview of health conditions)
+	<p/>
 	<p>
-		<%= f.label :health_number_of_showers %><br />
+		<%= f.label :number_of_showers %><br />
 	  <%= f.text_field :health_number_of_showers %>
 	</p>
 	<p>
-		<%= f.label :health_number_of_latrines %><br />
+		<%= f.label :number_of_latrines %><br />
 	  <%= f.text_field :health_number_of_latrines %>
 	</p>
 	<p>
-		<%= f.label :health_immunisations %><br />
+		<%= f.label :have_all_children_had_their_immunisations %><br />
 	  <%= f.check_box :health_immunisations %>
 	</p>
 	<p>
-		<%= f.label :health_drinking_water %><br />
+		<%= f.label :is_there_sufficient_safe_drinking_water %><br />
 	  <%= f.check_box :health_drinking_water %>
 	</p>
 	<p>
-		<%= f.label :health_hot_water %><br />
+		<%= f.label :is_there_hot_water %><br />
 	  <%= f.check_box :health_hot_water %>
 	</p>
 	<p>
-		<%= f.label :health_shelter %><br />
+		<%= f.label :is_there_satisfactory_shelter %><br />
 	  <%= f.check_box :health_shelter %>
 	</p>
 	<p>
-		<%= f.label :health_blankets %><br />
+		<%= f.label :are_there_sufficient_blankets %><br />
 	  <%= f.check_box :health_blankets %>
 	</p>
 	<p>
-		<%= f.label :health_mattresses %><br />
+		<%= f.label :are_there_sufficient_mattresses %><br />
 	  <%= f.check_box :health_mattresses %>
 	</p>
 
