@@ -22,7 +22,7 @@ class OccupanciesControllerTest < ActionController::TestCase
 
   def test_should_create_occupancy
     assert_difference('Occupancy.count') do
-      post :create, :occupancy => { :quantity => 1, :comments => "Comments" }, :location_id => locations(:rosebank).id
+      post :create, :occupancy => { :quantity => 1, :comments => "Comments", :men => 12, :women => 23, :children => 34 }, :location_id => locations(:rosebank).id
     end
 
     assert_redirected_to location_path(locations(:rosebank))
