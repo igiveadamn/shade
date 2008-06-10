@@ -4,6 +4,21 @@
 </p>
 
 <p>
+  <b>Men:</b>
+  <%=h @occupancy.men %>
+</p>
+
+<p>
+  <b>Women:</b>
+  <%=h @occupancy.women %>
+</p>
+
+<p>
+  <b>Children under 5 years:</b>
+  <%=h @occupancy.children %>
+</p>
+
+<p>
   <b>Comments:</b>
   <%= simple_format(sanitize(@occupancy.comments)) %>
 </p>

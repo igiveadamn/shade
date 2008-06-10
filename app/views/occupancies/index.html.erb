@@ -1,14 +1,29 @@
 <h1>Listing Occupancy History for <%=h @location.name %></h1>
 
+<table>
+	<tr>
+	<th>accurate as at</th>
+	<th>created by</th>
+	<th>total</th>
+	<th>men</th>
+	<th>women</th>
+	<th>under 5</th>
+	<th>comments</th>
+</tr>
+
 <% for occupancy in @occupancies %>
-	<div class="span-24 last">
-		<span class="span-8"><%=h time_ago_in_words(occupancy.created_at) %> ago (<%= occupancy.created_at %>) ... </span>
-		<span class="span-8"><%=h occupancy.created_by.login if occupancy.created_by %></span> ...  
-		<span class="span-8"><strong style="color: red;"><%=h occupancy.quantity %></strong></span>: 
-		<span class="span-8 last"><%=h occupancy.comments %></span>
-	</div>
+	<tr>
+		<td><%=h time_ago_in_words(occupancy.created_at) %> ago (<%= occupancy.created_at %>)</td>
+		<td><%=h occupancy.created_by.login if occupancy.created_by %></td>
+		<td><strong style="color: red;"><%=h occupancy.quantity %></strong></td>
+		<td><%=h occupancy.men %></td>
+		<td><%=h occupancy.women %></td>
+		<td><%=h occupancy.children %></td>
+		<td><%=h occupancy.comments %></td>
+	</tr>
 <% end %>
 
+</table>
 <br />
 
 <%= link_to 'Back', location_path(@location) %>
