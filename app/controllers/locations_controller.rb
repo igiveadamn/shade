@@ -35,6 +35,19 @@ class LocationsController < ApplicationController
     end
   end
 
+  # GET /locations/health_for
+  # GET /locations/health_for.xml
+  def health_for
+    @locations = Location.find(:all)
+    @local_locations = Location.find(:all, :order => sort_order('name')).collect! { |location| Integer(location.region.id) == Integer(session[:region]) ? location : nil }.compact
+    @other_locations = Location.find(:all, :order => sort_order('name')).collect! { |location| Integer(location.region.id) != Integer(session[:region]) ? location : nil }.compact
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @locations }
+    end
+  end
+
   # GET /locations
   # GET /locations.xml
   def index

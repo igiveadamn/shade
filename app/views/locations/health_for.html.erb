@@ -1,0 +1,10 @@
+<h1>Listing health summary for locations</h1>
+
+<h2>Local Locations</h2>
+<p/>
+<%= render :partial => "health", :locals => { :locations => @local_locations } %>
+<p/>
+
+<h2>Other Locations</h2>
+<p/>
+<%= render :partial => "health", :locals => { :locations => @other_locations } %>

@@ -43,6 +43,68 @@
 </div>
 <p/>
 <p/>
+<a href="#" onclick="Element.toggle('health'); return false;">Show Health Details</a>
+<div id="health" style="display: none">
+	<p>
+		<%= f.label :health_facility_children %><br />
+	  <%= f.text_area :health_facility_children, :rows => 4 %>
+	</p>
+	<p>
+		<%= f.label :health_facility_pregnant_women %><br />
+	  <%= f.text_area :health_facility_pregnant_women, :rows => 4 %>
+	</p>
+	<p>
+		<%= f.label :health_facility_mental_health_chronic %><br />
+	  <%= f.text_area :health_facility_mental_health_chronic, :rows => 4 %>
+	</p>
+	<p>
+		<%= f.label :health_facility_mental_health_acute %><br />
+	  <%= f.text_area :health_facility_mental_health_acute, :rows => 4 %>
+	</p>
+	<p>
+		<%= f.label :health_facility_chronic_care %><br />
+	  <%= f.text_area :health_facility_chronic_care, :rows => 4 %>
+	</p>
+	<p>
+		<%= f.label :health_facility_tb %><br />
+	  <%= f.text_area :health_facility_tb, :rows => 4 %>
+	</p>
+	<p>
+		<%= f.label :health_number_of_showers %><br />
+	  <%= f.text_field :health_number_of_showers %>
+	</p>
+	<p>
+		<%= f.label :health_number_of_latrines %><br />
+	  <%= f.text_field :health_number_of_latrines %>
+	</p>
+	<p>
+		<%= f.label :health_immunisations %><br />
+	  <%= f.check_box :health_immunisations %>
+	</p>
+	<p>
+		<%= f.label :health_drinking_water %><br />
+	  <%= f.check_box :health_drinking_water %>
+	</p>
+	<p>
+		<%= f.label :health_hot_water %><br />
+	  <%= f.check_box :health_hot_water %>
+	</p>
+	<p>
+		<%= f.label :health_shelter %><br />
+	  <%= f.check_box :health_shelter %>
+	</p>
+	<p>
+		<%= f.label :health_blankets %><br />
+	  <%= f.check_box :health_blankets %>
+	</p>
+	<p>
+		<%= f.label :health_mattresses %><br />
+	  <%= f.check_box :health_mattresses %>
+	</p>
+
+</div>
+<p/>
+<p/>
 <a href="#" onclick="Element.toggle('volunteer'); return false;">Show Volunteer Contact and Status Details</a>
 <div id="volunteer" style="display: none">
 Note: the information in this section will be released to the public

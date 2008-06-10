@@ -13,9 +13,3 @@ Total children under 5 years : <%= @total_children %> <br/>
 <h2>Other Locations</h2>
 <p/>
 <%= render :partial => "occupancies", :locals => { :locations => @other_locations } %>
-
-
-
-<br />
-
-<%= link_to 'Create location', new_location_path %>
