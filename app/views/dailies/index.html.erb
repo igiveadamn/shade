@@ -1,0 +1,35 @@
+<h1>Listing Health Assessment History for <%=h @location.name %></h1>
+
+<table>
+	<tr>
+	<th>Accurate as at</th>
+	<th>Created by</th>
+	<th>New Diarrhoea Cases</th>
+	<th>New Rashes</th>
+	<th>Pregnant Women</th>
+	<th>Persistent Coughs</th>
+	<th>Children With Fever</th>
+	<th>Existing Appointments</th>
+	<th>Need Formula Milk</th>
+	<th>Comments</th>
+</tr>
+
+<% for daily in @dailies %>
+	<tr>
+		<td><%=h time_ago_in_words(daily.created_at) %> ago (<%= daily.created_at %>)</td>
+		<td><%=h daily.created_by.login %></td>
+		<td><%=h daily.diarrhoea %></td>
+		<td><%=h daily.rashes %></td>
+		<td><%=h daily.pregnant_women %></td>
+		<td><%=h daily.coughs %></td>
+		<td><%=h daily.fevers %></td>
+		<td><input type="checkbox" name="my_readonly_box" disabled="true" <%= if daily.appointments then 'checked' end %> ></td>
+		<td><input type="checkbox" name="my_readonly_box" disabled="true" <%= if daily.formula_milk then 'checked' end %> ></td>
+		<td><%=h daily.comments %></td>
+	</tr>
+<% end %>
+
+</table>
+<br />
+
+<%= link_to 'Back', location_path(@location) %>

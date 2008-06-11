@@ -58,14 +58,19 @@
   <%=h @location.occupancy %> ( <%=h @location.men %> | <%=h @location.women %> | <%=h @location.children %> ) (<%= link_to "Change", new_occupancy_path(:location_id => @location.id) %> | <%= link_to "History", occupancies_path(:location_id => @location.id) %>) 
 
 <% if @location.occupancies.current -%><span class="audit">Occupancy last updated: <%= time_ago_in_words(@location.occupancies.current.created_at) %> ago by <%=h @location.occupancies.current.created_by.login %>(<%=h @location.occupancies.current.created_by.cell %>)</span> <% end -%>
-	
-</p>
 
+</p>
+<p>
+	<b>Health:</b>
+	<%= link_to "New Daily Health Assessment", new_daily_path(:location_id => @location.id) %>
+	 | <%= link_to "History", dailies_path(:location_id => @location.id) %>
+	<% if @location.dailies.current -%><span class="audit">Health Assessment last updated: <%= time_ago_in_words(@location.dailies.current.created_at) %> ago by <%=h @location.dailies.current.created_by.login %>(<%=h @location.dailies.current.created_by.cell %>)</span> <% end -%>
+</p>
 <p>
   <b>Volunteer Summary:</b>
   <%= simple_format(sanitize(@location.volunteer_summary)) %>
 </p>
-
+<p/>
 <%= render :partial => "widgets/audit", :locals => { :obj => @location } %>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |

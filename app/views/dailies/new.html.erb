@@ -1,7 +1,7 @@
-<h1>New occupancy for <%=h @location.name %></h1>
+<h1>New Daily health Assessment</h1>
 <p/>
-previously: <%= @location.occupancy %> ( <%= @location.men %> | <%= @location.women %> | <%= @location.children %> )
-<% form_for(@occupancy) do |f| %>
+
+<% form_for(@daily) do |f| %>
   <%= f.error_messages %>
 	<%= hidden_field_tag :location_id, @location.id %>
 	<%= render :partial => "form", :locals => { :f => f } %>

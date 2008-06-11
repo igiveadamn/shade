@@ -1,0 +1,32 @@
+<p>
+	How many new cases of diarrhoea in the last 24 hours?<br />
+  <%= f.text_field :diarrhoea, :size => 4, :maxlength => 4  %>
+</p>
+<p>
+	How many people have new itchy rashes?<br />
+  <%= f.text_field :rashes, :size => 4, :maxlength => 4  %>
+</p>
+<p>
+	How many pregnant women are at 8 months or more?<br />
+  <%= f.text_field :pregnant_women, :size => 4, :maxlength => 4  %>
+</p>
+<p>
+	How many people are visibly ill with a cough for more than 2 weeks?<br />
+  <%= f.text_field :coughs, :size => 4, :maxlength => 4  %>
+</p>
+<p>
+	How many children under 5 years old have a new fever?<br />
+  <%= f.text_field :fevers, :size => 4, :maxlength => 4  %> children under 5 years
+</p>
+<p>
+	Are there any people with known clinic appointments or repeats of their usual medications?<br />
+  <%= f.check_box :appointments %>
+</p>
+<p>
+	Is there a need for formula milk for babies?<br />
+  <%= f.check_box :formula_milk %>
+</p>
+<p>
+	<%= f.label :any_additional_comments %><br />
+  <%= f.text_area :comments, :rows => 3 %>
+</p>

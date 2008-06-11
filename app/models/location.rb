@@ -6,7 +6,14 @@ class Location < ActiveRecord::Base
   belongs_to :region
   
   has_many :requests, :order => 'updated_at DESC', :conditions => ["status <> 'closed'"]
-  has_many :occupancies, :order => 'updated_at DESC' do
+
+  has_many :occupancies, :order => 'created_at DESC' do
+    def current
+      find(:first)
+    end
+  end
+
+  has_many :dailies, :order => 'created_at DESC' do
     def current
       find(:first)
     end
