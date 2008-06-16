@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   belongs_to :depot
 
+  has_many :locations
+
   cattr_accessor :current_user # used for automagically setting created_by columns
 
   # Virtual attribute for the unencrypted password

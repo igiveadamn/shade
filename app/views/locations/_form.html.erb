@@ -3,12 +3,12 @@
   <%= f.text_field :name %>
 </p>
 <p>
-	<%= f.label :region_id %><br />
-  <%= f.select :region_id, Region.find(:all).collect {|i| [ i.name, i.id ] } %>
-</p>
-<p>
 	<%= f.label :location_type_id %><br />
   <%= f.select :location_type_id, LocationType.find(:all).collect {|i| [ i.name, i.id ] } %>
+</p>
+<p>
+	<%= f.label :user_id %><br />
+  <%= f.select :user_id, User.find(:all).collect {|i| [ i.name, i.id ] } %>
 </p>
 <p>
 	<%= f.label :depot_id %><br />

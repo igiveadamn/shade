@@ -4,11 +4,6 @@
 </p>
 
 <p>
-  <b>Region:</b>
-  <%= @location.region.name if @location.region %>
-</p>
-
-<p>
   <b>Type:</b>
   <%=h @location.location_type.name if @location.location_type %>
 </p>
@@ -16,6 +11,11 @@
 <p>
   <b>Depot:</b>
   <%= link_to(@location.depot.name, @location.depot) if @location.depot %>
+</p>
+
+<p>
+  <b>Primary User:</b>
+  <%= @location.user.name + " ( " + @location.user.cell + " ) " if @location.user %> ( <%= @location.user.depot.name if @location.user && @location.user.depot %> )
 </p>
 
 <p>
