@@ -1,10 +1,13 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
+
+  belongs_to :depot
+
   cattr_accessor :current_user # used for automagically setting created_by columns
 
   # Virtual attribute for the unencrypted password
   attr_accessor :password
-
+  
   validates_presence_of     :login, :email
   validates_presence_of     :password,                   :if => :password_required?
   validates_presence_of     :password_confirmation,      :if => :password_required?
@@ -18,9 +21,10 @@ class User < ActiveRecord::Base
                             :message => "doesn't look right"
   before_save :encrypt_password
   before_create :make_activation_code 
+
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :name, :cell, :password, :password_confirmation
+  attr_accessible :login, :email, :name, :cell, :password, :password_confirmation, :depot_id
   
   # Activates the user in the database.
   def activate
