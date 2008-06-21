@@ -22,6 +22,15 @@ class Location < ActiveRecord::Base
 
   validates_presence_of :name, :address, :contact, :cell, :capacity, :region
   validates_numericality_of :capacity, :greater_than_or_equal_to => 0, :only_integer => true
+
+  SHELTER_TYPES = %w(Tents Brick Prefabricated Other)
+  WATER_SOURCES = %w(Tap Containers Other)
+  REFUSE_STORAGE = %w(Sealed\ bins Open\ bins\ or\ pit No\ refuse\ storage\ system)
+  REFUSE_REMOVAL = %w(Removal\ adequate Removal\ inadequate No\ refuse\ removal\ system)
+  BEDDING_PROPORTIONS = %w(Less\ than\ half Half\ or\ more All)
+  SECURITY = %w(None Less\ than\ 24\ hours 24\ hours)
+  HEALTH_FREQUENCY = %w(On\ site\ daily On\ site\ less\ than\ daily Referral\ only)
+
   
   def occupancy
     return 0 unless occupancies.any?
@@ -38,6 +47,18 @@ class Location < ActiveRecord::Base
     return 0 unless occupancies.any?
     return 0 unless occupancies.current.women
     return occupancies.current.women
+  end
+  
+  def pregnant
+    return 0 unless occupancies.any?
+    return 0 unless occupancies.current.pregnant
+    return occupancies.current.pregnant
+  end
+  
+  def chronic_medication
+    return 0 unless occupancies.any?
+    return 0 unless occupancies.current.chronic_medication
+    return occupancies.current.chronic_medication
   end
   
   def children

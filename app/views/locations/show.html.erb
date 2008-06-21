@@ -1,75 +1,117 @@
-<p>
-  <b>Name:</b>
-  <%=h @location.name %>
-</p>
+<p><b>Name:</b> <%=h @location.name %></p>
 
-<p>
-  <b>Type:</b>
-  <%=h @location.location_type.name if @location.location_type %>
-</p>
+<p><b>Type:</b> <%=h @location.location_type.name if @location.location_type %></p>
 
-<p>
-  <b>Depot:</b>
-  <%= link_to(@location.depot.name, @location.depot) if @location.depot %>
-</p>
+<p><b>Depot:</b> <%= link_to(@location.depot.name, @location.depot) if @location.depot %></p>
 
-<p>
-  <b>Primary User:</b>
-  <%= @location.user.name + " ( " + @location.user.cell + " ) " if @location.user %> ( <%= @location.user.depot.name if @location.user && @location.user.depot %> )
-</p>
+<p><b>Primary User:</b> <%= @location.user.name + " ( " + @location.user.cell + " ) " if @location.user %> ( <%= @location.user.depot.name if @location.user && @location.user.depot %> )</p>
 
-<p>
-  <b>Address:</b>
-  <%= simple_format(sanitize(@location.address)) %>
-</p>
+<p><b>Contact:</b> <%=h @location.contact %> (<%= @location.cell %>)</p>
 
-<p>
-  <b>Driving Directions:</b>
-  <%= simple_format(sanitize(@location.driving_directions)) %>
-</p>
+<p><b>Capacity:</b> <%=h @location.capacity %> people</p>
 
-<p>
-  <b>Contact:</b>
-  <%=h @location.contact %> (<%= @location.cell %>)
-</p>
+<p><b>Occupancy:</b> <%=h @location.occupancy %> ( <%=h @location.men %> | <%=h @location.women %> | <%=h @location.children %> ) (<%= link_to "Change", new_occupancy_path(:location_id => @location.id) %> | <%= link_to "History", occupancies_path(:location_id => @location.id) %>)<% if @location.occupancies.current -%> <span class="audit">Occupancy last updated: <%= time_ago_in_words(@location.occupancies.current.created_at) %> ago by <%=h @location.occupancies.current.created_by.login %>(<%=h @location.occupancies.current.created_by.cell %>)</span> <% end -%></p>
 
-<p>
-  <b>Alternative Contact:</b>
-  <%=h @location.alt_contact %> (<%= @location.alt_cell %>)
-</p>
+<p><b>Health:</b> <%= link_to "New Daily Health Assessment", new_daily_path(:location_id => @location.id) %> | <%= link_to "History", dailies_path(:location_id => @location.id) %><% if @location.dailies.current -%><span class="audit">Health Assessment last updated: <%= time_ago_in_words(@location.dailies.current.created_at) %> ago by <%=h @location.dailies.current.created_by.login %>(<%=h @location.dailies.current.created_by.cell %>)</span> <% end -%></p>
 
-<p>
-  <b>Volunteer Contact:</b>
-  <%=h @location.volunteer_contact %> (<%= @location.volunteer_cell %>)
-</p>
+<p/>
+<a href="#" onclick="Element.toggle('health_facilities'); return false;">Health Facilities</a> (Please use these details to advise the locations where patients should be referred)
+<div id="health_facilities" style="display: none">
+<p/>
+<p><b>Children:</b> <%= simple_format(sanitize(@location.health_facility_children)) %> </p>
+<p><b>Pregnant Women:</b> <%= simple_format(sanitize(@location.health_facility_pregnant_women)) %> </p>
+<p><b>Chronic Mental Health:</b> <%= simple_format(sanitize(@location.health_facility_mental_health_chronic)) %> </p>
+<p><b>Acute Mental Health:</b> <%= simple_format(sanitize(@location.health_facility_mental_health_acute)) %> </p>
+<p><b>Chronic Care:</b> <%= simple_format(sanitize(@location.health_facility_chronic_care)) %> </p>
+<p><b>TB:</b> <%= simple_format(sanitize(@location.health_facility_tb)) %> </p>
 
-<p>
-  <b>Comments:</b>
-  <%= simple_format(sanitize(@location.comments)) %>
-</p>
+</div>
+<p/>
 
-<p>
-  <b>Capacity:</b>
-  <%=h @location.capacity %> people
-</p>
+<a href="#" onclick="Element.toggle('health_assessment'); return false;">Health Assessment</a>
+<div id="health_assessment" style="display: none">
+<p/>
+<p><b>Date Site Established:</b> <%=h @location.site_established_date %></p>
 
-<p>
-  <b>Occupancy:</b>
-  <%=h @location.occupancy %> ( <%=h @location.men %> | <%=h @location.women %> | <%=h @location.children %> ) (<%= link_to "Change", new_occupancy_path(:location_id => @location.id) %> | <%= link_to "History", occupancies_path(:location_id => @location.id) %>) 
+<p><b>Site Management</b></p>
+<p>Government official designated: <%=h "yes" if @location.management_government_official_assigned %></p>
+<p>Volunteer designated: <%=h "yes" if @location.management_volunteer_assigned %></p>
+<p>IDP representatives designated: <%=h "yes" if @location.management_idp_representatives_assigned %></p>
+<p>Site meetings initiated: <%=h "yes" if @location.management_site_meetings_initiated %></p>
+<p>Minutes of last meeting available: <%=h "yes" if @location.management_minutes_of_last_site_meeting %></p>
+<p>Men and women represented in structure: <%=h "yes" if @location.management_men_and_women_represented %></p>
 
-<% if @location.occupancies.current -%><span class="audit">Occupancy last updated: <%= time_ago_in_words(@location.occupancies.current.created_at) %> ago by <%=h @location.occupancies.current.created_by.login %>(<%=h @location.occupancies.current.created_by.cell %>)</span> <% end -%>
+<p><b>Shelter</b></p>
+<p>Shelter type: <%=h @location.shelter_type %> (<%=h @location.shelter_type_detail %>)</p>
+<p>Families are sheltered together: <%=h "yes" if @location.shelter_families_together %></p>
+<p>Square metres of sheltered space: <%=h @location.shelter_area %></p>
 
-</p>
-<p>
-	<b>Health:</b>
-	<%= link_to "New Daily Health Assessment", new_daily_path(:location_id => @location.id) %>
-	 | <%= link_to "History", dailies_path(:location_id => @location.id) %>
-	<% if @location.dailies.current -%><span class="audit">Health Assessment last updated: <%= time_ago_in_words(@location.dailies.current.created_at) %> ago by <%=h @location.dailies.current.created_by.login %>(<%=h @location.dailies.current.created_by.cell %>)</span> <% end -%>
-</p>
-<p>
-  <b>Volunteer Summary:</b>
-  <%= simple_format(sanitize(@location.volunteer_summary)) %>
-</p>
+<p><b>Provisions</b></p>
+<p>Regular food provider: <%=h "yes" if @location.food_regular_provider %></p>
+<p>Meals per day: <%=h @location.food_meals_per_day %></p>
+<p>Milk supplements available for children: <%=h "yes" if @location.food_milk_supplements_for_children %></p>
+<p>Disposable nappies available: <%=h "yes" if @location.nonfood_disposable_nappies %></p>
+<p>Sanitary towels available: <%=h "yes" if @location.nonfood_sanitary_towels %></p>
+
+<p><b>Sanitation</b></p>
+<p>Number of flush toilets: <%=h @location.sanitation_flush %></p>
+<p>Number of chemical toilets: <%=h @location.sanitation_chemical %></p>
+<p>Number of other toilets: <%=h @location.sanitation_other %> (<%=h @location.sanitation_other_detail %>)</p>
+<p>Total Number of toilets: <%=h @location.sanitation_total %></p>
+<p>Separate toilets for men and women: <%=h "yes" if @location.sanitation_separate %></p>
+<p/>
+<p>Drinking water source: <%=h @location.water_source %> (<%=h @location.water_source_detail %>)</p>
+<p>Number of showers: <%=h @location.washing_showers %></p>
+<p>Number of baths: <%=h @location.washing_baths %></p>
+<p>Number of basins: <%=h @location.washing_basins %></p>
+<p>Is there hot water: <%=h "yes" if @location.health_hot_water %></p>
+<p/>
+<p>Refuse storage: <%=h @location.refuse_storage_type %></p>
+<p>Refuse removal: <%=h @location.refuse_removal_type %></p>
+
+<p><b>Environment</b></p>
+<p>Electric lighting in sleeping areas: <%=h "yes" if @location.electric_lighting_sleeping %></p>
+<p>Electric lighting in communal areas: <%=h "yes" if @location.electric_lighting_communal %></p>
+<p/>
+<p>Provision of mattresses: <%=h @location.bedding_mattresses %></p>
+<p>Provision of sufficient blankets: <%=h @location.bedding_blankets %></p>
+<p/>
+<p>Level of security: <%=h @location.security %></p>
+
+<p><b>Services</b></p>
+<p>Have children had all their immunisations: <%=h "yes" if @location.health_immunisations %></p>
+<p>Health service on site: <%=h @location.health_frequency %></p>
+<p>Distance to nearest health facility: <%=h @location.health_nearest %> kms</p>
+<p/>
+<p>Are children able to attend school: <%=h "yes" if @location.education_children_attending_school %></p>
+<p>Are recreational activities arranged for children: <%=h "yes" if @location.education_children_recreational_activities %></p>
+<p>Is there reading material available for adults: <%=h "yes" if @location.education_adults_reading_material %></p>
+<p/>
+<p>Is legal support available: <%=h "yes" if @location.legal_support_available %></p>
+<p>Is there regular information dissemination: <%=h "yes" if @location.legal_regular_information %></p>
+<p>Is there assistance with reintegration / repatriation: <%=h "yes" if @location.legal_assistance %></p>
+
+</div>
+<p/>
+<p/>
+
+<a href="#" onclick="Element.toggle('contact'); return false;">Additional Contact Details</a>
+<div id="contact" style="display: none">
+<p/>
+<p><b>Address:</b> <%= simple_format(sanitize(@location.address)) %></p>
+
+<p><b>Driving Directions:</b> <%= simple_format(sanitize(@location.driving_directions)) %></p>
+
+<p><b>Alternative Contact:</b> <%=h @location.alt_contact %> (<%= @location.alt_cell %>)</p>
+
+<p><b>Volunteer Contact:</b> <%=h @location.volunteer_contact %> (<%= @location.volunteer_cell %>)</p>
+
+<p><b>Comments:</b> <%= simple_format(sanitize(@location.comments)) %></p>
+
+<p><b>Volunteer Summary:</b> <%= simple_format(sanitize(@location.volunteer_summary)) %></p>
+</div>
+<p/>
+
 <p/>
 <%= render :partial => "widgets/audit", :locals => { :obj => @location } %>
 

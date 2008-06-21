@@ -1,14 +1,8 @@
 <table>
 <tr>
 	<th><%= sort_link 'Location', :name %></th>
-	<th>Showers</th>
-	<th>Latrines</th>
 	<th>Immunisations</th>
-	<th>Drinking Water</th>
 	<th>Hot Water</th>
-	<th>Shelter</th>
-	<th>Blankets</th>
-	<th>Mattresses</th>
 	<th>New Diarrhoea Cases</th>
 	<th>New Rashes</th>
 	<th>Pregnant Women</th>
@@ -21,14 +15,8 @@
 <% for location in locations %>
 	<tr>
 		<td><%= link_to location.name, location_path(location) %></td>
-		<td><%= location.health_number_of_showers %></td>
-		<td><%= location.health_number_of_latrines %></td>
 		<td><input type="checkbox" name="my_readonly_box" disabled="true" <%= if location.health_immunisations then 'checked' end %> ></td>
-		<td><input type="checkbox" name="my_readonly_box" disabled="true" <%= if location.health_drinking_water then 'checked' end %> ></td>
 		<td><input type="checkbox" name="my_readonly_box" disabled="true" <%= if location.health_hot_water then 'checked' end %> ></td>
-		<td><input type="checkbox" name="my_readonly_box" disabled="true" <%= if location.health_shelter then 'checked' end %> ></td>
-		<td><input type="checkbox" name="my_readonly_box" disabled="true" <%= if location.health_blankets then 'checked' end %> ></td>
-		<td><input type="checkbox" name="my_readonly_box" disabled="true" <%= if location.health_mattresses then 'checked' end %> ></td>
 <% if location.dailies.current %>
 		<td><%=h location.dailies.current.diarrhoea %></td>
 		<td><%=h location.dailies.current.rashes %></td>

@@ -11,44 +11,25 @@
   <%= f.select :location_type_id, LocationType.find(:all).collect {|i| [ i.name, i.id ] } %>
 </p>
 <p>
-	<%= f.label :user_id %><br />
-  <%= f.select :user_id, User.find(:all).collect {|i| [ i.name, i.id ] } %>
-</p>
-<p>
 	<%= f.label :depot_id %><br />
   <%= f.select :depot_id, Depot.find(:all).collect {|i| [ i.name, i.id ] } %>
 </p>
 <p>
-	<%= f.label :comments %><br />
-  <%= f.text_area :comments, :rows => 3 %>
+	<%= f.label :user_id %><br />
+  <%= f.select :user_id, User.find(:all).collect {|i| [ i.name, i.id ] } %>
+</p>
+<p>
+	<%= f.label :contact %><br />
+  <%= f.text_field :contact %>&nbsp;&nbsp;<%= f.label :cell %><%= f.text_field :cell, :size => 15 %>
 </p>
 <p>
 	<%= f.label :capacity %><br />
   <%= f.text_field :capacity, :size => 4, :maxlength => 4 %> people
 </p>
-<a href="#" onclick="Element.toggle('contact'); return false;">Show Contact Details</a>
-<div id="contact" style="display: none">
-	<p>
-		<%= f.label :contact %><br />
-	  <%= f.text_field :contact %>&nbsp;&nbsp;<%= f.label :cell %><%= f.text_field :cell, :size => 15 %>
-	</p>
-	<p>
-		<%= f.label :alt_contact %><br />
-	  <%= f.text_field :alt_contact %>&nbsp;&nbsp;<%= f.label :alt_cell %><%= f.text_field :alt_cell, :size => 15 %>
-	</p>
-<p>
-	<%= f.label :address %><br />
-  <%= f.text_area :address, :rows => 4 %>
-</p>
-<p>
-	<%= f.label :driving_directions %><br />
-  <%= f.text_area :driving_directions, :rows => 4 %>
-</p>
-</div>
 <p/>
 <p/>
-<a href="#" onclick="Element.toggle('health'); return false;">Show Health Details</a>
-<div id="health" style="display: none">
+<a href="#" onclick="Element.toggle('health_facilities'); return false;">Show Health Facility Details</a>
+<div id="health_facilities" style="display: none">
 	Where should patients at this location be taken for health care?
 	<p/>
 	<p>
@@ -75,55 +56,220 @@
 		<%= f.label :people_with_tb %> (the nearest Clinic)<br />
 	  <%= f.text_area :health_facility_tb, :rows => 4 %>
 	</p>
+</div>
+<a href="#" onclick="Element.toggle('health_assessment'); return false;">Show Health Assessment Details</a>
+<div id="health_assessment" style="display: none">
 	<p/>
 	Please assess the facilities at the location (this will give the health professionals an overview of health conditions)
 	<p/>
+
 	<p>
-		<%= f.label :number_of_showers %><br />
-	  <%= f.text_field :health_number_of_showers %>
+		<%= f.label :site_established_date %><br />
+	  <%= f.date_select :site_established_date %>
+	</p>
+
+	<p><b>Site Management</b></p>
+
+	<p>
+	  <%= f.check_box :management_government_official_assigned %>
+		<%= f.label :government_official_assigned %>
 	</p>
 	<p>
-		<%= f.label :number_of_latrines %><br />
-	  <%= f.text_field :health_number_of_latrines %>
+	  <%= f.check_box :management_volunteer_assigned %>
+		<%= f.label :volunteer_assigned %>
 	</p>
 	<p>
-		<%= f.label :have_all_children_had_their_immunisations %><br />
-	  <%= f.check_box :health_immunisations %>
+	  <%= f.check_box :management_idp_representatives_assigned %>
+		<%= f.label :idp_representatives_assigned %>
 	</p>
 	<p>
-		<%= f.label :is_there_sufficient_safe_drinking_water %><br />
-	  <%= f.check_box :health_drinking_water %>
+	  <%= f.check_box :management_site_meetings_initiated %>
+		<%= f.label :site_meetings_initiated %>
 	</p>
 	<p>
-		<%= f.label :is_there_hot_water %><br />
+	  <%= f.check_box :management_minutes_of_last_site_meeting %>
+		<%= f.label :minutes_of_last_site_meeting_available %>
+	</p>
+	<p>
+	  <%= f.check_box :management_men_and_women_represented %>
+		<%= f.label :men_and_women_represented_in_structure %>
+	</p>
+
+
+	<p><b>Shelter</b></p>
+	<p>
+		<%= f.label :shelter_type %>: <%= f.select :shelter_type, Location::SHELTER_TYPES.collect { |m| [m, m] } %>
+		(<%= f.label :if_other_please_specify %>: <%= f.text_field :shelter_type_detail %>)
+	</p>
+	<p>
+	  <%= f.check_box :shelter_families_together %>
+		<%= f.label :shelter_families_together %>
+	</p>
+	<p>
+		<%= f.label :shelter_area %>: 
+	  <%= f.text_field :shelter_area, :size => 4, :maxlength => 4 %> square metres
+	</p>
+
+
+	<p><b>Provisions</b></p>
+	<p>
+	  <%= f.check_box :food_regular_provider %>
+		<%= f.label :food_regular_provider %>
+	</p>
+	<p>
+	  <%= f.text_field :food_meals_per_day, :size => 4, :maxlength => 4 %>
+		<%= f.label :meals_per_day %>
+	</p>
+	<p>
+	  <%= f.check_box :food_milk_supplements_for_children %>
+		<%= f.label :milk_supplements_for_children %>
+	</p>
+	<p>
+	  <%= f.check_box :nonfood_disposable_nappies %>
+		<%= f.label :disposable_nappies %>
+	</p>
+	<p>
+	  <%= f.check_box :nonfood_sanitary_towels %>
+		<%= f.label :sanitary_towels %>
+	</p>
+
+
+	<p><b>Sanitation</b></p>
+	<p>
+	  <%= f.text_field :sanitation_flush, :size => 4, :maxlength => 4 %>
+		<%= f.label :flush_toilets %>
+	</p>
+	<p>
+	  <%= f.text_field :sanitation_chemical, :size => 4, :maxlength => 4 %>
+		<%= f.label :chemical_toilets %>
+	</p>
+	<p>
+	  <%= f.text_field :sanitation_other, :size => 4, :maxlength => 4 %>
+		<%= f.label :other_toilets %>
+		(<%= f.label :please_specify %>
+	  <%= f.text_field :sanitation_other_detail %>)
+	</p>
+	<p>
+	  <%= f.text_field :sanitation_total, :size => 4, :maxlength => 4 %>
+		<%= f.label :total_toilets %>
+	</p>
+	<p>
+	  <%= f.check_box :sanitation_separate %>
+		<%= f.label :separate_toilets_for_men_and_women %>
+	</p>
+	<p>
+		<%= f.label :drinking_water %>: <%= f.select :water_source, Location::WATER_SOURCES.collect { |m| [m, m] } %>
+		(<%= f.label :if_other_please_specify %>:
+	  <%= f.text_field :water_source_detail %>)
+	</p>
+	<p>
+	  <%= f.text_field :washing_showers, :size => 4, :maxlength => 4 %>
+		<%= f.label :showers %>
+	</p>
+	<p>
+	  <%= f.text_field :washing_baths, :size => 4, :maxlength => 4 %>
+		<%= f.label :baths %>
+	</p>
+	<p>
+	  <%= f.text_field :washing_basins, :size => 4, :maxlength => 4 %>
+		<%= f.label :basins %>
+	</p>
+	<p>
 	  <%= f.check_box :health_hot_water %>
+		<%= f.label :hot_water %>
 	</p>
 	<p>
-		<%= f.label :is_there_satisfactory_shelter %><br />
-	  <%= f.check_box :health_shelter %>
+		<%= f.label :refuse_storage %>: <%= f.select :refuse_storage_type, Location::REFUSE_STORAGE.collect { |m| [m, m] } %>
 	</p>
 	<p>
-		<%= f.label :are_there_sufficient_blankets %><br />
-	  <%= f.check_box :health_blankets %>
+		<%= f.label :refuse_removal %>: <%= f.select :refuse_removal_type, Location::REFUSE_REMOVAL.collect { |m| [m, m] } %>
+	</p>
+
+
+	<p><b>Environment</b></p>
+	<p>
+	  <%= f.check_box :electric_lighting_sleeping %>
+		<%= f.label :electric_lighting_in_sleeping_areas %>
 	</p>
 	<p>
-		<%= f.label :are_there_sufficient_mattresses %><br />
-	  <%= f.check_box :health_mattresses %>
+	  <%= f.check_box :electric_lighting_communal %>
+		<%= f.label :electric_lighting_in_communal_areas %>
 	</p>
+	<p>
+		<%= f.label :people_sleeping_on_mattresses %>: <%= f.select :bedding_mattresses, Location::BEDDING_PROPORTIONS.collect { |m| [m, m] } %>
+	</p>
+	<p>
+		<%= f.label :people_with_sufficient_blankets %>: <%= f.select :bedding_blankets, Location::BEDDING_PROPORTIONS.collect { |m| [m, m] } %>
+	</p>
+	<p>
+		<%= f.label :security_presence %>: <%= f.select :security, Location::SECURITY.collect { |m| [m, m] } %>
+	</p>
+
+
+	<p><b>Services</b></p>
+	<p>
+	  <%= f.check_box :health_immunisations %>
+		<%= f.label :all_children_have_had_their_immunisations %>
+	</p>
+	<p>
+		<%= f.label :health_services %>: <%= f.select :health_frequency, Location::HEALTH_FREQUENCY.collect { |m| [m, m] } %>
+	</p>
+	<p>
+		<%= f.label :nearest_health_facility %>: <%= f.text_field :health_nearest, :size => 4, :maxlength => 4 %> kms
+	</p>
+	<p>
+	  <%= f.check_box :education_children_attending_school %>
+		<%= f.label :are_children_attending_school %>
+	</p>
+	<p>
+	  <%= f.check_box :education_children_recreational_activities %>
+		<%= f.label :are_recreational_activities_arranged_for_children %>
+	</p>
+	<p>
+	  <%= f.check_box :education_adults_reading_material %>
+		<%= f.label :is_reading_material_available_for_adults %>
+	</p>
+	<p>
+	  <%= f.check_box :legal_support_available %>
+		<%= f.label :advice_centre_and_legal_support_available %>
+	</p>
+	<p>
+	  <%= f.check_box :legal_regular_information %>
+		<%= f.label :regular_information_dissemination %>
+	</p>
+	<p>
+	  <%= f.check_box :legal_assistance %>
+		<%= f.label :assistance_with_reintegration_or_repatriation %>
+	</p>
+
 
 </div>
 <p/>
 <p/>
-<a href="#" onclick="Element.toggle('volunteer'); return false;">Show Volunteer Contact and Status Details</a>
-<div id="volunteer" style="display: none">
-Note: the information in this section will be released to the public
+<a href="#" onclick="Element.toggle('contact'); return false;">Show Contact Details</a>
+<div id="contact" style="display: none">
 <p>
-	<%= f.label :volunteer_contact %><br />
+	<%= f.label :address %><br />
+  <%= f.text_area :address, :rows => 4 %>
+</p>
+<p>
+	<%= f.label :driving_directions %><br />
+  <%= f.text_area :driving_directions, :rows => 4 %>
+</p>
+<p>
+	<%= f.label :alt_contact %><br />
+  <%= f.text_field :alt_contact %>&nbsp;&nbsp;<%= f.label :alt_cell %><%= f.text_field :alt_cell, :size => 15 %>
+</p>
+<p>
+	<%= f.label :volunteer_contact %> (public)<br />
   <%= f.text_field :volunteer_contact %>&nbsp;&nbsp;<%= f.label :volunteer_cell %><%= f.text_field :volunteer_cell, :size => 15 %>
 </p>
 <p>
-	<%= f.label :volunteer_summary %><br />
+	<%= f.label :comments %><br />
+  <%= f.text_area :comments, :rows => 3 %>
+</p>
+<p>
+	<%= f.label :volunteer_summary %> (public)<br />
   <%= f.text_area :volunteer_summary, :rows => 5 %>
 </p>
 </div>
-<p/>
