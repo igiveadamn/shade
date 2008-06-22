@@ -17,7 +17,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :locations, :collection => {
     :occupancies_for => :get,
-    :health_for => :get
+    :health_for => :get,
+    :latest_dailies_for => :get
   }
   
   map.resources :my_tasks

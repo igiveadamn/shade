@@ -10,8 +10,6 @@ class LocationsController < ApplicationController
   # GET /locations/occupancies_for.xml
   def occupancies_for
     @locations = Location.find(:all)
-    @local_locations = Location.find(:all, :order => sort_order('name')).collect! { |location| Integer(location.region.id) == Integer(session[:region]) ? location : nil }.compact
-    @other_locations = Location.find(:all, :order => sort_order('name')).collect! { |location| Integer(location.region.id) != Integer(session[:region]) ? location : nil }.compact
 
     @total_occupancy = @locations.inject(0) do |sum, location|
       sum += location.occupancy
@@ -39,8 +37,17 @@ class LocationsController < ApplicationController
   # GET /locations/health_for.xml
   def health_for
     @locations = Location.find(:all)
-    @local_locations = Location.find(:all, :order => sort_order('name')).collect! { |location| Integer(location.region.id) == Integer(session[:region]) ? location : nil }.compact
-    @other_locations = Location.find(:all, :order => sort_order('name')).collect! { |location| Integer(location.region.id) != Integer(session[:region]) ? location : nil }.compact
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @locations }
+    end
+  end
+
+  # GET /locations/latest_dailies_for
+  # GET /locations/latest_dailies_for.xml
+  def latest_dailies_for
+    @locations = Location.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -52,8 +59,6 @@ class LocationsController < ApplicationController
   # GET /locations.xml
   def index
     @locations = Location.find(:all)
-    @local_locations = Location.find(:all).collect! { |location| Integer(location.region.id) == Integer(session[:region]) ? location : nil }.compact
-    @other_locations = Location.find(:all).collect! { |location| Integer(location.region.id) != Integer(session[:region]) ? location : nil }.compact
     
     @total_capacity = @locations.inject(0) do |sum, location|
       sum += location.capacity

@@ -22,7 +22,7 @@ class DailiesControllerTest < ActionController::TestCase
 
   def test_should_create_daily
     assert_difference('Daily.count') do
-      post :create, :daily => { :diarrhoea => 1, :rashes => 2, :pregnant_women => 3, :coughs => 4, :fevers => 5 }, :location_id => locations(:rosebank).id
+      post :create, :daily => {  }, :location_id => locations(:rosebank).id
     end
 
     assert_redirected_to location_path(locations(:rosebank))

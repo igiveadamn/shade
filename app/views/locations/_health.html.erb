@@ -1,31 +1,97 @@
 <table>
 <tr>
 	<th><%= sort_link 'Location', :name %></th>
-	<th>Immunisations</th>
-	<th>Hot Water</th>
-	<th>New Diarrhoea Cases</th>
-	<th>New Rashes</th>
-	<th>Pregnant Women</th>
-	<th>Persistent Coughs</th>
-	<th>Children With Fever</th>
-	<th>Existing Appointments</th>
-	<th>Need Formula Milk</th>
+	<th>site_established_date</th>
+	<th>management_government_official_assigned</th>
+	<th>management_volunteer_assigned</th>
+	<th>management_idp_representatives_assigned</th>
+	<th>management_site_meetings_initiated</th>
+	<th>management_minutes_of_last_site_meeting</th>
+	<th>management_men_and_women_represented</th>
+	<th>shelter_type_detail %>)</p>
+	<th>shelter_families_together</th>
+	<th>shelter_area</th>
+	<th>food_regular_provider</th>
+	<th>food_meals_per_day</th>
+	<th>food_milk_supplements_for_children</th>
+	<th>nonfood_disposable_nappies</th>
+	<th>nonfood_sanitary_towels</th>
+	<th>sanitation_flush</th>
+	<th>sanitation_chemical</th>
+	<th>sanitation_other
+	<th>sanitation_other_detail %>)</p>
+	<th>sanitation_total</th>
+	<th>sanitation_separate</th>
+	<th>water_source
+	<th>water_source_detail %>)</p>
+	<th>washing_showers</th>
+	<th>washing_baths</th>
+	<th>washing_basins</th>
+	<th>health_hot_water</th>
+	<th>refuse_storage_type</th>
+	<th>refuse_removal_type</th>
+	<th>electric_lighting_sleeping</th>
+	<th>electric_lighting_communal</th>
+	<th>bedding_mattresses</th>
+	<th>bedding_blankets</th>
+	<th>security</th>
+	<th>health_immunisations</th>
+	<th>health_frequency</th>
+	<th>health_nearest %> kms</p>
+	<th>education_children_attending_school</th>
+	<th>education_children_recreational_activities</th>
+	<th>education_adults_reading_material</th>
+	<th>legal_support_available</th>
+	<th>legal_regular_information</th>
+	<th>legal_assistance</th>
 </tr>
 
 <% for location in locations %>
 	<tr>
 		<td><%= link_to location.name, location_path(location) %></td>
-		<td><input type="checkbox" name="my_readonly_box" disabled="true" <%= if location.health_immunisations then 'checked' end %> ></td>
-		<td><input type="checkbox" name="my_readonly_box" disabled="true" <%= if location.health_hot_water then 'checked' end %> ></td>
-<% if location.dailies.current %>
-		<td><%=h location.dailies.current.diarrhoea %></td>
-		<td><%=h location.dailies.current.rashes %></td>
-		<td><%=h location.dailies.current.pregnant_women %></td>
-		<td><%=h location.dailies.current.coughs %></td>
-		<td><%=h location.dailies.current.fevers %></td>
-		<td><input type="checkbox" name="my_readonly_box" disabled="true" <%= if location.dailies.current.appointments then 'checked' end %> ></td>
-		<td><input type="checkbox" name="my_readonly_box" disabled="true" <%= if location.dailies.current.formula_milk then 'checked' end %> ></td>
-		<% end %>
+		<td><%= location.site_established_date %></td>
+		<td><%= location.management_government_official_assigned %></td>
+		<td><%= location.management_volunteer_assigned %></td>
+		<td><%= location.management_idp_representatives_assigned %></td>
+		<td><%= location.management_site_meetings_initiated %></td>
+		<td><%= location.management_minutes_of_last_site_meeting %></td>
+		<td><%= location.management_men_and_women_represented %></td>
+		<td><%= location.shelter_type_detail %></td>
+		<td><%= location.shelter_families_together %></td>
+		<td><%= location.shelter_area %></td>
+		<td><%= location.food_regular_provider %></td>
+		<td><%= location.food_meals_per_day %></td>
+		<td><%= location.food_milk_supplements_for_children %></td>
+		<td><%= location.nonfood_disposable_nappies %></td>
+		<td><%= location.nonfood_sanitary_towels %></td>
+		<td><%= location.sanitation_flush %></td>
+		<td><%= location.sanitation_chemical %></td>
+		<td><%= location.sanitation_other %></td>
+		<td><%= location.sanitation_other_detail %></td>
+		<td><%= location.sanitation_total %></td>
+		<td><%= location.sanitation_separate %></td>
+		<td><%= location.water_source %></td>
+		<td><%= location.water_source_detail %></td>
+		<td><%= location.washing_showers %></td>
+		<td><%= location.washing_baths %></td>
+		<td><%= location.washing_basins %></td>
+		<td><%= location.health_hot_water %></td>
+		<td><%= location.refuse_storage_type %></td>
+		<td><%= location.refuse_removal_type %></td>
+		<td><%= location.electric_lighting_sleeping %></td>
+		<td><%= location.electric_lighting_communal %></td>
+		<td><%= location.bedding_mattresses %></td>
+		<td><%= location.bedding_blankets %></td>
+		<td><%= location.security %></td>
+		<td><%= location.health_immunisations %></td>
+		<td><%= location.health_frequency %></td>
+		<td><%= location.health_nearest %></td>
+		<td><%= location.education_children_attending_school %></td>
+		<td><%= location.education_children_recreational_activities %></td>
+		<td><%= location.education_adults_reading_material %></td>
+		<td><%= location.legal_support_available %></td>
+		<td><%= location.legal_regular_information %></td>
+		<td><%= location.legal_assistance %></td>
 	</tr>
 <% end %>
 </table>

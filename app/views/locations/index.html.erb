@@ -2,16 +2,8 @@
 
 Total occupancy / capacity : <%= @total_occupancy %> / <%= @total_capacity %>
 
-<h2>Local Locations</h2>
 <p/>
-<%= render :partial => "list", :locals => { :locations => @local_locations } %>
-<p/>
-
-<h2>Other Locations</h2>
-<p/>
-<%= render :partial => "list", :locals => { :locations => @other_locations } %>
-
-
+<%= render :partial => "list", :locals => { :locations => @locations } %>
 
 <br />
 

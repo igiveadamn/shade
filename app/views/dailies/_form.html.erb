@@ -1,30 +1,138 @@
+Please answer ALL questions in the context of the LAST 24 HOURS
+<p/>
 <p>
-	How many new cases of diarrhoea in the last 24 hours?<br />
-  <%= f.text_field :diarrhoea, :size => 4, :maxlength => 4  %>
+	Date of assessment<br/>
+  <%= f.date_select :assessment_date %>
+</p>
+
+<p><b>Site management</b></p>
+<p>
+  <%= f.check_box :management_meetings_held %> Have meetings been held with representatives of all parties?
+</p>
+
+
+<p><b>Food</b></p>
+<p>
+  <%= f.check_box :food_as_scheduled %> Has food been provided as scheduled?
 </p>
 <p>
-	How many people have new itchy rashes?<br />
-  <%= f.text_field :rashes, :size => 4, :maxlength => 4  %>
+  <%= f.check_box :food_sufficient %> Has food provision been sufficient?
 </p>
 <p>
-	How many pregnant women are at 8 months or more?<br />
-  <%= f.text_field :pregnant_women, :size => 4, :maxlength => 4  %>
+  <%= f.check_box :food_milk_supplements_under_6_months %> Are there formula milk supplements for children under 6 months?
 </p>
 <p>
-	How many people are visibly ill with a cough for more than 2 weeks?<br />
-  <%= f.text_field :coughs, :size => 4, :maxlength => 4  %>
+  <%= f.check_box :food_milk_supplements_under_5_years %> Are there milk supplements for children under 5 years?
 </p>
 <p>
-	How many children under 5 years old have a new fever?<br />
-  <%= f.text_field :fevers, :size => 4, :maxlength => 4  %> children under 5 years
+  <%= f.check_box :food_additional_for_children %> Is there additional food for children?
 </p>
 <p>
-	Are there any people with known clinic appointments or repeats of their usual medications?<br />
-  <%= f.check_box :appointments %>
+	Comments:<br/>
+	<%= f.text_area :food_comments, :rows => 3 %> 
+</p>
+
+<p><b>Sanitation</b></p>
+<p>
+  <%= f.text_field :sanitation_toilets_broken_flush, :size => 4, :maxlength => 4  %> Broken or blocked flush toilets
 </p>
 <p>
-	Is there a need for formula milk for babies?<br />
-  <%= f.check_box :formula_milk %>
+  <%= f.text_field :sanitation_toilets_broken_chemical, :size => 4, :maxlength => 4  %> Broken or blocked chemical toilets
+</p>
+<p>
+  <%= f.text_field :sanitation_toilets_broken_other, :size => 4, :maxlength => 4  %> Broken or blocked other toilets
+</p>
+<p>
+  <%= f.check_box :sanitation_toilets_cleaned %> Have toilets been cleaned in the last 12 hours?
+</p>
+<p>
+  <%= f.check_box :sanitation_undrained_water %> Are there any undrained pools of water? 
+</p>
+<p>
+  <%= f.text_field :water_adequate_drinking_water, :size => 4, :maxlength => 4  %> Is there adequate drinking water available?
+</p>
+<p>
+  <%= f.text_field :washing_showers_broken, :size => 4, :maxlength => 4  %> Broken or blocked showers
+</p>
+<p>
+  <%= f.text_field :washing_basins_broken, :size => 4, :maxlength => 4  %> Broken or blocked basins
+</p>
+<p>
+  <%= f.text_field :washing_showers_without_soap, :size => 4, :maxlength => 4  %> Showers without soap
+</p>
+<p>
+  <%= f.check_box :washing_hot_water %> Has there been sufficient hot water?
+</p>
+<p>
+  <%= f.check_box :refuse_collected %> Has the refuse been collected?
+</p>
+<p>
+  <%= f.check_box :refuse_storage_adequate %> Is the refuse storage in an acceptable state?
+</p>
+
+<p><b>Environment</b></p>
+<p>
+  <%= f.check_box :electricity_broken_lights %> Are there broken electric lights in the sleeping or toilet facilities?
+</p>
+<p>
+  <%= f.text_field :bedding_without_mattresses, :size => 4, :maxlength => 4  %> How many people slept without mattresses last night?
+</p>
+<p>
+  <%= f.text_field :bedding_without_blankets, :size => 4, :maxlength => 4  %> How many people slept without blankets last night?
+</p>
+<p>
+  <%= f.check_box :security_present %> Has security been present continuously for the past 24 hours?
+</p>
+<p>
+  <%= f.check_box :security_adequate %> Has the security presence been adequate?
+</p>
+<p>
+  <%= f.text_field :security_incidents, :size => 4, :maxlength => 4  %> Incidents of harassment or violence 
+</p>
+
+
+<p><b>Health</b></p>
+<p>
+  <%= f.text_field :health_diarrhoea, :size => 4, :maxlength => 4  %> How many new cases of diarrhoea in the last 24 hours?
+</p>
+<p>
+  <%= f.text_field :health_rashes, :size => 4, :maxlength => 4  %> How many people have new itchy rashes?
+</p>
+<p>
+  <%= f.text_field :health_pregnant_women, :size => 4, :maxlength => 4  %> How many pregnant women are at 8 months or more?
+</p>
+<p>
+  <%= f.text_field :health_coughs, :size => 4, :maxlength => 4  %> How many people have been visibly ill with a cough for more than 2 weeks?
+</p>
+<p>
+  <%= f.text_field :health_fevers, :size => 4, :maxlength => 4  %> How many children under 5 years old have a new fever?
+</p>
+<p>
+  <%= f.check_box :health_appointments %> Are there any people with known clinic appointments or repeats of their usual medications?	
+</p>
+<p>
+  <%= f.text_field :health_admissions, :size => 4, :maxlength => 4  %> How many admissions or emergencies
+</p>
+<p>
+  <%= f.check_box :health_difficulties %> Any difficulty accessing health care facilities?
+</p>
+
+
+<p><b>Services</b></p>
+<p>
+  <%= f.check_box :education_school_difficulties %> Any difficulty accessing school?
+</p>
+<p>
+  <%= f.check_box :education_activities %> Have activities been organised for children?
+</p>
+<p>
+  <%= f.check_box :communication_update %> Update on steps being taken by various agencies provided? 
+</p>
+<p>
+  <%= f.check_box :legal_reintegration_assistance %> Sufficient assistance to those planning to return to their homes or resettle in communities?	
+</p>
+<p>
+  <%= f.check_box :legal_repatriation_assistance %> Steps taken to assist those wishing repatriation?
 </p>
 <p>
 	<%= f.label :any_additional_comments %><br />

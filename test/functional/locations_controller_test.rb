@@ -13,8 +13,6 @@ class LocationsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:locations)
-    assert_not_nil assigns(:local_locations)
-    assert_not_nil assigns(:other_locations)
   end
 
   def test_should_get_new
