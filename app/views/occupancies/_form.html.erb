@@ -22,6 +22,16 @@
 	<%= f.label :children %><br />
   <%= f.text_field :children, :size => 4, :maxlength => 4  %> children under 5 years
 </p>
+<p>Source of Information</p>
+<p>
+  <%= f.check_box :source_head_count %> Head count
+</p>
+<p>
+  <%= f.check_box :source_somebody_told_me %> Somebody told me
+</p>
+<p>
+  <%= f.check_box :source_day_time %> Day time count
+</p>
 <p>
 	<%= f.label :comments %><br />
   <%= f.text_area :comments, :rows => 3 %>

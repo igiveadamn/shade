@@ -1,6 +1,6 @@
 <h1>New occupancy for <%=h @location.name %></h1>
 <p/>
-previously: <%= @location.occupancy %> ( <%= @location.men %> | <%= @location.women %> | <%= @location.children %> )
+previously: <%= @location.occupancy %> ( <%= @location.men %> men | <%= @location.women %> women | <%= @location.children %> children | <%= @location.pregnant %> pregnant | <%= @location.chronic_medication %> chronic medication )
 <% form_for(@occupancy) do |f| %>
   <%= f.error_messages %>
 	<%= hidden_field_tag :location_id, @location.id %>

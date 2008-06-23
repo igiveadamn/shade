@@ -7,9 +7,12 @@
 	<th>total</th>
 	<th>men</th>
 	<th>women</th>
+	<th>under 5</th>
 	<th>pregnant women</th>
 	<th>people on chronic medication</th>
-	<th>under 5</th>
+	<th>head count</th>
+	<th>somebody told me</th>
+	<th>day time</th>
 	<th>comments</th>
 </tr>
 
@@ -20,9 +23,12 @@
 		<td><strong style="color: red;"><%=h occupancy.quantity %></strong></td>
 		<td><%=h occupancy.men %></td>
 		<td><%=h occupancy.women %></td>
+		<td><%=h occupancy.children %></td>
 		<td><%=h occupancy.pregnant %></td>
 		<td><%=h occupancy.chronic_medication %></td>
-		<td><%=h occupancy.children %></td>
+		<td><%=h occupancy.source_head_count %></td>
+		<td><%=h occupancy.source_somebody_told_me %></td>
+		<td><%=h occupancy.source_day_time %></td>
 		<td><%=h occupancy.comments %></td>
 	</tr>
 <% end %>
