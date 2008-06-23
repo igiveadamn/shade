@@ -14,6 +14,8 @@
 
 <p><b>Health:</b> <%= link_to "New Daily Health Assessment", new_daily_path(:location_id => @location.id) %> | <%= link_to "History", dailies_path(:location_id => @location.id) %><% if @location.dailies.current -%><span class="audit">Health Assessment last updated: <%= time_ago_in_words(@location.dailies.current.created_at) %> ago by <%=h @location.dailies.current.created_by.login %>(<%=h @location.dailies.current.created_by.cell %>)</span> <% end -%></p>
 
+<p><b>Follow Up Assessments:</b> <%= link_to "New Follow Up Assessment", new_assessment_path(:location_id => @location.id) %> | <%= link_to "History", assessments_path(:location_id => @location.id) %><% if @location.assessments.current -%><span class="audit">Follow Up Assessment last updated: <%= time_ago_in_words(@location.assessments.current.created_at) %> ago by <%=h @location.assessments.current.created_by.login %>(<%=h @location.assessments.current.created_by.cell %>)</span> <% end -%></p>
+
 <p/>
 <a href="#" onclick="Element.toggle('health_facilities'); return false;">Health Facilities</a> (Please use these details to advise the locations where patients should be referred)
 <div id="health_facilities" style="display: none">

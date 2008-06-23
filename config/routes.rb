@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :assessments
+
   map.resources :dailies
 
 
@@ -18,6 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :locations, :collection => {
     :occupancies_for => :get,
     :health_for => :get,
+    :latest_assessments_for => :get,
     :latest_dailies_for => :get
   }
   

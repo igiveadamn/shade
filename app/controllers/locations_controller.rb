@@ -83,6 +83,17 @@ class LocationsController < ApplicationController
     end
   end
 
+  # GET /locations/latest_assessments_for
+  # GET /locations/latest_assessments_for.xml
+  def latest_assessments_for
+    @locations = Location.find(:all)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @locations }
+    end
+  end
+
   # GET /locations
   # GET /locations.xml
   def index

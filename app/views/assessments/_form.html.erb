@@ -1,0 +1,80 @@
+Please answer ALL questions in the context what has happened SINCE THE PREVIOUS FOLLOW UP
+<p/>
+<p>
+	Date of assessment<br/>
+  <%= f.date_select :assessment_date %>
+</p>
+
+<p><b>Overall Profile</b></p>
+
+<p>
+  <%= f.text_field :profile_total, :size => 4, :maxlength => 4  %> Total number of people
+</p>
+<p>
+  <%= f.text_field :profile_men, :size => 4, :maxlength => 4  %> Male
+</p>
+<p>
+  <%= f.text_field :profile_women, :size => 4, :maxlength => 4  %> Female
+</p>
+
+
+<p><b>Departures</b></p>
+
+<p>
+  <%= f.text_field :departures_total, :size => 4, :maxlength => 4  %> Number of people who have left since last assessment
+</p>
+
+<p>Destinations of people who have left</p>
+<p>
+  <%= f.text_field :departures_original_community, :size => 4, :maxlength => 4  %> Original home or community
+</p>
+<p>
+  <%= f.text_field :departures_another_community, :size => 4, :maxlength => 4  %> Another community 
+</p>
+<p>
+  <%= f.text_field :departures_another_idp_site, :size => 4, :maxlength => 4  %> Another IDP site
+</p>
+<p>
+  <%= f.text_field :departures_repatriation, :size => 4, :maxlength => 4  %> Repatriation
+</p>
+<p>
+  <%= f.text_field :departures_other, :size => 4, :maxlength => 4  %> Other
+</p>
+<p>
+	if other, please specify:<br/>
+	<%= f.text_area :departures_other_detail, :rows => 3 %> 
+</p>
+<p>
+  <%= f.text_field :departures_unknown, :size => 4, :maxlength => 4  %> Unknown
+</p>
+
+
+
+<p><b>Arrivals</b></p>
+
+<p>
+  <%= f.text_field :arrivals_total, :size => 4, :maxlength => 4  %> Number of people who have arrived since last assessment
+</p>
+
+<p>Origins of people who have arrived</p>
+
+<p>
+  <%= f.text_field :arrivals_original_community, :size => 4, :maxlength => 4  %> Original home or community
+</p>
+<p>
+  <%= f.text_field :arrivals_another_community, :size => 4, :maxlength => 4  %> Another community
+</p>
+<p>
+  <%= f.text_field :arrivals_another_idp_site, :size => 4, :maxlength => 4  %> Another IDP site
+</p>
+<p>
+  <%= f.text_field :arrivals_other, :size => 4, :maxlength => 4  %> Other
+</p>
+<p>
+	if other, please specify:<br/>
+	<%= f.text_area :arrivals_other_detail, :rows => 3 %> 
+</p>
+<p>
+  <%= f.text_field :arrivals_unknown, :size => 4, :maxlength => 4  %> Unknown
+</p>
+

@@ -1,0 +1,55 @@
+<h1>Latest daily assessments for locations</h1>
+
+<table>
+<tr>
+	<th><%= sort_link 'Location', :name %></th>
+  <th>assessment_date</th>
+  <th>profile_total</th>
+  <th>profile_men</th>
+  <th>profile_women</th>
+  <th>departures_total</th>
+  <th>departures_original_community</th>
+  <th>departures_another_community</th> 
+  <th>departures_another_idp_site</th>
+  <th>departures_repatriation</th>
+  <th>departures_other</th>
+  <th>departures_other_detail</th>
+  <th>departures_unknown</th>
+  <th>arrivals_total</th>
+  <th>arrivals_original_community</th>
+  <th>arrivals_another_community</th>
+  <th>arrivals_another_idp_site</th>
+  <th>arrivals_other</th>
+  <th>arrivals_other_detail</th>
+  <th>arrivals_unknown</th>
+	<th>created_by</th>
+</tr>
+
+<% for location in @locations %>
+	<tr>
+		<td><%= link_to location.name, location_path(location) %></td>
+		<% if location.assessments.current %>
+		  <td><%= location.assessments.current.assessment_date %></td>
+		  <td><%= location.assessments.current.profile_total %></td>
+		  <td><%= location.assessments.current.profile_men %></td>
+		  <td><%= location.assessments.current.profile_women %></td>
+		  <td><%= location.assessments.current.departures_total %></td>
+		  <td><%= location.assessments.current.departures_original_community %></td>
+		  <td><%= location.assessments.current.departures_another_community %></td> 
+		  <td><%= location.assessments.current.departures_another_idp_site %></td>
+		  <td><%= location.assessments.current.departures_repatriation %></td>
+		  <td><%= location.assessments.current.departures_other %></td>
+		  <td><%= location.assessments.current.departures_other_detail %></td>
+		  <td><%= location.assessments.current.departures_unknown %></td>
+		  <td><%= location.assessments.current.arrivals_total %></td>
+		  <td><%= location.assessments.current.arrivals_original_community %></td>
+		  <td><%= location.assessments.current.arrivals_another_community %></td>
+		  <td><%= location.assessments.current.arrivals_another_idp_site %></td>
+		  <td><%= location.assessments.current.arrivals_other %></td>
+		  <td><%= location.assessments.current.arrivals_other_detail %></td>
+		  <td><%= location.assessments.current.arrivals_unknown %></td>
+			<td><%= location.assessments.current.created_by.login %></td>
+		<% end %>
+	</tr>
+<% end %>
+</table>
