@@ -38,32 +38,32 @@ class Location < ActiveRecord::Base
   end
   
   def men
-    return 0 unless occupancies.any?
-    return 0 unless occupancies.current.men
+    return "unknown" unless occupancies.any?
+    return "unknown" unless occupancies.current.men
     return occupancies.current.men
   end
   
   def women
-    return 0 unless occupancies.any?
-    return 0 unless occupancies.current.women
+    return "unknown" unless occupancies.any?
+    return "unknown" unless occupancies.current.women
     return occupancies.current.women
   end
   
   def pregnant
-    return 0 unless occupancies.any?
-    return 0 unless occupancies.current.pregnant
+    return "unknown" unless occupancies.any?
+    return "unknown" unless occupancies.current.pregnant
     return occupancies.current.pregnant
   end
   
   def chronic_medication
-    return 0 unless occupancies.any?
-    return 0 unless occupancies.current.chronic_medication
+    return "unknown" unless occupancies.any?
+    return "unknown" unless occupancies.current.chronic_medication
     return occupancies.current.chronic_medication
   end
   
   def children
-    return 0 unless occupancies.any?
-    return 0 unless occupancies.current.children
+    return "unknown" unless occupancies.any?
+    return "unknown" unless occupancies.current.children
     return occupancies.current.children
   end
   

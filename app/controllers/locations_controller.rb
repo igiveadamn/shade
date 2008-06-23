@@ -16,15 +16,43 @@ class LocationsController < ApplicationController
     end
 
     @total_men = @locations.inject(0) do |sum, location|
-      sum += location.men
+      if location.men && (location.men.is_a? Integer)
+        sum += location.men
+      else
+        sum = sum
+      end
     end
 
     @total_women = @locations.inject(0) do |sum, location|
-      sum += location.women
+      if location.women && (location.women.is_a? Integer)
+        sum += location.women
+      else
+        sum = sum
+      end
+    end
+
+    @total_pregnant = @locations.inject(0) do |sum, location|
+      if location.pregnant && (location.pregnant.is_a? Integer)
+        sum += location.pregnant
+      else
+        sum = sum
+      end
+    end
+
+    @total_chronic_medication = @locations.inject(0) do |sum, location|
+      if location.chronic_medication && (location.chronic_medication.is_a? Integer)
+        sum += location.chronic_medication
+      else
+        sum = sum
+      end
     end
 
     @total_children = @locations.inject(0) do |sum, location|
-      sum += location.children
+      if location.children && (location.children.is_a? Integer)
+        sum += location.children
+      else
+        sum = sum
+      end
     end
 
     respond_to do |format|
