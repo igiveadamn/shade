@@ -64,7 +64,7 @@ class LocationsController < ApplicationController
   # GET /locations/health_for
   # GET /locations/health_for.xml
   def health_for
-    @locations = Location.find(:all)
+    @locations = Location.find(:all, :order => sort_order('name'))
 
     respond_to do |format|
       format.html # index.html.erb
