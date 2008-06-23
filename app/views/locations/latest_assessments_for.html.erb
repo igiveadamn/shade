@@ -4,7 +4,8 @@
 <tr>
 	<th><%= sort_link 'Location', :name %></th>
   <th>assessment_date</th>
-  <th>profile_total</th>
+	<th>assessor_name</th>
+	<th>profile_total</th>
   <th>profile_men</th>
   <th>profile_women</th>
   <th>departures_total</th>
@@ -22,6 +23,9 @@
   <th>arrivals_other</th>
   <th>arrivals_other_detail</th>
   <th>arrivals_unknown</th>
+  <th>source_head_count</th>
+  <th>source_somebody_told_me</th>
+  <th>source_day_time</th>
 	<th>created_by</th>
 </tr>
 
@@ -29,7 +33,8 @@
 	<tr>
 		<td><%= link_to location.name, location_path(location) %></td>
 		<% if location.assessments.current %>
-		  <td><%= location.assessments.current.assessment_date %></td>
+	  	<td><%= location.assessments.current.assessment_date %></td>
+	  	<td><%= location.assessments.current.assessor_name %></td>
 		  <td><%= location.assessments.current.profile_total %></td>
 		  <td><%= location.assessments.current.profile_men %></td>
 		  <td><%= location.assessments.current.profile_women %></td>
@@ -48,6 +53,9 @@
 		  <td><%= location.assessments.current.arrivals_other %></td>
 		  <td><%= location.assessments.current.arrivals_other_detail %></td>
 		  <td><%= location.assessments.current.arrivals_unknown %></td>
+		  <td><%= location.assessments.current.source_head_count %></td>
+		  <td><%= location.assessments.current.source_somebody_told_me %></td>
+		  <td><%= location.assessments.current.source_day_time %></td>
 			<td><%= location.assessments.current.created_by.login %></td>
 		<% end %>
 	</tr>

@@ -4,6 +4,7 @@
 	<tr>
 	<th>accurate as at</th>
 	<th>created by</th>
+	<th>assessor_name</th>
 	<th>total</th>
 	<th>men</th>
 	<th>women</th>
@@ -20,6 +21,7 @@
 	<tr>
 		<td><%=h time_ago_in_words(occupancy.created_at) %> ago (<%= occupancy.created_at %>)</td>
 		<td><%=h occupancy.created_by.login if occupancy.created_by %></td>
+		<td><%=h occupancy.assessor_name %></td>
 		<td><strong style="color: red;"><%=h occupancy.quantity %></strong></td>
 		<td><%=h occupancy.men %></td>
 		<td><%=h occupancy.women %></td>

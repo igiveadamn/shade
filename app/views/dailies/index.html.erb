@@ -3,6 +3,7 @@
 <table>
 	<tr>
   	<th>assessment_date</th>
+  	<th>assessor_name</th>
 		<th>management_meetings_held</th>
 		<th>food_as_scheduled</th>
 		<th>food_sufficient</th>
@@ -49,6 +50,7 @@
 <% for daily in @dailies %>
 	<tr>
   	<td><%= daily.assessment_date %></td>
+  	<td><%= daily.assessor_name %></td>
 		<td><%= daily.management_meetings_held %></td>
 		<td><%= daily.food_as_scheduled %></td>
 		<td><%= daily.food_sufficient %></td>

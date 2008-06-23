@@ -1,4 +1,7 @@
 <p>
+  <%= f.text_field :assessor_name, :value => current_user.login %> Name of person conducting the assessment
+</p>
+<p>
 	<%= f.label :quantity %><br />
   <%= f.text_field :quantity, :size => 4, :maxlength => 4  %> people in total
 </p>
@@ -11,16 +14,16 @@
   <%= f.text_field :women, :size => 4, :maxlength => 4  %> women
 </p>
 <p>
+	<%= f.label :children %><br />
+  <%= f.text_field :children, :size => 4, :maxlength => 4  %> children under 5 years
+</p>
+<p>
 	<%= f.label :pregnant_women %>(7 months +)<br />
   <%= f.text_field :pregnant, :size => 4, :maxlength => 4  %>
 </p>
 <p>
 	<%= f.label :people_on_chronic_medication %><br />
   <%= f.text_field :chronic_medication, :size => 4, :maxlength => 4  %> 
-</p>
-<p>
-	<%= f.label :children %><br />
-  <%= f.text_field :children, :size => 4, :maxlength => 4  %> children under 5 years
 </p>
 <p>Source of Information</p>
 <p>

@@ -4,6 +4,9 @@ Please answer ALL questions in the context what has happened SINCE THE PREVIOUS 
 	Date of assessment<br/>
   <%= f.date_select :assessment_date %>
 </p>
+<p>
+  <%= f.text_field :assessor_name, :value => current_user.login %> Name of person conducting the assessment
+</p>
 
 <p><b>Overall Profile</b></p>
 

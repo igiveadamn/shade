@@ -3,6 +3,7 @@
 <table>
 	<tr>
 	  <th>assessment_date</th>
+	  <th>assessor_name</th>
 	  <th>profile_total</th>
 	  <th>profile_men</th>
 	  <th>profile_women</th>
@@ -30,6 +31,7 @@
 <% for assessment in @assessments %>
 	<tr>
 	  <td><%= assessment.assessment_date %></td>
+	  <td><%= assessment.assessor_name %></td>
 	  <td><%= assessment.profile_total %></td>
 	  <td><%= assessment.profile_men %></td>
 	  <td><%= assessment.profile_women %></td>

@@ -2,6 +2,7 @@
 <tr>
 	<th><%= sort_link 'Location', :name %></th>
 	<th><%= sort_link 'site_established_date', :site_established_date %></th>
+	<th><%= sort_link 'assessor_name', :assessor_name %></th>
 	<th><%= sort_link 'management_government_official_assigned', :management_government_official_assigned %></th>
 	<th><%= sort_link 'management_volunteer_assigned', :management_volunteer_assigned %></th>
 	<th><%= sort_link 'management_idp_representatives_assigned', :management_idp_representatives_assigned %></th>
@@ -51,6 +52,7 @@
 	<tr>
 		<td><%= link_to location.name, location_path(location) %></td>
 		<td><%= location.site_established_date %></td>
+		<td><%= location.assessor_name %></td>
 		<td><%= location.management_government_official_assigned %></td>
 		<td><%= location.management_volunteer_assigned %></td>
 		<td><%= location.management_idp_representatives_assigned %></td>
