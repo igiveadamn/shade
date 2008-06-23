@@ -2,20 +2,20 @@
   <%= f.text_field :assessor_name, :value => current_user.login %> Name of person conducting the assessment
 </p>
 <p>
-	<%= f.label :quantity %><br />
-  <%= f.text_field :quantity, :size => 4, :maxlength => 4  %> people in total
+	<%= f.label :quantity %> (Total)<br />
+  <%= f.text_field :quantity, :size => 4, :maxlength => 4  %>
 </p>
 <p>
 	<%= f.label :men %><br />
-  <%= f.text_field :men, :size => 4, :maxlength => 4  %> men
+  <%= f.text_field :men, :size => 4, :maxlength => 4  %>
 </p>
 <p>
 	<%= f.label :women %><br />
-  <%= f.text_field :women, :size => 4, :maxlength => 4  %> women
+  <%= f.text_field :women, :size => 4, :maxlength => 4  %>
 </p>
 <p>
-	<%= f.label :children %><br />
-  <%= f.text_field :children, :size => 4, :maxlength => 4  %> children under 5 years
+	<%= f.label :children_under_5_years %><br />
+  <%= f.text_field :children, :size => 4, :maxlength => 4  %>
 </p>
 <p>
 	<%= f.label :pregnant_women %>(7 months +)<br />

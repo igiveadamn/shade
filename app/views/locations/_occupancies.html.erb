@@ -32,7 +32,7 @@
 		<td><%= if location.occupancies.any? then location.occupancies.current.source_day_time end %></td>
 		<td><%= if location.occupancies.any? then time_ago_in_words(location.occupancies.current.created_at) + ' ago' end %></td>
 		<td><%= if location.occupancies.any? then location.occupancies.current.created_at end %></td>
-		<td><%= if location.occupancies.any? then location.occupancies.current.created_by end %></td>
+		<td><%= if location.occupancies.any? then location.occupancies.current.created_by.login end %></td>
 		<td><%= if location.occupancies.any? then location.occupancies.current.comments end %></td>
 	</tr>
 <% end %>
