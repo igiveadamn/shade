@@ -196,10 +196,10 @@
 		<%= f.label :electric_lighting_in_communal_areas %>
 	</p>
 	<p>
-		<%= f.label :people_sleeping_on_mattresses %>: <%= f.select :bedding_mattresses, Location::BEDDING_PROPORTIONS.collect { |m| [m, m] } %>
+		<%= f.label :people_sleeping_on_mattresses %>: <%= f.text_field :bedding_mattresses, :size => 4, :maxlength => 4 %> % (estimate)
 	</p>
 	<p>
-		<%= f.label :people_with_sufficient_blankets %>: <%= f.select :bedding_blankets, Location::BEDDING_PROPORTIONS.collect { |m| [m, m] } %>
+		<%= f.label :people_with_sufficient_blankets %>: <%= f.text_field :bedding_blankets, :size => 4, :maxlength => 4 %> % (estimate)
 	</p>
 	<p>
 		<%= f.label :security_presence %>: <%= f.select :security, Location::SECURITY.collect { |m| [m, m] } %>

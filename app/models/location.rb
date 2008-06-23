@@ -33,7 +33,6 @@ class Location < ActiveRecord::Base
   WATER_SOURCES = %w(Tap Containers Other)
   REFUSE_STORAGE = %w(Sealed\ bins Open\ bins\ or\ pit No\ refuse\ storage\ system)
   REFUSE_REMOVAL = %w(Removal\ adequate Removal\ inadequate No\ refuse\ removal\ system)
-  BEDDING_PROPORTIONS = %w(Less\ than\ half Half\ or\ more All)
   SECURITY = %w(None Less\ than\ 24\ hours 24\ hours)
   HEALTH_FREQUENCY = %w(On\ site\ daily On\ site\ less\ than\ daily Referral\ only)
 
