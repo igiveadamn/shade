@@ -21,6 +21,9 @@
 	  <th>arrivals_other</th>
 	  <th>arrivals_other_detail</th>
 	  <th>arrivals_unknown</th>
+		<th>head count</th>
+		<th>somebody told me</th>
+		<th>day time</th>
 		<th>created_by</th>
 	</tr>
 
@@ -45,6 +48,9 @@
 	  <td><%= assessment.arrivals_other %></td>
 	  <td><%= assessment.arrivals_other_detail %></td>
 	  <td><%= assessment.arrivals_unknown %></td>
+		<td><%= assessment.source_head_count %></td>
+		<td><%= assessment.source_somebody_told_me %></td>
+		<td><%= assessment.source_day_time %></td>
 		<td><%= assessment.created_by.login %></td>
 	</tr>
 <% end %>
