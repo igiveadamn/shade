@@ -1,0 +1,12 @@
+<table>
+
+<% for location in @locations %>
+	<tr>
+		<td><% form_tag activate_location_path(location) do -%>
+			<%= submit_tag "Change"%>
+		<% end -%></td>
+		<td><%= location.active %></td>
+		<td><%= location.name %></td>
+	</tr>
+<% end %>
+</table>

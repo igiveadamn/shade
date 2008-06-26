@@ -9,7 +9,7 @@ class LocationsController < ApplicationController
   # GET /locations/occupancies_for
   # GET /locations/occupancies_for.xml
   def occupancies_for
-    @locations = Location.find(:all)
+    @locations = Location.find(:all, :conditions => ["active = 1"])
 
     @total_occupancy = @locations.inject(0) do |sum, location|
       sum += location.occupancy
@@ -64,7 +64,7 @@ class LocationsController < ApplicationController
   # GET /locations/health_for
   # GET /locations/health_for.xml
   def health_for
-    @locations = Location.find(:all, :order => sort_order('name'))
+    @locations = Location.find(:all, :conditions => ["active = 1"], :order => sort_order('name'))
 
     respond_to do |format|
       format.html # index.html.erb
@@ -75,7 +75,7 @@ class LocationsController < ApplicationController
   # GET /locations/latest_dailies_for
   # GET /locations/latest_dailies_for.xml
   def latest_dailies_for
-    @locations = Location.find(:all)
+    @locations = Location.find(:all, :conditions => ["active = 1"])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -86,7 +86,7 @@ class LocationsController < ApplicationController
   # GET /locations/latest_assessments_for
   # GET /locations/latest_assessments_for.xml
   def latest_assessments_for
-    @locations = Location.find(:all)
+    @locations = Location.find(:all, :conditions => ["active = 1"])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -97,7 +97,7 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.xml
   def index
-    @locations = Location.find(:all)
+    @locations = Location.find(:all, :conditions => ["active = 1"])
     
     @total_capacity = @locations.inject(0) do |sum, location|
       sum += location.capacity
@@ -111,6 +111,21 @@ class LocationsController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @locations }
     end
+  end
+
+  # GET /locations/activation
+  def activation
+    @locations = Location.find(:all) # this is when we return active AND inactive locations
+  end
+
+  # POST /locations/1/activate
+  def activate
+    @location = Location.find(params[:id])
+    @location.active = !@location.active
+    @location.save
+    
+    @locations = Location.find(:all) # this is when we return active AND inactive locations
+    render :action => "activation" 
   end
 
   # GET /locations/1
