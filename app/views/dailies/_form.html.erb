@@ -10,25 +10,25 @@ Please answer ALL questions in the context of the LAST 24 HOURS
 
 <p><b>Site management</b></p>
 <p>
-  <%= f.check_box :management_meetings_held %> Have meetings been held with representatives of all parties?
+  <%= f.select :management_meetings_held, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Have meetings been held with representatives of all parties?
 </p>
 
 
 <p><b>Food</b></p>
 <p>
-  <%= f.check_box :food_as_scheduled %> Has food been provided as scheduled?
+  <%= f.select :food_as_scheduled, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Has food been provided as scheduled?
 </p>
 <p>
-  <%= f.check_box :food_sufficient %> Has food provision been sufficient?
+  <%= f.select :food_sufficient, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Has food provision been sufficient?
 </p>
 <p>
-  <%= f.check_box :food_milk_supplements_under_6_months %> Are there formula milk supplements for children under 6 months?
+  <%= f.select :food_milk_supplements_under_6_months, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Are there formula milk supplements for children under 6 months?
 </p>
 <p>
-  <%= f.check_box :food_milk_supplements_under_5_years %> Are there milk supplements for children under 5 years?
+  <%= f.select :food_milk_supplements_under_5_years, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Are there milk supplements for children under 5 years?
 </p>
 <p>
-  <%= f.check_box :food_additional_for_children %> Is there additional food for children?
+  <%= f.select :food_additional_for_children, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Is there additional food for children?
 </p>
 <p>
 	Comments:<br/>
@@ -46,13 +46,13 @@ Please answer ALL questions in the context of the LAST 24 HOURS
   <%= f.text_field :sanitation_toilets_broken_other, :size => 4, :maxlength => 4  %> Broken or blocked other toilets
 </p>
 <p>
-  <%= f.check_box :sanitation_toilets_cleaned %> Have toilets been cleaned in the last 12 hours?
+  <%= f.select :sanitation_toilets_cleaned, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Have toilets been cleaned in the last 12 hours?
 </p>
 <p>
-  <%= f.check_box :sanitation_undrained_water %> Are there any undrained pools of water? 
+  <%= f.select :sanitation_undrained_water, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Are there any undrained pools of water? 
 </p>
 <p>
-  <%= f.check_box :water_adequate_drinking_water %> Is there adequate drinking water available?
+  <%= f.select :water_adequate_drinking_water, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Is there adequate drinking water available?
 </p>
 <p>
   <%= f.text_field :washing_showers_broken, :size => 4, :maxlength => 4  %> Broken or blocked showers
@@ -67,18 +67,18 @@ Please answer ALL questions in the context of the LAST 24 HOURS
   <%= f.text_field :washing_showers_without_soap, :size => 4, :maxlength => 4  %> Showers without soap
 </p>
 <p>
-  <%= f.check_box :washing_hot_water %> Has there been sufficient hot water?
+  <%= f.select :washing_hot_water, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Has there been sufficient hot water?
 </p>
 <p>
-  <%= f.check_box :refuse_collected %> Has the refuse been collected?
+  <%= f.select :refuse_collected, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Has the refuse been collected?
 </p>
 <p>
-  <%= f.check_box :refuse_storage_adequate %> Is the refuse storage in an acceptable state?
+  <%= f.select :refuse_storage_adequate, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Is the refuse storage in an acceptable state?
 </p>
 
 <p><b>Environment</b></p>
 <p>
-  <%= f.check_box :electricity_broken_lights %> Are there broken electric lights in the sleeping or toilet facilities?
+  <%= f.select :electricity_broken_lights, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Are there broken electric lights in the sleeping or toilet facilities?
 </p>
 <p>
   <%= f.text_field :bedding_without_mattresses, :size => 4, :maxlength => 4  %> How many people slept without mattresses last night?
@@ -87,10 +87,10 @@ Please answer ALL questions in the context of the LAST 24 HOURS
   <%= f.text_field :bedding_without_blankets, :size => 4, :maxlength => 4  %> How many people slept without blankets last night?
 </p>
 <p>
-  <%= f.check_box :security_present %> Has security been present continuously for the past 24 hours?
+  <%= f.select :security_present, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Has security been present continuously for the past 24 hours?
 </p>
 <p>
-  <%= f.check_box :security_adequate %> Has the security presence been adequate?
+  <%= f.select :security_adequate, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Has the security presence been adequate?
 </p>
 <p>
   <%= f.text_field :security_incidents, :size => 4, :maxlength => 4  %> Incidents of harassment or violence 
@@ -114,31 +114,31 @@ Please answer ALL questions in the context of the LAST 24 HOURS
   <%= f.text_field :health_fevers, :size => 4, :maxlength => 4  %> How many children under 5 years old have a new fever?
 </p>
 <p>
-  <%= f.check_box :health_appointments %> Are there any people with known clinic appointments or repeats of their usual medications?	
+  <%= f.select :health_appointments, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Are there any people with known clinic appointments or repeats of their usual medications?	
 </p>
 <p>
   <%= f.text_field :health_admissions, :size => 4, :maxlength => 4  %> How many admissions or emergencies
 </p>
 <p>
-  <%= f.check_box :health_difficulties %> Any difficulty accessing health care facilities?
+  <%= f.select :health_difficulties, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Any difficulty accessing health care facilities?
 </p>
 
 
 <p><b>Services</b></p>
 <p>
-  <%= f.check_box :education_school_difficulties %> Any difficulty accessing school?
+  <%= f.select :education_school_difficulties, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Any difficulty accessing school?
 </p>
 <p>
-  <%= f.check_box :education_activities %> Have activities been organised for children?
+  <%= f.select :education_activities, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Have activities been organised for children?
 </p>
 <p>
-  <%= f.check_box :communication_update %> Update on steps being taken by various agencies provided? 
+  <%= f.select :communication_update, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Update on steps being taken by various agencies provided? 
 </p>
 <p>
-  <%= f.check_box :legal_reintegration_assistance %> Sufficient assistance to those planning to return to their homes or resettle in communities?	
+  <%= f.select :legal_reintegration_assistance, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Sufficient assistance to those planning to return to their homes or resettle in communities?	
 </p>
 <p>
-  <%= f.check_box :legal_repatriation_assistance %> Steps taken to assist those wishing repatriation?
+  <%= f.select :legal_repatriation_assistance, Daily::TRUE_FALSE_NA.collect { |m| [m, m] } %> Steps taken to assist those wishing repatriation?
 </p>
 <p>
 	<%= f.label :any_additional_comments %><br />
