@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.resources :assessments
 
   map.resources :dailies
-
 
   map.resources :depots
 
@@ -49,6 +49,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :interventions
     admin.resources :location_types
     admin.resources :regions
+    admin.resources :food_providers
   end
     
   map.activate '/activate/:id', :controller => "users", :action => "activate"

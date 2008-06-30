@@ -1,0 +1,20 @@
+<h1>Listing food_providers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% for food_provider in @food_providers %>
+  <tr>
+    <td><%=h food_provider.name %></td>
+    <td><%= link_to 'Show', admin_food_provider_path(food_provider) %></td>
+    <td><%= link_to 'Edit', edit_admin_food_provider_path(food_provider) %></td>
+    <td><%= link_to 'Destroy', admin_food_provider_path(food_provider), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New food_provider', new_admin_food_provider_path %>
