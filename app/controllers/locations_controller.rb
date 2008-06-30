@@ -97,7 +97,7 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.xml
   def index
-    @locations = Location.find(:all, :conditions => ["active = 1"])
+    @locations = Location.find(:all, :conditions => ["active = 1"], :order => sort_order('name'))
     
     @total_capacity = @locations.inject(0) do |sum, location|
       sum += location.capacity
