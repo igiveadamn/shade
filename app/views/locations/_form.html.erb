@@ -123,6 +123,39 @@
 	  <%= f.text_field :food_meals_per_day, :size => 4, :maxlength => 4 %>
 		<%= f.label :meals_per_day %>
 	</p>
+	<p>Food Providers</p>
+	<table>
+		<tr>
+			<th>Provider</th>
+			<th>Number of meals daily</th>
+		</tr>
+		<tr>
+			<td><%= f.label :hdi %></td>
+			<td><%= f.text_field :food_provider_hdi, :size => 4, :maxlength => 4 %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :mustadafin %></td>
+			<td><%= f.text_field :food_provider_mustadafin, :size => 4, :maxlength => 4 %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :sanzaf %></td>
+			<td><%= f.text_field :food_provider_sanzaf, :size => 4, :maxlength => 4 %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :salvation_army %></td>
+			<td><%= f.text_field :food_provider_salvation_army, :size => 4, :maxlength => 4 %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :red_cross %></td>
+			<td><%= f.text_field :food_provider_red_cross, :size => 4, :maxlength => 4 %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :other %><%= f.text_field :food_provider_other_detail %></td>
+			<td><%= f.text_field :food_provider_other, :size => 4, :maxlength => 4 %>
+			</td>
+		</tr>
+	</table>	
+	
 	<p>
 	  <%= f.check_box :food_milk_supplements_for_children %>
 		<%= f.label :milk_supplements_for_children %>

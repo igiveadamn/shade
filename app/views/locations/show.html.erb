@@ -51,7 +51,13 @@
 
 <p><b>Provisions</b></p>
 <p>Regular food provider: <%=h "yes" if @location.food_regular_provider %></p>
-<p>Meals per day: <%=h @location.food_meals_per_day %></p>
+<p>Total Meals per day: <%=h @location.food_meals_per_day %></p>
+<p>HDI Meals per day: <%=h @location.food_provider_hdi %></p>
+<p>Mustadafin Meals per day: <%=h @location.food_provider_mustadafin %></p>
+<p>SANZAF Meals per day: <%=h @location.food_provider_sanzaf %></p>
+<p>Salvation Army Meals per day: <%=h @location.food_provider_salvation_army %></p>
+<p>Red Cross Meals per day: <%=h @location.food_provider_red_cross %></p>
+<p>Other Meals per day: <%=h @location.food_provider_other %> (<%=h @location.food_provider_other_detail %>)</p>
 <p>Milk supplements available for children: <%=h "yes" if @location.food_milk_supplements_for_children %></p>
 <p>Disposable nappies available: <%=h "yes" if @location.nonfood_disposable_nappies %></p>
 <p>Sanitary towels available: <%=h "yes" if @location.nonfood_sanitary_towels %></p>
