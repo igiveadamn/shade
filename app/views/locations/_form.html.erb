@@ -254,11 +254,11 @@
 		<%= f.label :nearest_health_facility %>: <%= f.text_field :health_nearest, :size => 4, :maxlength => 4 %> kms
 	</p>
 	<p>
-	  <%= f.check_box :education_children_attending_school %>
+	  <%= f.select :education_attending_school, Location::TRUE_FALSE_NA.collect { |m| [m, m] } %>
 		<%= f.label :are_children_attending_school %>
 	</p>
 	<p>
-	  <%= f.check_box :education_children_recreational_activities %>
+	  <%= f.select :education_recreational_activities, Location::TRUE_FALSE_NA.collect { |m| [m, m] } %>
 		<%= f.label :are_recreational_activities_arranged_for_children %>
 	</p>
 	<p>

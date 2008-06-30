@@ -92,8 +92,8 @@
 <p>Health service on site: <%=h @location.health_frequency %></p>
 <p>Distance to nearest health facility: <%=h @location.health_nearest %> kms</p>
 <p/>
-<p>Are children able to attend school: <%=h "yes" if @location.education_children_attending_school %></p>
-<p>Are recreational activities arranged for children: <%=h "yes" if @location.education_children_recreational_activities %></p>
+<p>Are children able to attend school: <%=h @location.education_attending_school %></p>
+<p>Are recreational activities arranged for children: <%=h @location.education_recreational_activities %></p>
 <p>Is there reading material available for adults: <%=h "yes" if @location.education_adults_reading_material %></p>
 <p/>
 <p>Is legal support available: <%=h "yes" if @location.legal_support_available %></p>
