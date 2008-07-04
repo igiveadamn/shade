@@ -22,10 +22,12 @@ ActionController::Routing::Routes.draw do |map|
     :health_for => :get,
     :latest_assessments_for => :get,
     :latest_dailies_for => :get,
+    :all_assessments_for => :get,
+    :all_dailies_for => :get,
     :activation => :get
-  } , :member => {
+  }, :member => {
     :activate => :post
-    }
+  }
   
   map.resources :my_tasks
 

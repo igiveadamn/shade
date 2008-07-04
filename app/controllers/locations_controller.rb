@@ -7,7 +7,6 @@ class LocationsController < ApplicationController
   end
 
   # GET /locations/occupancies_for
-  # GET /locations/occupancies_for.xml
   def occupancies_for
     @locations = Location.find(:all, :conditions => ["active = 1"])
 
@@ -55,47 +54,34 @@ class LocationsController < ApplicationController
       end
     end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @locations }
-    end
   end
 
   # GET /locations/health_for
-  # GET /locations/health_for.xml
   def health_for
     @locations = Location.find(:all, :conditions => ["active = 1"], :order => sort_order('name'))
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @locations }
-    end
   end
 
   # GET /locations/latest_dailies_for
-  # GET /locations/latest_dailies_for.xml
   def latest_dailies_for
     @locations = Location.find(:all, :conditions => ["active = 1"])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @locations }
-    end
   end
 
   # GET /locations/latest_assessments_for
-  # GET /locations/latest_assessments_for.xml
   def latest_assessments_for
     @locations = Location.find(:all, :conditions => ["active = 1"])
+  end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @locations }
-    end
+  # GET /locations/all_assessments_for
+  def all_assessments_for
+    @locations = Location.find(:all)
+  end
+
+  # GET /locations/all_dailies_for
+  def all_dailies_for
+    @locations = Location.find(:all)
   end
 
   # GET /locations
-  # GET /locations.xml
   def index
     @locations = Location.find(:all, :conditions => ["active = 1"], :order => sort_order('name'))
     
@@ -105,11 +91,6 @@ class LocationsController < ApplicationController
 
     @total_occupancy = @locations.inject(0) do |sum, location|
       sum += location.occupancy
-    end
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @locations }
     end
   end
 
@@ -129,25 +110,13 @@ class LocationsController < ApplicationController
   end
 
   # GET /locations/1
-  # GET /locations/1.xml
   def show
     @location = Location.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @location }
-    end
   end
 
   # GET /locations/new
-  # GET /locations/new.xml
   def new
     @location = Location.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @location }
-    end
   end
 
   # GET /locations/1/edit
@@ -156,48 +125,34 @@ class LocationsController < ApplicationController
   end
 
   # POST /locations
-  # POST /locations.xml
   def create
     @location = Location.new(params[:location])
 
-    respond_to do |format|
       if @location.save
         flash[:notice] = 'Location was successfully created.'
-        format.html { redirect_to(@location) }
-        format.xml  { render :xml => @location, :status => :created, :location => @location }
+        redirect_to(@location)
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @location.errors, :status => :unprocessable_entity }
+        render :action => "new"
       end
-    end
   end
 
   # PUT /locations/1
-  # PUT /locations/1.xml
   def update
     @location = Location.find(params[:id])
 
-    respond_to do |format|
       if @location.update_attributes(params[:location])
         flash[:notice] = 'Location was successfully updated.'
-        format.html { redirect_to(@location) }
-        format.xml  { head :ok }
+        redirect_to(@location)
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @location.errors, :status => :unprocessable_entity }
+        render :action => "edit"
       end
-    end
   end
 
   # DELETE /locations/1
-  # DELETE /locations/1.xml
   def destroy
     @location = Location.find(params[:id])
     @location.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(locations_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to(locations_url)
   end
 end

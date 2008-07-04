@@ -1,0 +1,65 @@
+<h1>All follow up assessments for all locations</h1>
+
+<table>
+<tr>
+	<th>location</th>
+  <th>assessment_date</th>
+	<th>assessor_name</th>
+	<th>profile_total</th>
+  <th>profile_men</th>
+  <th>profile_women</th>
+  <th>departures_total</th>
+  <th>departures_original_community</th>
+  <th>departures_another_community</th> 
+  <th>departures_another_idp_site</th>
+  <th>departures_repatriation</th>
+  <th>departures_other</th>
+  <th>departures_other_detail</th>
+  <th>departures_unknown</th>
+  <th>arrivals_total</th>
+  <th>arrivals_original_community</th>
+  <th>arrivals_another_community</th>
+  <th>arrivals_another_idp_site</th>
+  <th>arrivals_other</th>
+  <th>arrivals_other_detail</th>
+  <th>arrivals_unknown</th>
+  <th>source_head_count</th>
+  <th>source_somebody_told_me</th>
+  <th>source_day_time</th>
+	<th>created_by</th>
+	<th>created_at</th>
+</tr>
+
+<% for location in @locations %>
+	<% for assessment in location.assessments %>
+		<tr>
+			<td><%= link_to location.name, location_path(location) %></td>
+	  	<td><%= assessment.assessment_date %></td>
+	  	<td><%= assessment.assessor_name %></td>
+		  <td><%= assessment.profile_total %></td>
+		  <td><%= assessment.profile_men %></td>
+		  <td><%= assessment.profile_women %></td>
+		  <td><%= assessment.departures_total %></td>
+		  <td><%= assessment.departures_original_community %></td>
+		  <td><%= assessment.departures_another_community %></td> 
+		  <td><%= assessment.departures_another_idp_site %></td>
+		  <td><%= assessment.departures_repatriation %></td>
+		  <td><%= assessment.departures_other %></td>
+		  <td><%= assessment.departures_other_detail %></td>
+		  <td><%= assessment.departures_unknown %></td>
+		  <td><%= assessment.arrivals_total %></td>
+		  <td><%= assessment.arrivals_original_community %></td>
+		  <td><%= assessment.arrivals_another_community %></td>
+		  <td><%= assessment.arrivals_another_idp_site %></td>
+		  <td><%= assessment.arrivals_other %></td>
+		  <td><%= assessment.arrivals_other_detail %></td>
+		  <td><%= assessment.arrivals_unknown %></td>
+		  <td><%= assessment.source_head_count %></td>
+		  <td><%= assessment.source_somebody_told_me %></td>
+		  <td><%= assessment.source_day_time %></td>
+			<td><%= assessment.created_by.login %></td>
+			<td><%= assessment.created_at %></td>
+		</tr>
+	<% end %>
+<% end %>
+</table>

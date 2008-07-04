@@ -1,0 +1,103 @@
+<h1>All daily checklists for all locations</h1>
+
+<table>
+<tr>
+	<th>location</th>
+	<th>assessment_date</th>
+	<th>assessor_name</th>
+	<th>management_meetings_held</th>
+	<th>food_as_scheduled</th>
+	<th>food_sufficient</th>
+	<th>food_milk_supplements_under_6_months</th>
+	<th>food_milk_supplements_under_5_years</th>
+	<th>food_additional_for_children</th>
+  <th>food_comments</th>
+	<th>sanitation_toilets_broken_flush</th>
+	<th>sanitation_toilets_broken_chemical</th>
+	<th>sanitation_toilets_broken_other</th>
+	<th>sanitation_toilets_cleaned</th>
+	<th>sanitation_undrained_water</th>
+	<th>water_adequate_drinking_water</th>
+	<th>washing_showers_broken</th>
+	<th>washing_baths_broken</th>
+	<th>washing_basins_broken</th>
+	<th>washing_showers_without_soap</th>
+	<th>washing_hot_water</th>
+	<th>refuse_collected</th>
+	<th>refuse_storage_adequate</th>
+	<th>electricity_broken_lights</th>
+	<th>bedding_without_mattresses</th>
+	<th>bedding_without_blankets</th>
+	<th>security_present</th>
+	<th>security_adequate</th>
+	<th>security_incidents</th>
+	<th>health_diarrhoea</th>
+	<th>health_rashes</th>
+	<th>health_pregnant_women</th>
+	<th>health_coughs</th>
+	<th>health_fevers</th>
+	<th>health_appointments</th>
+	<th>health_admissions</th>
+	<th>health_difficulties</th>
+	<th>education_school_difficulties</th>
+	<th>education_activities</th>
+	<th>communication_update</th>
+	<th>legal_reintegration_assistance</th>
+	<th>legal_repatriation_assistance</th>
+	<th>comments</th>
+	<th>created_by</th>
+	<th>created_at</th>
+</tr>
+
+<% for location in @locations %>
+	<% for daily in location.dailies %>
+		<tr>
+			<td><%= link_to location.name, location_path(location) %></td>
+	  	<td><%= daily.assessment_date %></td>
+	  	<td><%= daily.assessor_name %></td>
+			<td><%= daily.management_meetings_held %></td>
+			<td><%= daily.food_as_scheduled %></td>
+			<td><%= daily.food_sufficient %></td>
+			<td><%= daily.food_milk_supplements_under_6_months %></td>
+			<td><%= daily.food_milk_supplements_under_5_years %></td>
+			<td><%= daily.food_additional_for_children %></td>
+		  <td><%= daily.food_comments %></td>
+			<td><%= daily.sanitation_toilets_broken_flush %></td>
+			<td><%= daily.sanitation_toilets_broken_chemical %></td>
+			<td><%= daily.sanitation_toilets_broken_other %></td>
+			<td><%= daily.sanitation_toilets_cleaned %></td>
+			<td><%= daily.sanitation_undrained_water %></td>
+			<td><%= daily.water_adequate_drinking_water %></td>
+			<td><%= daily.washing_showers_broken %></td>
+			<td><%= daily.washing_baths_broken %></td>
+			<td><%= daily.washing_basins_broken %></td>
+			<td><%= daily.washing_showers_without_soap %></td>
+			<td><%= daily.washing_hot_water %></td>
+			<td><%= daily.refuse_collected %></td>
+			<td><%= daily.refuse_storage_adequate %></td>
+			<td><%= daily.electricity_broken_lights %></td>
+			<td><%= daily.bedding_without_mattresses %></td>
+			<td><%= daily.bedding_without_blankets %></td>
+			<td><%= daily.security_present %></td>
+			<td><%= daily.security_adequate %></td>
+			<td><%= daily.security_incidents %></td>
+			<td><%= daily.health_diarrhoea %></td>
+			<td><%= daily.health_rashes %></td>
+			<td><%= daily.health_pregnant_women %></td>
+			<td><%= daily.health_coughs %></td>
+			<td><%= daily.health_fevers %></td>
+			<td><%= daily.health_appointments %></td>
+			<td><%= daily.health_admissions %></td>
+			<td><%= daily.health_difficulties %></td>
+			<td><%= daily.education_school_difficulties %></td>
+			<td><%= daily.education_activities %></td>
+			<td><%= daily.communication_update %></td>
+			<td><%= daily.legal_reintegration_assistance %></td>
+			<td><%= daily.legal_repatriation_assistance %></td>
+			<td><%= daily.comments %></td>
+			<td><%= daily.created_by.login %></td>
+			<td><%= daily.created_at %></td>
+		</tr>
+	<% end %>
+<% end %>
+</table>
