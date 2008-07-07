@@ -73,6 +73,18 @@ class Location < ActiveRecord::Base
     return occupancies.current.children
   end
   
+  def working
+    return "unknown" unless occupancies.any?
+    return "unknown" unless occupancies.current.working
+    return occupancies.current.working
+  end
+  
+  def school
+    return "unknown" unless occupancies.any?
+    return "unknown" unless occupancies.current.school
+    return occupancies.current.school
+  end
+  
   def availability
     capacity - occupancy
   end

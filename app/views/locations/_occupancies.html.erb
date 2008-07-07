@@ -3,10 +3,12 @@
 	<th><%= sort_link 'Location', :name %></th>
   <th>assessor_name</th>
   <th>quantity</th>
-  <th>men</th>
-  <th>women</th>
-  <th>children</th>
+  <th>male</th>
+  <th>female</th>
+  <th>working</th>
   <th>pregnant</th>
+  <th>children</th>
+  <th>school going age</th>
   <th>chronic_medication</th>
   <th>source_head_count</th>
   <th>source_somebody_told_me</th>
@@ -24,8 +26,10 @@
 		<td><%= location.occupancy %></td>
 		<td><%= location.men %></td>
 		<td><%= location.women %></td>
-		<td><%= location.children %></td>
+		<td><%= location.working %></td>
 		<td><%= location.pregnant %></td>
+		<td><%= location.children %></td>
+		<td><%= location.school %></td>
 		<td><%= location.chronic_medication %></td>
 		<td><%= if location.occupancies.any? then location.occupancies.current.source_head_count end %></td>
 		<td><%= if location.occupancies.any? then location.occupancies.current.source_somebody_told_me end %></td>

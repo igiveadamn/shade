@@ -6,10 +6,12 @@
 	<th>created by</th>
 	<th>assessor_name</th>
 	<th>total</th>
-	<th>men</th>
-	<th>women</th>
-	<th>under 5</th>
+	<th>male</th>
+	<th>female</th>
+	<th>working</th>
 	<th>pregnant women</th>
+	<th>under 5</th>
+	<th>school going age</th>
 	<th>people on chronic medication</th>
 	<th>head count</th>
 	<th>somebody told me</th>
@@ -25,8 +27,10 @@
 		<td><strong style="color: red;"><%=h occupancy.quantity %></strong></td>
 		<td><%=h occupancy.men %></td>
 		<td><%=h occupancy.women %></td>
-		<td><%=h occupancy.children %></td>
+		<td><%=h occupancy.working %></td>
 		<td><%=h occupancy.pregnant %></td>
+		<td><%=h occupancy.children %></td>
+		<td><%=h occupancy.school %></td>
 		<td><%=h occupancy.chronic_medication %></td>
 		<td><%=h occupancy.source_head_count %></td>
 		<td><%=h occupancy.source_somebody_told_me %></td>

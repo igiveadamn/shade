@@ -30,6 +30,14 @@ class LocationsController < ApplicationController
       end
     end
 
+    @total_working = @locations.inject(0) do |sum, location|
+      if location.working && (location.working.is_a? Integer)
+        sum += location.working
+      else
+        sum = sum
+      end
+    end
+
     @total_pregnant = @locations.inject(0) do |sum, location|
       if location.pregnant && (location.pregnant.is_a? Integer)
         sum += location.pregnant
@@ -49,6 +57,14 @@ class LocationsController < ApplicationController
     @total_children = @locations.inject(0) do |sum, location|
       if location.children && (location.children.is_a? Integer)
         sum += location.children
+      else
+        sum = sum
+      end
+    end
+
+    @total_school = @locations.inject(0) do |sum, location|
+      if location.school && (location.school.is_a? Integer)
+        sum += location.school
       else
         sum = sum
       end
