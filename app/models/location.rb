@@ -61,6 +61,12 @@ class Location < ActiveRecord::Base
     return occupancies.current.pregnant
   end
   
+  def babies
+    return "unknown" unless occupancies.any?
+    return "unknown" unless occupancies.current.babies
+    return occupancies.current.babies
+  end
+  
   def chronic_medication
     return "unknown" unless occupancies.any?
     return "unknown" unless occupancies.current.chronic_medication

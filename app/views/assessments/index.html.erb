@@ -4,9 +4,18 @@
 	<tr>
 	  <th>assessment_date</th>
 	  <th>assessor_name</th>
-	  <th>profile_total</th>
-	  <th>profile_men</th>
-	  <th>profile_women</th>
+    <th>management_government_official_assigned</th>
+    <th>management_volunteer_assigned</th>
+    <th>management_idp_representatives_assigned</th>
+    <th>management_site_meetings_initiated</th>
+    <th>management_minutes_of_last_site_meeting</th>
+    <th>management_men_and_women_represented</th>
+    <th>shelter_adequate</th>
+    <th>shelter_number_of_tents</th>
+    <th>shelter_size_of_tents</th>
+    <th>shelter_people_per_tent</th>
+    <th>shelter_family_tents</th>
+    <th>shelter_tents_leak</th>
 	  <th>departures_total</th>
 	  <th>departures_original_community</th>
 	  <th>departures_another_community</th> 
@@ -25,6 +34,66 @@
 		<th>head count</th>
 		<th>somebody told me</th>
 		<th>day time</th>
+    <th>food_regular_provider</th>
+    <th>food_meals_per_day</th>
+    <th>food_sufficient</th>
+    <th>food_provider_hdi</th>
+    <th>food_provider_mustadafin</th>
+    <th>food_provider_sanzaf</th>
+    <th>food_provider_salvation_army</th>
+    <th>food_provider_red_cross</th>
+    <th>food_provider_other</th>
+    <th>food_provider_other_detail</th>
+    <th>food_milk_supplements_for_children</th>
+    <th>food_milk_supplements_frequency</th>
+    <th>food_milk_supplements_method</th>
+    <th>non_food_soap</th>
+    <th>non_food_nappies</th>
+    <th>non_food_nappies_per_child</th>
+    <th>non_food_sanitary_towels</th>
+    <th>non_food_sanitary_towels_per_female</th>
+    <th>non_food_other_detail</th>
+    <th>non_food_other</th>
+    <th>non_food_other_per_person</th>
+    <th>toilets_flush</th>
+    <th>toilets_chemical</th>
+    <th>toilets_other_detail</th>
+    <th>toilets_other</th>
+    <th>toilets_total</th>
+    <th>toilets_separate</th>
+    <th>toilets_clean</th>
+    <th>washing_showers</th>
+    <th>washing_baths</th>
+    <th>washing_basins</th>
+    <th>washing_separate</th>
+    <th>lighting_sleeping</th>
+    <th>lighting_communal</th>
+    <th>lighting_female_toilets</th>
+    <th>lighting_female_bathing</th>
+    <th>bedding_mattresses</th>
+    <th>bedding_blankets</th>
+    <th>security</th>
+    <th>health_distance_to_nearest</th>
+    <th>health_refused_care</th>
+    <th>health_refused_care_clinic</th>
+    <th>health_refused_care_date_time</th>
+    <th>health_transport_to</th>
+    <th>health_transport_from</th>
+    <th>health_first_aid_kit</th>
+    <th>health_diarrhoea</th>
+    <th>health_fever</th>
+    <th>health_rash</th>
+    <th>health_cough</th>
+    <th>health_health_worker</th>
+    <th>health_health_worker_hours</th>
+    <th>health_health_worker_days</th>
+    <th>children_attending_school</th>
+    <th>children_activities</th>
+    <th>adults_reading_material</th>
+    <th>legal_advice</th>
+    <th>legal_information</th>
+    <th>legal_assistance</th>
+    <th>comments</th>
 		<th>created_by</th>
 	</tr>
 
@@ -32,9 +101,18 @@
 	<tr>
 	  <td><%= assessment.assessment_date %></td>
 	  <td><%= assessment.assessor_name %></td>
-	  <td><%= assessment.profile_total %></td>
-	  <td><%= assessment.profile_men %></td>
-	  <td><%= assessment.profile_women %></td>
+    <td><%= assessment.management_government_official_assigned %></td>
+    <td><%= assessment.management_volunteer_assigned %></td>
+    <td><%= assessment.management_idp_representatives_assigned %></td>
+    <td><%= assessment.management_site_meetings_initiated %></td>
+    <td><%= assessment.management_minutes_of_last_site_meeting %></td>
+    <td><%= assessment.management_men_and_women_represented %></td>
+    <td><%= assessment.shelter_adequate %></td>
+    <td><%= assessment.shelter_number_of_tents %></td>
+    <td><%= assessment.shelter_size_of_tents %></td>
+    <td><%= assessment.shelter_people_per_tent %></td>
+    <td><%= assessment.shelter_family_tents %></td>
+    <td><%= assessment.shelter_tents_leak %></td>
 	  <td><%= assessment.departures_total %></td>
 	  <td><%= assessment.departures_original_community %></td>
 	  <td><%= assessment.departures_another_community %></td> 
@@ -53,6 +131,66 @@
 		<td><%= assessment.source_head_count %></td>
 		<td><%= assessment.source_somebody_told_me %></td>
 		<td><%= assessment.source_day_time %></td>
+    <td><%= assessment.food_regular_provider %></td>
+    <td><%= assessment.food_meals_per_day %></td>
+    <td><%= assessment.food_sufficient %></td>
+    <td><%= assessment.food_provider_hdi %></td>
+    <td><%= assessment.food_provider_mustadafin %></td>
+    <td><%= assessment.food_provider_sanzaf %></td>
+    <td><%= assessment.food_provider_salvation_army %></td>
+    <td><%= assessment.food_provider_red_cross %></td>
+    <td><%= assessment.food_provider_other %></td>
+    <td><%= assessment.food_provider_other_detail %></td>
+    <td><%= assessment.food_milk_supplements_for_children %></td>
+    <td><%= assessment.food_milk_supplements_frequency %></td>
+    <td><%= assessment.food_milk_supplements_method %></td>
+    <td><%= assessment.non_food_soap %></td>
+    <td><%= assessment.non_food_nappies %></td>
+    <td><%= assessment.non_food_nappies_per_child %></td>
+    <td><%= assessment.non_food_sanitary_towels %></td>
+    <td><%= assessment.non_food_sanitary_towels_per_female %></td>
+    <td><%= assessment.non_food_other_detail %></td>
+    <td><%= assessment.non_food_other %></td>
+    <td><%= assessment.non_food_other_per_person %></td>
+    <td><%= assessment.toilets_flush %></td>
+    <td><%= assessment.toilets_chemical %></td>
+    <td><%= assessment.toilets_other_detail %></td>
+    <td><%= assessment.toilets_other %></td>
+    <td><%= assessment.toilets_total %></td>
+    <td><%= assessment.toilets_separate %></td>
+    <td><%= assessment.toilets_clean %></td>
+    <td><%= assessment.washing_showers %></td>
+    <td><%= assessment.washing_baths %></td>
+    <td><%= assessment.washing_basins %></td>
+    <td><%= assessment.washing_separate %></td>
+    <td><%= assessment.lighting_sleeping %></td>
+    <td><%= assessment.lighting_communal %></td>
+    <td><%= assessment.lighting_female_toilets %></td>
+    <td><%= assessment.lighting_female_bathing %></td>
+    <td><%= assessment.bedding_mattresses %></td>
+    <td><%= assessment.bedding_blankets %></td>
+    <td><%= assessment.security %></td>
+    <td><%= assessment.health_distance_to_nearest %></td>
+    <td><%= assessment.health_refused_care %></td>
+    <td><%= assessment.health_refused_care_clinic %></td>
+    <td><%= assessment.health_refused_care_date_time %></td>
+    <td><%= assessment.health_transport_to %></td>
+    <td><%= assessment.health_transport_from %></td>
+    <td><%= assessment.health_first_aid_kit %></td>
+    <td><%= assessment.health_diarrhoea %></td>
+    <td><%= assessment.health_fever %></td>
+    <td><%= assessment.health_rash %></td>
+    <td><%= assessment.health_cough %></td>
+    <td><%= assessment.health_health_worker %></td>
+    <td><%= assessment.health_health_worker_hours %></td>
+    <td><%= assessment.health_health_worker_days %></td>
+    <td><%= assessment.children_attending_school %></td>
+    <td><%= assessment.children_activities %></td>
+    <td><%= assessment.adults_reading_material %></td>
+    <td><%= assessment.legal_advice %></td>
+    <td><%= assessment.legal_information %></td>
+    <td><%= assessment.legal_assistance %></td>
+    <td><%= assessment.comments %></td>
 		<td><%= assessment.created_by.login %></td>
 	</tr>
 <% end %>

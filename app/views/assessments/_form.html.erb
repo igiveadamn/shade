@@ -8,18 +8,60 @@ Please answer ALL questions in the context what has happened SINCE THE PREVIOUS 
   <%= f.text_field :assessor_name, :value => current_user.login %> Name of person conducting the assessment
 </p>
 
-<p><b>Overall Profile</b></p>
+<p><b>Site Management and Decision Making</b></p>
 
 <p>
-  <%= f.text_field :profile_total, :size => 4, :maxlength => 4  %> Total number of people
+  <%= f.check_box :management_government_official_assigned %>
+	<%= f.label :government_official_assigned %>
 </p>
 <p>
-  <%= f.text_field :profile_men, :size => 4, :maxlength => 4  %> Male
+  <%= f.check_box :management_volunteer_assigned %>
+	<%= f.label :volunteer_assigned %>
 </p>
 <p>
-  <%= f.text_field :profile_women, :size => 4, :maxlength => 4  %> Female
+  <%= f.check_box :management_idp_representatives_assigned %>
+	<%= f.label :idp_representatives_assigned %>
+</p>
+<p>
+  <%= f.check_box :management_site_meetings_initiated %>
+	<%= f.label :site_meetings_initiated %>
+</p>
+<p>
+  <%= f.check_box :management_minutes_of_last_site_meeting %>
+	<%= f.label :minutes_of_last_site_meeting_available %>
+</p>
+<p>
+  <%= f.check_box :management_men_and_women_represented %>
+	<%= f.label :men_and_women_represented_in_structure %>
 </p>
 
+
+<p><b>Shelter</b></p>
+
+<p>
+  <%= f.check_box :shelter_adequate %> Is there adequate shelter for everyone on site?
+</p>
+
+If NO: specify
+<p>
+	<%= f.label :number_of_tents %>: 
+  <%= f.text_field :shelter_number_of_tents, :size => 4, :maxlength => 4 %>
+</p>
+<p>
+	<%= f.label :average_size_of_tents %>: 
+  <%= f.text_field :shelter_size_of_tents, :size => 4, :maxlength => 4 %> square metres
+</p>
+<p>
+	<%= f.label :number_of_people_per_tent %>: 
+  <%= f.text_field :shelter_people_per_tent, :size => 4, :maxlength => 4 %>
+</p>
+
+<p>
+	<%= f.label :are_there_separate_family_tents %>: <%= f.select :shelter_family_tents, Assessment::NA_TRUE_FALSE.collect { |m| [m, m] } %>
+</p>
+<p>
+	<%= f.label :do_the_tents_leak %>: <%= f.select :shelter_tents_leak, Assessment::NA_TRUE_FALSE.collect { |m| [m, m] } %>
+</p>
 
 <p><b>Departures</b></p>
 
@@ -91,4 +133,263 @@ Please answer ALL questions in the context what has happened SINCE THE PREVIOUS 
 <p>
   <%= f.check_box :source_day_time %> Day time count
 </p>
+
+
+<p><b>Food Distribution</b></p>
+<p>
+  <%= f.check_box :food_regular_provider %>
+	<%= f.label :food_regular_provider %>
+</p>
+<p>
+  <%= f.text_field :food_meals_per_day, :size => 4, :maxlength => 4 %>
+	<%= f.label :meals_per_day %>
+</p>
+<p>
+  <%= f.check_box :food_sufficient %>
+	<%= f.label :is_food_sufficient %>
+</p>
+<table>
+	<tr>
+		<th>Provider</th>
+		<th>Number of meals daily</th>
+	</tr>
+	<tr>
+		<td><%= f.label :hdi %></td>
+		<td><%= f.text_field :food_provider_hdi, :size => 4, :maxlength => 4 %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :mustadafin %></td>
+		<td><%= f.text_field :food_provider_mustadafin, :size => 4, :maxlength => 4 %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :sanzaf %></td>
+		<td><%= f.text_field :food_provider_sanzaf, :size => 4, :maxlength => 4 %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :salvation_army %></td>
+		<td><%= f.text_field :food_provider_salvation_army, :size => 4, :maxlength => 4 %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :red_cross %></td>
+		<td><%= f.text_field :food_provider_red_cross, :size => 4, :maxlength => 4 %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :other %><%= f.text_field :food_provider_other_detail %></td>
+		<td><%= f.text_field :food_provider_other, :size => 4, :maxlength => 4 %>
+		</td>
+	</tr>
+</table>	
+
+<p>
+  <%= f.check_box :food_milk_supplements_for_children %>
+	<%= f.label :sufficient_milk_supplements_for_children %>
+</p>
+<p>
+  How often: <%= f.text_field :food_milk_supplements_frequency, :size => 4, :maxlength => 4 %> times per day
+</p>
+<p>
+	<%= f.label :how_provided %>: <%= f.select :food_milk_supplements_method, Assessment::MILK_SUPPLEMENTS_METHOD.collect { |m| [m, m] } %>
+</p>
+
+
+<p><b>Non Food</b></p>
+
+<p>
+  <%= f.check_box :non_food_soap %>
+	<%= f.label :is_there_sufficient_soap %>
+</p>
+<p>
+  <%= f.check_box :non_food_nappies %>
+	<%= f.label :are_there_sufficient_disposable_nappies %>
+	<%= f.text_field :non_food_nappies_per_child, :size => 4, :maxlength => 4 %> per child
+</p>
+<p>
+  <%= f.check_box :non_food_sanitary_towels %>
+	<%= f.label :are_there_sufficient_sanitary_towels %>
+	<%= f.text_field :non_food_sanitary_towels_per_female, :size => 4, :maxlength => 4 %> per female
+</p>
+<p>
+  <%= f.check_box :non_food_other %>
+	<%= f.label :other %> (specify) <%= f.text_field :non_food_other_detail %>
+	<%= f.text_field :non_food_other_per_person, :size => 4, :maxlength => 4 %> per person
+</p>
+
+
+<p><b>Toilets</b></p>
+
+<p>
+	<%= f.text_field :toilets_flush, :size => 4, :maxlength => 4 %>
+	<%= f.label :flush %>
+</p>
+<p>
+	<%= f.text_field :toilets_chemical, :size => 4, :maxlength => 4 %>
+	<%= f.label :chemical %>
+</p>
+<p>
+	<%= f.text_field :toilets_other, :size => 4, :maxlength => 4 %>
+	<%= f.label :other %> (specify)
+	<%= f.text_field :toilets_other_detail %>
+</p>
+<p>
+	<%= f.text_field :toilets_total, :size => 4, :maxlength => 4 %>
+	<%= f.label :total %>
+</p>
+<p>
+  <%= f.check_box :toilets_separate %>
+	<%= f.label :toilets_designated_for_men_and_women %>
+</p>
+<p>
+  <%= f.check_box :toilets_clean %>
+	<%= f.label :toilets_adequately_cleaned %>
+</p>
+
+<p><b>Washing facilities</b></p>
+
+<p>
+	<%= f.text_field :washing_showers, :size => 4, :maxlength => 4 %>
+	<%= f.label :showers %>
+</p>
+<p>
+	<%= f.text_field :washing_baths, :size => 4, :maxlength => 4 %>
+	<%= f.label :baths %>
+</p>
+<p>
+	<%= f.text_field :washing_basins, :size => 4, :maxlength => 4 %>
+	<%= f.label :basins %>
+</p>
+<p>
+  <%= f.check_box :washing_separate %>
+	<%= f.label :separate_washing_facilities_for_men_and_women %>
+</p>
+
+
+<p><b>Electric lighting</b></p>
+<p>
+  <%= f.check_box :lighting_sleeping %>
+	<%= f.label :sleeping_areas %>
+</p>
+<p>
+  <%= f.check_box :lighting_communal %>
+	<%= f.label :communal_areas %>
+</p>
+<p>
+  <%= f.check_box :lighting_female_toilets %>
+	<%= f.label :female_toilets %>
+</p>
+<p>
+  <%= f.check_box :lighting_female_bathing %>
+	<%= f.label :female_bathing %>
+</p>
+
+
+<p><b>Bedding</b></p>
+
+<p>
+	<%= f.text_field :bedding_mattresses, :size => 4, :maxlength => 4 %>
+	<%= f.label :percentage_of_people_sleeping_on_mattresses %>
+</p>
+<p>
+	<%= f.text_field :bedding_blankets, :size => 4, :maxlength => 4 %>
+	<%= f.label :percentage_of_people_with_sufficient_blankets %>
+</p>
+
+<p><b>Security</b></p>
+<p>
+	<%= f.select :security, Assessment::SECURITY.collect { |m| [m, m] } %>
+</p>
+
+<p><b>Health services</b></p>
+<p>
+	<%= f.label :distance_to_nearest_health_facility %>
+	<%= f.text_field :health_distance_to_nearest, :size => 4, :maxlength => 4 %> kms
+</p>
+<p>
+  <%= f.check_box :health_refused_care %> Has anyone been refused health care at a public health care facility?
+</p>
+if YES, 
+<p>
+	<%= f.label :clinic_name %>
+	<%= f.text_field :health_refused_care_clinic %>
+	date
+  <%= f.date_select :health_refused_care_date_time %>
+</p>
+
+<p>
+  <%= f.check_box :health_transport_to %>
+	<%= f.label :transport_to %>
+</p>
+<p>
+  <%= f.check_box :health_transport_from %>
+	<%= f.label :transport_from %>
+</p>
+<p>
+  <%= f.check_box :health_first_aid_kit %>
+	<%= f.label :first_aid_kit_on_site %>
+</p>
+
+<p>
+	<%= f.text_field :health_diarrhoea, :size => 4, :maxlength => 4 %>
+	<%= f.label :diarrhoea %>
+</p>
+<p>
+	<%= f.text_field :health_fever, :size => 4, :maxlength => 4 %>
+	<%= f.label :fever %>
+</p>
+<p>
+	<%= f.text_field :health_rash, :size => 4, :maxlength => 4 %>
+	<%= f.label :rash %>
+</p>
+<p>
+	<%= f.text_field :health_cough, :size => 4, :maxlength => 4 %>
+	<%= f.label :cough %>
+</p>
+
+<p>
+  <%= f.check_box :health_health_worker %>
+	<%= f.label :is_there_a_government_health_care_worker_on_site_each_week %>
+</p>
+if YES: how often?
+<p>
+	<%= f.text_field :health_health_worker_hours, :size => 4, :maxlength => 4 %>
+	<%= f.label :hours_per_day %>
+	<%= f.text_field :health_health_worker_days, :size => 4, :maxlength => 4 %>
+	<%= f.label :days_per_week %>
+</p>
+
+<p><b>Education</b></p>
+<p>
+  <%= f.select :children_attending_school, Assessment::NA_TRUE_FALSE.collect { |m| [m, m] } %>
+	<%= f.label :are_children_attending_school %>
+</p>
+
+<p>
+  <%= f.select :children_activities, Assessment::NA_TRUE_FALSE.collect { |m| [m, m] } %>
+	<%= f.label :children_activities %>
+</p>
+
+<p>
+  <%= f.select :adults_reading_material, Assessment::NA_TRUE_FALSE.collect { |m| [m, m] } %>
+	<%= f.label :adults_reading_material %>
+</p>
+
+<p><b>Legal</b></p>
+<p>
+  <%= f.check_box :legal_advice %>
+	<%= f.label :legal_advice %>
+</p>
+
+<p>
+  <%= f.check_box :legal_information %>
+	<%= f.label :legal_information %>
+</p>
+
+<p>
+  <%= f.check_box :legal_assistance %>
+	<%= f.label :legal_assistance %>
+</p>
+
+<p><b>Comments</b></p>
+<%= f.text_area :comments %>
+
+
 
