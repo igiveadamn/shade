@@ -7,5 +7,6 @@ class Assessment < ActiveRecord::Base
   NA_TRUE_FALSE = %w(N/A true false)
   MILK_SUPPLEMENTS_METHOD = %w(Cups Bottles)
   SECURITY = %w(None LessThan24Hours 24Hours)
+  NA_SUFFICIENT_INSUFFICIENT_NONE = %w(N/A sufficient insufficient none)
   
 end

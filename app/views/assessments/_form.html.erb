@@ -181,8 +181,7 @@ If NO: specify
 </table>	
 
 <p>
-  <%= f.check_box :food_milk_supplements_for_children %>
-	<%= f.label :sufficient_milk_supplements_for_children %>
+	<%= f.label :sufficient_milk_supplements_for_children %>: <%= f.select :food_milk_supplements_for_children, Assessment::NA_SUFFICIENT_INSUFFICIENT_NONE.collect { |m| [m, m] } %>
 </p>
 <p>
   How often: <%= f.text_field :food_milk_supplements_frequency, :size => 4, :maxlength => 4 %> times per day
@@ -199,19 +198,13 @@ If NO: specify
 	<%= f.label :is_there_sufficient_soap %>
 </p>
 <p>
-  <%= f.check_box :non_food_nappies %>
-	<%= f.label :are_there_sufficient_disposable_nappies %>
-	<%= f.text_field :non_food_nappies_per_child, :size => 4, :maxlength => 4 %> per child
+	<%= f.label :are_there_sufficient_disposable_nappies %>: <%= f.select :non_food_nappies, Assessment::NA_SUFFICIENT_INSUFFICIENT_NONE.collect { |m| [m, m] } %>
 </p>
 <p>
-  <%= f.check_box :non_food_sanitary_towels %>
-	<%= f.label :are_there_sufficient_sanitary_towels %>
-	<%= f.text_field :non_food_sanitary_towels_per_female, :size => 4, :maxlength => 4 %> per female
+	<%= f.label :are_there_sufficient_sanitary_towels %>: <%= f.select :non_food_sanitary_towels, Assessment::NA_SUFFICIENT_INSUFFICIENT_NONE.collect { |m| [m, m] } %>
 </p>
 <p>
-  <%= f.check_box :non_food_other %>
-	<%= f.label :other %> (specify) <%= f.text_field :non_food_other_detail %>
-	<%= f.text_field :non_food_other_per_person, :size => 4, :maxlength => 4 %> per person
+	<%= f.label :other %> (specify) <%= f.text_field :non_food_other_detail %> : <%= f.select :non_food_other, Assessment::NA_SUFFICIENT_INSUFFICIENT_NONE.collect { |m| [m, m] } %>
 </p>
 
 
@@ -235,9 +228,8 @@ If NO: specify
 	<%= f.label :total %>
 </p>
 <p>
-  <%= f.check_box :toilets_separate %>
-	<%= f.label :toilets_designated_for_men_and_women %>
-</p>
+  	<%= f.label :toilets_designated_for_men_and_women %>: <%= f.select :toilets_separate, Assessment::NA_TRUE_FALSE.collect { |m| [m, m] } %>
+cha</p>
 <p>
   <%= f.check_box :toilets_clean %>
 	<%= f.label :toilets_adequately_cleaned %>
@@ -258,8 +250,7 @@ If NO: specify
 	<%= f.label :basins %>
 </p>
 <p>
-  <%= f.check_box :washing_separate %>
-	<%= f.label :separate_washing_facilities_for_men_and_women %>
+	<%= f.label :separate_washing_facilities_for_men_and_women %>: <%= f.select :washing_separate, Assessment::NA_TRUE_FALSE.collect { |m| [m, m] } %>
 </p>
 
 
@@ -273,12 +264,10 @@ If NO: specify
 	<%= f.label :communal_areas %>
 </p>
 <p>
-  <%= f.check_box :lighting_female_toilets %>
-	<%= f.label :female_toilets %>
+	<%= f.label :female_toilets %>: <%= f.select :lighting_female_toilets, Assessment::NA_TRUE_FALSE.collect { |m| [m, m] } %>
 </p>
 <p>
-  <%= f.check_box :lighting_female_bathing %>
-	<%= f.label :female_bathing %>
+	<%= f.label :female_bathing %>: <%= f.select :lighting_female_bathing, Assessment::NA_TRUE_FALSE.collect { |m| [m, m] } %>
 </p>
 
 
