@@ -40,7 +40,7 @@ class OccupancyTest < ActiveSupport::TestCase
   
   protected
     def create(options = {})
-      Occupancy.create({ :quantity => 1, :comments => "Comments", :men => 12, :women => 23, :children => 34 , :pregnant => 45 , :chronic_medication => 56 }.merge(options))
+      Occupancy.create({ :quantity => 1, :comments => "Comments", :men => 12, :women => 23, :children => 34 , :pregnant => 45, :babies => 45, :working => 45, :school => 45, :chronic_medication => 56 }.merge(options))
     end
   
 end

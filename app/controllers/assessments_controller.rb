@@ -16,7 +16,14 @@ class AssessmentsController < ApplicationController
     # GET /assessments/new
     # GET /assessments/new.xml
     def new
+      @previous = @location.assessments.current
       @assessment = Assessment.new
+
+      #copy all attributes (except id) to the new assessment. this will result in prepopulation of the form
+      @previous.attributes.each do |key, value|
+        next if key == "id"
+        @assessment.write_attribute(key, value)
+      end
 
       respond_to do |format|
         format.html # new.html.erb
