@@ -87,6 +87,11 @@ class LocationsController < ApplicationController
     @locations = Location.find(:all, :conditions => ["active = 1"])
   end
 
+  # GET /locations/all_occupancies_for
+  def all_occupancies_for
+    @locations = Location.find(:all)
+  end
+
   # GET /locations/all_assessments_for
   def all_assessments_for
     @locations = Location.find(:all)

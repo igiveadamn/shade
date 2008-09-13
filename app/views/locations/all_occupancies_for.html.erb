@@ -1,0 +1,45 @@
+<table>
+<tr>
+	<th><%= sort_link 'Location', :name %></th>
+  <th>assessor_name</th>
+  <th>quantity</th>
+  <th>male</th>
+  <th>female</th>
+  <th>working</th>
+  <th>pregnant</th>
+  <th>babies</th>
+  <th>children</th>
+  <th>school going age</th>
+  <th>chronic_medication</th>
+  <th>source_head_count</th>
+  <th>source_somebody_told_me</th>
+  <th>source_day_time</th>
+  <th>created_at</th>
+  <th>created_by</th>
+  <th>comments</th>
+</tr>
+
+<% for location in @locations %>
+	<% for occupancy in location.occupancies %>
+		<tr>
+			<td><%= link_to location.name, location_path(location) %></td>
+			<td><%= occupancy.assessor_name %></td>
+			<td><%= occupancy.quantity %></td>
+			<td><%= occupancy.men %></td>
+			<td><%= occupancy.women %></td>
+			<td><%= occupancy.working %></td>
+			<td><%= occupancy.pregnant %></td>
+			<td><%= occupancy.babies %></td>
+			<td><%= occupancy.children %></td>
+			<td><%= occupancy.school %></td>
+			<td><%= occupancy.chronic_medication %></td>
+			<td><%= occupancy.source_head_count %></td>
+			<td><%= occupancy.source_somebody_told_me %></td>
+			<td><%= occupancy.source_day_time %></td>
+			<td><%= occupancy.created_at %></td>
+			<td><%= occupancy.created_by.login %></td>
+			<td><%= occupancy.comments %></td>
+		</tr>
+	<% end %>
+<% end %>
+</table>
