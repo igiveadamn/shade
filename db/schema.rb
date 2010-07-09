@@ -211,8 +211,8 @@ ActiveRecord::Schema.define(:version => 20080806191155) do
 
   create_table "locations", :force => true do |t|
     t.string   "name"
-    t.text     "address",                                 :limit => 255
-    t.text     "comments",                                :limit => 255
+    t.text     "address"
+    t.text     "comments"
     t.integer  "capacity"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -270,8 +270,8 @@ ActiveRecord::Schema.define(:version => 20080806191155) do
     t.string   "refuse_removal_type"
     t.boolean  "electric_lighting_sleeping"
     t.boolean  "electric_lighting_communal"
-    t.integer  "bedding_mattresses",                      :limit => 255
-    t.integer  "bedding_blankets",                        :limit => 255
+    t.integer  "bedding_mattresses"
+    t.integer  "bedding_blankets"
     t.string   "security"
     t.string   "health_frequency"
     t.integer  "health_nearest"

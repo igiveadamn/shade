@@ -1759,3 +1759,51 @@ Rendering locations/occupancies_for
 Rendered locations/_occupancies (0.5ms)
 Rendered layouts/_user_menu (4.8ms)
 Completed in 29ms (View: 11, DB: 1) | 200 OK [http://localhost/locations/occupancies_for?c=name&d=up]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("assessments")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("dailies")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("depots")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("food_providers")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("interventions")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("location_availabilities")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("location_types")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("locations")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("occupancies")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("organisations")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("regions")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("requests")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("supplies")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("assessments")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("dailies")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("depots")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("food_providers")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("interventions")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("location_availabilities")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("location_types")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("locations")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("occupancies")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("organisations")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("regions")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("requests")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("supplies")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
