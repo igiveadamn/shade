@@ -8,7 +8,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/occupancies_for
   def occupancies_for
-    @locations = Location.find(:all, :conditions => ["active = 1"])
+    @locations = Location.find(:all, :conditions => ["active"])
 
     @total_occupancy = @locations.inject(0) do |sum, location|
       sum += location.occupancy
@@ -74,17 +74,17 @@ class LocationsController < ApplicationController
 
   # GET /locations/health_for
   def health_for
-    @locations = Location.find(:all, :conditions => ["active = 1"], :order => sort_order('name'))
+    @locations = Location.find(:all, :conditions => ["active"], :order => sort_order('name'))
   end
 
   # GET /locations/latest_dailies_for
   def latest_dailies_for
-    @locations = Location.find(:all, :conditions => ["active = 1"])
+    @locations = Location.find(:all, :conditions => ["active"])
   end
 
   # GET /locations/latest_assessments_for
   def latest_assessments_for
-    @locations = Location.find(:all, :conditions => ["active = 1"])
+    @locations = Location.find(:all, :conditions => ["active"])
   end
 
   # GET /locations/all_occupancies_for
@@ -104,7 +104,7 @@ class LocationsController < ApplicationController
 
   # GET /locations
   def index
-    @locations = Location.find(:all, :conditions => ["active = 1"], :order => sort_order('name'))
+    @locations = Location.find(:all, :conditions => ["active"], :order => sort_order('name'))
     
     @total_capacity = @locations.inject(0) do |sum, location|
       sum += location.capacity
