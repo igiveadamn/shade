@@ -29,8 +29,10 @@ class Location < ActiveRecord::Base
   validates_presence_of :name, :address, :contact, :cell, :capacity, :region
   validates_numericality_of :capacity, :greater_than_or_equal_to => 0, :only_integer => true
 
-  def active
-    if (value = read_attribute(:active)).nil? then true else value end
+  def after_initialize
+    if new_record?
+        self.active = true if self.active.nil?
+      end
   end
 
   TRUE_FALSE_NA = %w(true false N/A)

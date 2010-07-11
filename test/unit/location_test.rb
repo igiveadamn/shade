@@ -42,7 +42,7 @@ class LocationTest < ActiveSupport::TestCase
   
   def test_inactive_location_should_remain_inactive
     location = create_location(:active => false)
-    assert (location.active == false)
+    assert !location.active
   end
   
   def test_should_default_to_active_on_create
