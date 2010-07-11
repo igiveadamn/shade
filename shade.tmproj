@@ -16,9 +16,19 @@
 		</dict>
 		<dict>
 			<key>filename</key>
-			<string>Capfile</string>
+			<string>.gems</string>
+			<key>lastUsed</key>
+			<date>2010-07-10T23:23:54Z</date>
 		</dict>
 		<dict>
+			<key>filename</key>
+			<string>Capfile</string>
+			<key>lastUsed</key>
+			<date>2010-07-10T22:20:41Z</date>
+		</dict>
+		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>config</string>
 			<key>regexFolderFilter</key>
@@ -83,6 +93,8 @@
 			<string>script</string>
 		</dict>
 		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>test</string>
 			<key>regexFolderFilter</key>
@@ -110,22 +122,7 @@
 	<key>fileHierarchyDrawerWidth</key>
 	<integer>366</integer>
 	<key>metaData</key>
-	<dict>
-		<key>config/database.yml</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>0</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-	</dict>
+	<dict/>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>

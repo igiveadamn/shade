@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class LocationTest < Test::Unit::TestCase
+class LocationTest < ActiveSupport::TestCase
   fixtures :locations, :location_types, :depots
   
   def test_should_create_location
@@ -38,6 +38,17 @@ class LocationTest < Test::Unit::TestCase
         assert location.errors.on(field)
       end
     end
+  end
+  
+  def test_inactive_location_should_remain_inactive
+    location = create_location(:active => false)
+    assert (location.active == false)
+  end
+  
+  def test_should_default_to_active_on_create
+    location = create_location
+    assert (location.active == true)
+    
   end
   
   protected

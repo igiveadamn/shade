@@ -30,7 +30,7 @@ Rails::Initializer.run do |config|
   # Your secret key for verifying cookie session data integrity.
   # If you change this key, all old sessions will become invalid!
   config.action_controller.session = {
-    :session_key => '_shade_session',
+    :key         => '_shade_session',
     :secret      => '1eae6f49c1f35cec7879c73a5aed9dc0'
   }
 
