@@ -22,12 +22,4 @@ config.action_mailer.raise_delivery_errors = false
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.default_content_type = "text/html"
 
-ActionMailer::Base.smtp_settings = {
-  :domain => "igiveada.mn",
-  :perform_deliveries => true,
-  :address => 'smtp.ey02.engineyard.com',
-  :port => 25
-}
-
-
-APP_DOMAIN = "shade.igiveada.mn"   
+APP_DOMAIN = "shade.heroku.com"
