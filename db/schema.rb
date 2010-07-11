@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080806191155) do
+ActiveRecord::Schema.define(:version => 20100711221651) do
 
   create_table "assessments", :force => true do |t|
     t.integer  "location_id"
@@ -211,8 +211,8 @@ ActiveRecord::Schema.define(:version => 20080806191155) do
 
   create_table "locations", :force => true do |t|
     t.string   "name"
-    t.text     "address"
-    t.text     "comments"
+    t.text     "address",                                 :limit => 255
+    t.text     "comments",                                :limit => 255
     t.integer  "capacity"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -270,8 +270,8 @@ ActiveRecord::Schema.define(:version => 20080806191155) do
     t.string   "refuse_removal_type"
     t.boolean  "electric_lighting_sleeping"
     t.boolean  "electric_lighting_communal"
-    t.integer  "bedding_mattresses"
-    t.integer  "bedding_blankets"
+    t.integer  "bedding_mattresses",                      :limit => 255
+    t.integer  "bedding_blankets",                        :limit => 255
     t.string   "security"
     t.string   "health_frequency"
     t.integer  "health_nearest"
@@ -368,6 +368,7 @@ ActiveRecord::Schema.define(:version => 20080806191155) do
     t.string   "name"
     t.string   "cell"
     t.integer  "depot_id"
+    t.boolean  "admin"
   end
 
 end

@@ -44,7 +44,7 @@ ActionController::Routing::Routes.draw do |map|
     :do_reset => :post
   }
   
-  map.resource  :session, :controller => :sessions
+  map.resource :session, :controller => :sessions
   
   map.namespace(:admin) do |admin|
     admin.home "/", :controller => "users", :action => "index"

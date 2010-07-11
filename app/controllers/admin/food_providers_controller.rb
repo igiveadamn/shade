@@ -1,4 +1,7 @@
 class Admin::FoodProvidersController < ApplicationController
+
+  before_filter :login_required
+
   # GET /food_providers
   # GET /food_providers.xml
   def index

@@ -37,6 +37,8 @@
 			<string>config</string>
 		</dict>
 		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>db</string>
 			<key>regexFolderFilter</key>
@@ -79,6 +81,12 @@
 		<dict>
 			<key>filename</key>
 			<string>Rakefile</string>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>.gitignore</string>
+			<key>lastUsed</key>
+			<date>2010-07-11T00:34:14Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>

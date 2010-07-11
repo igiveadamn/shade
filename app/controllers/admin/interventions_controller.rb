@@ -1,4 +1,7 @@
 class Admin::InterventionsController < Admin::ApplicationController
+
+  before_filter :login_required
+
   # GET /interventions
   # GET /interventions.xml
   def index

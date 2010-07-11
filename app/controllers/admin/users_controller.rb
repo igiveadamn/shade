@@ -1,5 +1,7 @@
 class Admin::UsersController < Admin::ApplicationController
 
+  before_filter :login_required
+
   def index
     @users = User.find(:all, :order => "login")
   end

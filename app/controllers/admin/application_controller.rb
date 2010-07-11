@@ -2,17 +2,21 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class Admin::ApplicationController < ApplicationController
-  ADMIN_USER_NAME, ADMIN_PASSWORD = "admin", "adm1n" 
-  before_filter :basic_authenticate if RAILS_ENV == "production"
-
+  include AuthenticatedSystem
+  
+  before_filter :set_current_user_for_user_object
+  before_filter :check_user_is_admin
+  
   layout "layouts/application"
   
-private
-
-  def basic_authenticate
-    authenticate_or_request_with_http_basic do |user_name, password| 
-      user_name == ADMIN_USER_NAME && password == ADMIN_PASSWORD
-    end            
+  def set_current_user_for_user_object
+    User.current_user = current_user
   end
-
+  
+  def check_user_is_admin
+    if !current_user || !current_user.admin?
+      redirect_to locations_path
+    end
+  end
+  
 end
