@@ -1,6 +1,6 @@
 <h1>Editing location_type</h1>
 
-<% form_for :location_type, :url => admin_location_type_path(@location_type) do |f| %>
+<% form_for :location_type, :url => admin_location_type_path(@location_type), :html => { :method => :put } do |f| %>
   <%= f.error_messages %>
 
   <p>
