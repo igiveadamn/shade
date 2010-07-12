@@ -19,10 +19,12 @@ class AssessmentsController < ApplicationController
       @previous = @location.assessments.current
       @assessment = Assessment.new
 
-      #copy all attributes (except id) to the new assessment. this will result in prepopulation of the form
-      @previous.attributes.each do |key, value|
-        next if key == "id"
-        @assessment.write_attribute(key, value)
+      if @previous
+        #copy all attributes (except id) to the new assessment. this will result in prepopulation of the form
+        @previous.attributes.each do |key, value|
+          next if key == "id"
+          @assessment.write_attribute(key, value)
+        end
       end
 
       respond_to do |format|
